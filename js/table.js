@@ -16,8 +16,12 @@ function table() {
         .classed("my-table", true)
         .classed("text-unselectable", true);
 
+
+    console.log(typeof data)
+    console.log(data)
+    console.log(Object.keys(data["Allston"]))
     // headers should be each metro line
-    let tableHeaders = ['Blue', 'Green-A', 'Green-B', 'Green-C', 'Green-D', 'Orange', 'Red', 'Silver']
+    let tableHeaders = ["Neighborhood"].concat(Object.keys(data["Allston"]))
 
     let tr = table.append('thead').append('tr')
     tr.selectAll('th').data(tableHeaders).enter().append('th').text((d) => d)
@@ -27,15 +31,15 @@ function table() {
     console.log("in table")
     console.log(data)
 
-    // let rows = tbody.selectAll('tr')
-    //   .data(data)
-    //   .enter()
-    //   .append('tr')
-    //   .selectAll('td')
-    //   .data(data => Object.values(data))
-    //   .enter()
-    //   .append('td')
-    //   .text((d) => d)
+    for (neighborhood in data) {
+      let row = tbody.append('tr')
+      row.append('td').text(neighborhood)
+      for (let key in data[neighborhood]) {
+        console.log(data[neighborhood][key])
+        row.append('td').text(data[neighborhood][key].join(', '))
+      }
+      tbody.append('tr')
+    }
 
     return chart;
 

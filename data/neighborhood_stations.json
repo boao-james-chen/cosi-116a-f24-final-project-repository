@@ -1,0 +1,562 @@
+{
+    "Allston": {
+        "Blue": [],
+        "Green-B": [
+            "Amory Street",
+            "Babcock Street",
+            "Packard's Corner",
+            "Harvard Avenue",
+            "Griggs Street",
+            "Allston Street",
+            "Warren Street"
+        ],
+        "Green-C": [],
+        "Green-D": [],
+        "Green-E": [],
+        "Orange": [],
+        "Red": []
+    },
+    "Back Bay": {
+        "Blue": [],
+        "Green-B": [
+            "Hynes Convention Center",
+            "Arlington",
+            "Copley"
+        ],
+        "Green-C": [
+            "Hynes Convention Center",
+            "Arlington",
+            "Copley"
+        ],
+        "Green-D": [
+            "Hynes Convention Center",
+            "Arlington",
+            "Copley"
+        ],
+        "Green-E": [
+            "Arlington",
+            "Copley",
+            "Prudential",
+            "Symphony"
+        ],
+        "Orange": [
+            "Back Bay",
+            "Massachusetts Avenue"
+        ],
+        "Red": []
+    },
+    "Beacon Hill": {
+        "Blue": [],
+        "Green-B": [
+            "Arlington",
+            "Boylston",
+            "Park Street"
+        ],
+        "Green-C": [
+            "Arlington",
+            "Boylston",
+            "Park Street"
+        ],
+        "Green-D": [
+            "Arlington",
+            "Boylston",
+            "Park Street"
+        ],
+        "Green-E": [
+            "Arlington",
+            "Boylston",
+            "Park Street"
+        ],
+        "Orange": [],
+        "Red": [
+            "Charles/MGH",
+            "Park Street"
+        ]
+    },
+    "Braintree": {
+        "Blue": [],
+        "Green-B": [],
+        "Green-C": [],
+        "Green-D": [],
+        "Green-E": [],
+        "Orange": [],
+        "Red": [
+            "Braintree"
+        ]
+    },
+    "Brighton": {
+        "Blue": [],
+        "Green-B": [
+            "Warren Street",
+            "Washington Street",
+            "Sutherland Road",
+            "Chiswick Road",
+            "Chestnut Hill Avenue",
+            "South Street",
+            "Boston College"
+        ],
+        "Green-C": [
+            "Cleveland Circle"
+        ],
+        "Green-D": [
+            "Reservoir"
+        ],
+        "Green-E": [],
+        "Orange": [],
+        "Red": []
+    },
+    "Brookline": {
+        "Blue": [],
+        "Green-B": [
+            "Boston University Central",
+            "Babcock Street",
+            "Amory Street"
+        ],
+        "Green-C": [
+            "Saint Mary's Street",
+            "Hawes Street",
+            "Kent Street",
+            "Saint Paul Street",
+            "Coolidge Corner",
+            "Summit Avenue",
+            "Brandon Hall",
+            "Fairbanks Street",
+            "Washington Square",
+            "Tappan Street",
+            "Dean Road",
+            "Englewood Avenue",
+            "Cleveland Circle"
+        ],
+        "Green-D": [
+            "Longwood",
+            "Brookline Village",
+            "Brookline Hills",
+            "Beaconsfield",
+            "Reservoir"
+        ],
+        "Green-E": [],
+        "Orange": [],
+        "Red": []
+    },
+    "Cambridge": {
+        "Blue": [],
+        "Green-B": [],
+        "Green-C": [],
+        "Green-D": [
+            "Lechmere"
+        ],
+        "Green-E": [
+            "Lechmere"
+        ],
+        "Orange": [],
+        "Red": [
+            "Alewife",
+            "Kendall/MIT",
+            "Central",
+            "Harvard",
+            "Porter"
+        ]
+    },
+    "Charlestown": {
+        "Blue": [],
+        "Green-B": [],
+        "Green-C": [],
+        "Green-D": [],
+        "Green-E": [],
+        "Orange": [
+            "Community College",
+            "Sullivan Square"
+        ],
+        "Red": []
+    },
+    "Chinatown": {
+        "Blue": [],
+        "Green-B": [],
+        "Green-C": [],
+        "Green-D": [],
+        "Green-E": [],
+        "Orange": [
+            "Chinatown",
+            "Tufts Medical Center"
+        ],
+        "Red": []
+    },
+    "Dorchester": {
+        "Blue": [],
+        "Green-B": [],
+        "Green-C": [],
+        "Green-D": [],
+        "Green-E": [],
+        "Orange": [],
+        "Red": [
+            "JFK/UMass",
+            "Savin Hill",
+            "Fields Corner",
+            "Shawmut",
+            "Ashmont",
+            "Cedar Grove",
+            "Butler"
+        ]
+    },
+    "Downtown": {
+        "Blue": [
+            "Aquarium",
+            "State",
+            "Government Center",
+            "Bowdoin"
+        ],
+        "Green-B": [
+            "Arlington",
+            "Boylston",
+            "Park Street",
+            "Government Center"
+        ],
+        "Green-C": [
+            "Arlington",
+            "Boylston",
+            "Park Street",
+            "Government Center"
+        ],
+        "Green-D": [
+            "Arlington",
+            "Boylston",
+            "Park Street",
+            "Government Center",
+            "Haymarket"
+        ],
+        "Green-E": [
+            "Arlington",
+            "Boylston",
+            "Park Street",
+            "Government Center",
+            "Haymarket"
+        ],
+        "Orange": [
+            "Downtown Crossing",
+            "Tufts Medical Center",
+            "Chinatown",
+            "State",
+            "Haymarket"
+        ],
+        "Red": [
+            "Downtown Crossing",
+            "Park Street",
+            "South Station"
+        ]
+    },
+    "East Boston": {
+        "Blue": [
+            "Maverick",
+            "Airport",
+            "Wood Island",
+            "Orient Heights",
+            "Suffolk Downs"
+        ],
+        "Green-B": [],
+        "Green-C": [],
+        "Green-D": [],
+        "Green-E": [],
+        "Orange": [],
+        "Red": []
+    },
+    "Fenway": {
+        "Blue": [],
+        "Green-B": [
+            "Hynes Convention Center",
+            "Kenmore",
+            "Blandford Street",
+            "Boston University East",
+            "Boston University Central"
+        ],
+        "Green-C": [
+            "Hynes Convention Center",
+            "Kenmore",
+            "Saint Mary's Street"
+        ],
+        "Green-D": [
+            "Hynes Convention Center",
+            "Kenmore",
+            "Fenway"
+        ],
+        "Green-E": [
+            "Symphony",
+            "Northeastern University",
+            "Museum of Fine Arts"
+        ],
+        "Orange": [
+            "Massachusetts Avenue",
+            "Ruggles"
+        ],
+        "Red": []
+    },
+    "Hyde Park": {
+        "Blue": [],
+        "Green-B": [],
+        "Green-C": [],
+        "Green-D": [],
+        "Green-E": [],
+        "Orange": [],
+        "Red": []
+    },
+    "Jamaica Plain": {
+        "Blue": [],
+        "Green-B": [],
+        "Green-C": [],
+        "Green-D": [],
+        "Green-E": [
+            "Heath Street",
+            "Back of the Hill"
+        ],
+        "Orange": [
+            "Stony Brook",
+            "Green Street",
+            "Jackson Square",
+            "Forest Hills"
+        ],
+        "Red": []
+    },
+    "Longwood": {
+        "Blue": [],
+        "Green-B": [],
+        "Green-C": [
+            "Kent Street",
+            "Hawes Street",
+            "Saint Mary's Street"
+        ],
+        "Green-D": [
+            "Longwood"
+        ],
+        "Green-E": [],
+        "Orange": [],
+        "Red": []
+    },
+    "Malden": {
+        "Blue": [
+            "Malden Center",
+            "Oak Grove"
+        ],
+        "Green-B": [],
+        "Green-C": [],
+        "Green-D": [],
+        "Green-E": [],
+        "Orange": [],
+        "Red": []
+    },
+    "Mattapan": {
+        "Blue": [],
+        "Green-B": [],
+        "Green-C": [],
+        "Green-D": [],
+        "Green-E": [],
+        "Orange": [],
+        "Red": [
+            "Mattapan"
+        ]
+    },
+    "Medford": {
+        "Blue": [],
+        "Green-B": [],
+        "Green-C": [],
+        "Green-D": [],
+        "Green-E": [
+            "Medford/Tufts"
+        ],
+        "Orange": [
+            "Wellington"
+        ],
+        "Red": []
+    },
+    "Milton": {
+        "Blue": [],
+        "Green-B": [],
+        "Green-C": [],
+        "Green-D": [],
+        "Green-E": [],
+        "Orange": [],
+        "Red": [
+            "Milton",
+            "Central Avenue",
+            "Valley Road",
+            "Capen Street"
+        ]
+    },
+    "Mission Hill": {
+        "Blue": [],
+        "Green-B": [],
+        "Green-C": [],
+        "Green-D": [],
+        "Green-E": [
+            "Museum of Fine Arts",
+            "Longwood Medical Area",
+            "Brigham Circle",
+            "Fenwood Road",
+            "Mission Park",
+            "Riverway",
+            "Back of the Hill",
+            "Heath Street"
+        ],
+        "Orange": [
+            "Roxbury Crossing"
+        ],
+        "Red": []
+    },
+    "Newton": {
+        "Blue": [],
+        "Green-B": [
+            "Boston College"
+        ],
+        "Green-C": [],
+        "Green-D": [
+            "Chestnut Hill",
+            "Newton Centre",
+            "Newton Highlands",
+            "Eliot",
+            "Waban",
+            "Woodland",
+            "Riverside"
+        ],
+        "Green-E": [],
+        "Orange": [],
+        "Red": []
+    },
+    "North End": {
+        "Blue": [],
+        "Green-B": [],
+        "Green-C": [],
+        "Green-D": [],
+        "Green-E": [],
+        "Orange": [],
+        "Red": []
+    },
+    "Quincy": {
+        "Blue": [],
+        "Green-B": [],
+        "Green-C": [],
+        "Green-D": [],
+        "Green-E": [],
+        "Orange": [],
+        "Red": [
+            "Quincy Adams",
+            "Quincy Center",
+            "North Quincy",
+            "Wollaston"
+        ]
+    },
+    "Revere": {
+        "Blue": [
+            "Beachmont",
+            "Revere Beach",
+            "Wonderland"
+        ],
+        "Green-B": [],
+        "Green-C": [],
+        "Green-D": [],
+        "Green-E": [],
+        "Orange": [],
+        "Red": []
+    },
+    "Roslindale": {
+        "Blue": [],
+        "Green-B": [],
+        "Green-C": [],
+        "Green-D": [],
+        "Green-E": [],
+        "Orange": [],
+        "Red": []
+    },
+    "Roxbury": {
+        "Blue": [],
+        "Green-B": [],
+        "Green-C": [],
+        "Green-D": [],
+        "Green-E": [],
+        "Orange": [
+            "Massachusetts Avenue",
+            "Roxbury Crossing",
+            "Ruggles",
+            "Jackson Square"
+        ],
+        "Red": []
+    },
+    "Somerville": {
+        "Blue": [],
+        "Green-B": [],
+        "Green-C": [],
+        "Green-D": [
+            "Union Square"
+        ],
+        "Green-E": [
+            "East Somerville",
+            "Gilman Square",
+            "Magoun Square",
+            "Ball Square"
+        ],
+        "Orange": [
+            "Assembly"
+        ],
+        "Red": [
+            "Davis"
+        ]
+    },
+    "South Boston": {
+        "Blue": [],
+        "Green-B": [],
+        "Green-C": [],
+        "Green-D": [],
+        "Green-E": [],
+        "Orange": [],
+        "Red": [
+            "Andrew",
+            "Broadway"
+        ]
+    },
+    "South Boston Waterfront": {
+        "Blue": [],
+        "Green-B": [],
+        "Green-C": [],
+        "Green-D": [],
+        "Green-E": [],
+        "Orange": [],
+        "Red": []
+    },
+    "South End": {
+        "Blue": [],
+        "Green-B": [],
+        "Green-C": [],
+        "Green-D": [],
+        "Green-E": [],
+        "Orange": [
+            "Massachusetts Avenue",
+            "Back Bay"
+        ],
+        "Red": []
+    },
+    "West End": {
+        "Blue": [],
+        "Green-B": [],
+        "Green-C": [],
+        "Green-D": [
+            "North Station",
+            "Science Park/West End"
+        ],
+        "Green-E": [
+            "North Station",
+            "Science Park/West End"
+        ],
+        "Orange": [
+            "North Station"
+        ],
+        "Red": [
+            "Charles/MGH"
+        ]
+    },
+    "West Roxbury": {
+        "Blue": [],
+        "Green-B": [],
+        "Green-C": [],
+        "Green-D": [],
+        "Green-E": [],
+        "Orange": [],
+        "Red": []
+    }
+}
