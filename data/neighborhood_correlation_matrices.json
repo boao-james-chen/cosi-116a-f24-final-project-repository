@@ -1,0 +1,1274 @@
+[
+  {
+    "neighborhood": "Allston",
+    "correlation_matrix": {
+      "Minority_Percentage": {
+        "Minority_Percentage": 1.0,
+        "College_Housing_Percentage": 0.679,
+        "Average_Rent": 0.521,
+        "Total_Population": 0.159,
+        "Total_Transit_Lines": 0.122,
+        "Per_Capita_Income": 0.683
+      },
+      "College_Housing_Percentage": {
+        "Minority_Percentage": 0.679,
+        "College_Housing_Percentage": 1.0,
+        "Average_Rent": 0.535,
+        "Total_Population": 0.186,
+        "Total_Transit_Lines": 0.105,
+        "Per_Capita_Income": 0.369
+      },
+      "Average_Rent": {
+        "Minority_Percentage": 0.521,
+        "College_Housing_Percentage": 0.535,
+        "Average_Rent": 1.0,
+        "Total_Population": 0.131,
+        "Total_Transit_Lines": 0.08,
+        "Per_Capita_Income": 0.79
+      },
+      "Total_Population": {
+        "Minority_Percentage": 0.159,
+        "College_Housing_Percentage": 0.186,
+        "Average_Rent": 0.131,
+        "Total_Population": 1.0,
+        "Total_Transit_Lines": 0.992,
+        "Per_Capita_Income": 0.134
+      },
+      "Total_Transit_Lines": {
+        "Minority_Percentage": 0.122,
+        "College_Housing_Percentage": 0.105,
+        "Average_Rent": 0.08,
+        "Total_Population": 0.992,
+        "Total_Transit_Lines": 1.0,
+        "Per_Capita_Income": 0.116
+      },
+      "Per_Capita_Income": {
+        "Minority_Percentage": 0.683,
+        "College_Housing_Percentage": 0.369,
+        "Average_Rent": 0.79,
+        "Total_Population": 0.134,
+        "Total_Transit_Lines": 0.116,
+        "Per_Capita_Income": 1.0
+      }
+    }
+  },
+  {
+    "neighborhood": "Back Bay",
+    "correlation_matrix": {
+      "Minority_Percentage": {
+        "Minority_Percentage": 1.0,
+        "College_Housing_Percentage": 0.679,
+        "Average_Rent": 0.521,
+        "Total_Population": 0.159,
+        "Total_Transit_Lines": 0.122,
+        "Per_Capita_Income": 0.683
+      },
+      "College_Housing_Percentage": {
+        "Minority_Percentage": 0.679,
+        "College_Housing_Percentage": 1.0,
+        "Average_Rent": 0.535,
+        "Total_Population": 0.186,
+        "Total_Transit_Lines": 0.105,
+        "Per_Capita_Income": 0.369
+      },
+      "Average_Rent": {
+        "Minority_Percentage": 0.521,
+        "College_Housing_Percentage": 0.535,
+        "Average_Rent": 1.0,
+        "Total_Population": 0.131,
+        "Total_Transit_Lines": 0.08,
+        "Per_Capita_Income": 0.79
+      },
+      "Total_Population": {
+        "Minority_Percentage": 0.159,
+        "College_Housing_Percentage": 0.186,
+        "Average_Rent": 0.131,
+        "Total_Population": 1.0,
+        "Total_Transit_Lines": 0.992,
+        "Per_Capita_Income": 0.134
+      },
+      "Total_Transit_Lines": {
+        "Minority_Percentage": 0.122,
+        "College_Housing_Percentage": 0.105,
+        "Average_Rent": 0.08,
+        "Total_Population": 0.992,
+        "Total_Transit_Lines": 1.0,
+        "Per_Capita_Income": 0.116
+      },
+      "Per_Capita_Income": {
+        "Minority_Percentage": 0.683,
+        "College_Housing_Percentage": 0.369,
+        "Average_Rent": 0.79,
+        "Total_Population": 0.134,
+        "Total_Transit_Lines": 0.116,
+        "Per_Capita_Income": 1.0
+      }
+    }
+  },
+  {
+    "neighborhood": "Beacon Hill",
+    "correlation_matrix": {
+      "Minority_Percentage": {
+        "Minority_Percentage": 1.0,
+        "College_Housing_Percentage": 0.679,
+        "Average_Rent": 0.521,
+        "Total_Population": 0.159,
+        "Total_Transit_Lines": 0.122,
+        "Per_Capita_Income": 0.683
+      },
+      "College_Housing_Percentage": {
+        "Minority_Percentage": 0.679,
+        "College_Housing_Percentage": 1.0,
+        "Average_Rent": 0.535,
+        "Total_Population": 0.186,
+        "Total_Transit_Lines": 0.105,
+        "Per_Capita_Income": 0.369
+      },
+      "Average_Rent": {
+        "Minority_Percentage": 0.521,
+        "College_Housing_Percentage": 0.535,
+        "Average_Rent": 1.0,
+        "Total_Population": 0.131,
+        "Total_Transit_Lines": 0.08,
+        "Per_Capita_Income": 0.79
+      },
+      "Total_Population": {
+        "Minority_Percentage": 0.159,
+        "College_Housing_Percentage": 0.186,
+        "Average_Rent": 0.131,
+        "Total_Population": 1.0,
+        "Total_Transit_Lines": 0.992,
+        "Per_Capita_Income": 0.134
+      },
+      "Total_Transit_Lines": {
+        "Minority_Percentage": 0.122,
+        "College_Housing_Percentage": 0.105,
+        "Average_Rent": 0.08,
+        "Total_Population": 0.992,
+        "Total_Transit_Lines": 1.0,
+        "Per_Capita_Income": 0.116
+      },
+      "Per_Capita_Income": {
+        "Minority_Percentage": 0.683,
+        "College_Housing_Percentage": 0.369,
+        "Average_Rent": 0.79,
+        "Total_Population": 0.134,
+        "Total_Transit_Lines": 0.116,
+        "Per_Capita_Income": 1.0
+      }
+    }
+  },
+  {
+    "neighborhood": "Brighton",
+    "correlation_matrix": {
+      "Minority_Percentage": {
+        "Minority_Percentage": 1.0,
+        "College_Housing_Percentage": 0.679,
+        "Average_Rent": 0.521,
+        "Total_Population": 0.159,
+        "Total_Transit_Lines": 0.122,
+        "Per_Capita_Income": 0.683
+      },
+      "College_Housing_Percentage": {
+        "Minority_Percentage": 0.679,
+        "College_Housing_Percentage": 1.0,
+        "Average_Rent": 0.535,
+        "Total_Population": 0.186,
+        "Total_Transit_Lines": 0.105,
+        "Per_Capita_Income": 0.369
+      },
+      "Average_Rent": {
+        "Minority_Percentage": 0.521,
+        "College_Housing_Percentage": 0.535,
+        "Average_Rent": 1.0,
+        "Total_Population": 0.131,
+        "Total_Transit_Lines": 0.08,
+        "Per_Capita_Income": 0.79
+      },
+      "Total_Population": {
+        "Minority_Percentage": 0.159,
+        "College_Housing_Percentage": 0.186,
+        "Average_Rent": 0.131,
+        "Total_Population": 1.0,
+        "Total_Transit_Lines": 0.992,
+        "Per_Capita_Income": 0.134
+      },
+      "Total_Transit_Lines": {
+        "Minority_Percentage": 0.122,
+        "College_Housing_Percentage": 0.105,
+        "Average_Rent": 0.08,
+        "Total_Population": 0.992,
+        "Total_Transit_Lines": 1.0,
+        "Per_Capita_Income": 0.116
+      },
+      "Per_Capita_Income": {
+        "Minority_Percentage": 0.683,
+        "College_Housing_Percentage": 0.369,
+        "Average_Rent": 0.79,
+        "Total_Population": 0.134,
+        "Total_Transit_Lines": 0.116,
+        "Per_Capita_Income": 1.0
+      }
+    }
+  },
+  {
+    "neighborhood": "Charlestown",
+    "correlation_matrix": {
+      "Minority_Percentage": {
+        "Minority_Percentage": 1.0,
+        "College_Housing_Percentage": 0.679,
+        "Average_Rent": 0.521,
+        "Total_Population": 0.159,
+        "Total_Transit_Lines": 0.122,
+        "Per_Capita_Income": 0.683
+      },
+      "College_Housing_Percentage": {
+        "Minority_Percentage": 0.679,
+        "College_Housing_Percentage": 1.0,
+        "Average_Rent": 0.535,
+        "Total_Population": 0.186,
+        "Total_Transit_Lines": 0.105,
+        "Per_Capita_Income": 0.369
+      },
+      "Average_Rent": {
+        "Minority_Percentage": 0.521,
+        "College_Housing_Percentage": 0.535,
+        "Average_Rent": 1.0,
+        "Total_Population": 0.131,
+        "Total_Transit_Lines": 0.08,
+        "Per_Capita_Income": 0.79
+      },
+      "Total_Population": {
+        "Minority_Percentage": 0.159,
+        "College_Housing_Percentage": 0.186,
+        "Average_Rent": 0.131,
+        "Total_Population": 1.0,
+        "Total_Transit_Lines": 0.992,
+        "Per_Capita_Income": 0.134
+      },
+      "Total_Transit_Lines": {
+        "Minority_Percentage": 0.122,
+        "College_Housing_Percentage": 0.105,
+        "Average_Rent": 0.08,
+        "Total_Population": 0.992,
+        "Total_Transit_Lines": 1.0,
+        "Per_Capita_Income": 0.116
+      },
+      "Per_Capita_Income": {
+        "Minority_Percentage": 0.683,
+        "College_Housing_Percentage": 0.369,
+        "Average_Rent": 0.79,
+        "Total_Population": 0.134,
+        "Total_Transit_Lines": 0.116,
+        "Per_Capita_Income": 1.0
+      }
+    }
+  },
+  {
+    "neighborhood": "Chinatown",
+    "correlation_matrix": {
+      "Minority_Percentage": {
+        "Minority_Percentage": 1.0,
+        "College_Housing_Percentage": 0.679,
+        "Average_Rent": 0.521,
+        "Total_Population": 0.159,
+        "Total_Transit_Lines": 0.122,
+        "Per_Capita_Income": 0.683
+      },
+      "College_Housing_Percentage": {
+        "Minority_Percentage": 0.679,
+        "College_Housing_Percentage": 1.0,
+        "Average_Rent": 0.535,
+        "Total_Population": 0.186,
+        "Total_Transit_Lines": 0.105,
+        "Per_Capita_Income": 0.369
+      },
+      "Average_Rent": {
+        "Minority_Percentage": 0.521,
+        "College_Housing_Percentage": 0.535,
+        "Average_Rent": 1.0,
+        "Total_Population": 0.131,
+        "Total_Transit_Lines": 0.08,
+        "Per_Capita_Income": 0.79
+      },
+      "Total_Population": {
+        "Minority_Percentage": 0.159,
+        "College_Housing_Percentage": 0.186,
+        "Average_Rent": 0.131,
+        "Total_Population": 1.0,
+        "Total_Transit_Lines": 0.992,
+        "Per_Capita_Income": 0.134
+      },
+      "Total_Transit_Lines": {
+        "Minority_Percentage": 0.122,
+        "College_Housing_Percentage": 0.105,
+        "Average_Rent": 0.08,
+        "Total_Population": 0.992,
+        "Total_Transit_Lines": 1.0,
+        "Per_Capita_Income": 0.116
+      },
+      "Per_Capita_Income": {
+        "Minority_Percentage": 0.683,
+        "College_Housing_Percentage": 0.369,
+        "Average_Rent": 0.79,
+        "Total_Population": 0.134,
+        "Total_Transit_Lines": 0.116,
+        "Per_Capita_Income": 1.0
+      }
+    }
+  },
+  {
+    "neighborhood": "Dorchester",
+    "correlation_matrix": {
+      "Minority_Percentage": {
+        "Minority_Percentage": 1.0,
+        "College_Housing_Percentage": 0.679,
+        "Average_Rent": 0.521,
+        "Total_Population": 0.159,
+        "Total_Transit_Lines": 0.122,
+        "Per_Capita_Income": 0.683
+      },
+      "College_Housing_Percentage": {
+        "Minority_Percentage": 0.679,
+        "College_Housing_Percentage": 1.0,
+        "Average_Rent": 0.535,
+        "Total_Population": 0.186,
+        "Total_Transit_Lines": 0.105,
+        "Per_Capita_Income": 0.369
+      },
+      "Average_Rent": {
+        "Minority_Percentage": 0.521,
+        "College_Housing_Percentage": 0.535,
+        "Average_Rent": 1.0,
+        "Total_Population": 0.131,
+        "Total_Transit_Lines": 0.08,
+        "Per_Capita_Income": 0.79
+      },
+      "Total_Population": {
+        "Minority_Percentage": 0.159,
+        "College_Housing_Percentage": 0.186,
+        "Average_Rent": 0.131,
+        "Total_Population": 1.0,
+        "Total_Transit_Lines": 0.992,
+        "Per_Capita_Income": 0.134
+      },
+      "Total_Transit_Lines": {
+        "Minority_Percentage": 0.122,
+        "College_Housing_Percentage": 0.105,
+        "Average_Rent": 0.08,
+        "Total_Population": 0.992,
+        "Total_Transit_Lines": 1.0,
+        "Per_Capita_Income": 0.116
+      },
+      "Per_Capita_Income": {
+        "Minority_Percentage": 0.683,
+        "College_Housing_Percentage": 0.369,
+        "Average_Rent": 0.79,
+        "Total_Population": 0.134,
+        "Total_Transit_Lines": 0.116,
+        "Per_Capita_Income": 1.0
+      }
+    }
+  },
+  {
+    "neighborhood": "Downtown",
+    "correlation_matrix": {
+      "Minority_Percentage": {
+        "Minority_Percentage": 1.0,
+        "College_Housing_Percentage": 0.679,
+        "Average_Rent": 0.521,
+        "Total_Population": 0.159,
+        "Total_Transit_Lines": 0.122,
+        "Per_Capita_Income": 0.683
+      },
+      "College_Housing_Percentage": {
+        "Minority_Percentage": 0.679,
+        "College_Housing_Percentage": 1.0,
+        "Average_Rent": 0.535,
+        "Total_Population": 0.186,
+        "Total_Transit_Lines": 0.105,
+        "Per_Capita_Income": 0.369
+      },
+      "Average_Rent": {
+        "Minority_Percentage": 0.521,
+        "College_Housing_Percentage": 0.535,
+        "Average_Rent": 1.0,
+        "Total_Population": 0.131,
+        "Total_Transit_Lines": 0.08,
+        "Per_Capita_Income": 0.79
+      },
+      "Total_Population": {
+        "Minority_Percentage": 0.159,
+        "College_Housing_Percentage": 0.186,
+        "Average_Rent": 0.131,
+        "Total_Population": 1.0,
+        "Total_Transit_Lines": 0.992,
+        "Per_Capita_Income": 0.134
+      },
+      "Total_Transit_Lines": {
+        "Minority_Percentage": 0.122,
+        "College_Housing_Percentage": 0.105,
+        "Average_Rent": 0.08,
+        "Total_Population": 0.992,
+        "Total_Transit_Lines": 1.0,
+        "Per_Capita_Income": 0.116
+      },
+      "Per_Capita_Income": {
+        "Minority_Percentage": 0.683,
+        "College_Housing_Percentage": 0.369,
+        "Average_Rent": 0.79,
+        "Total_Population": 0.134,
+        "Total_Transit_Lines": 0.116,
+        "Per_Capita_Income": 1.0
+      }
+    }
+  },
+  {
+    "neighborhood": "East Boston",
+    "correlation_matrix": {
+      "Minority_Percentage": {
+        "Minority_Percentage": 1.0,
+        "College_Housing_Percentage": 0.679,
+        "Average_Rent": 0.521,
+        "Total_Population": 0.159,
+        "Total_Transit_Lines": 0.122,
+        "Per_Capita_Income": 0.683
+      },
+      "College_Housing_Percentage": {
+        "Minority_Percentage": 0.679,
+        "College_Housing_Percentage": 1.0,
+        "Average_Rent": 0.535,
+        "Total_Population": 0.186,
+        "Total_Transit_Lines": 0.105,
+        "Per_Capita_Income": 0.369
+      },
+      "Average_Rent": {
+        "Minority_Percentage": 0.521,
+        "College_Housing_Percentage": 0.535,
+        "Average_Rent": 1.0,
+        "Total_Population": 0.131,
+        "Total_Transit_Lines": 0.08,
+        "Per_Capita_Income": 0.79
+      },
+      "Total_Population": {
+        "Minority_Percentage": 0.159,
+        "College_Housing_Percentage": 0.186,
+        "Average_Rent": 0.131,
+        "Total_Population": 1.0,
+        "Total_Transit_Lines": 0.992,
+        "Per_Capita_Income": 0.134
+      },
+      "Total_Transit_Lines": {
+        "Minority_Percentage": 0.122,
+        "College_Housing_Percentage": 0.105,
+        "Average_Rent": 0.08,
+        "Total_Population": 0.992,
+        "Total_Transit_Lines": 1.0,
+        "Per_Capita_Income": 0.116
+      },
+      "Per_Capita_Income": {
+        "Minority_Percentage": 0.683,
+        "College_Housing_Percentage": 0.369,
+        "Average_Rent": 0.79,
+        "Total_Population": 0.134,
+        "Total_Transit_Lines": 0.116,
+        "Per_Capita_Income": 1.0
+      }
+    }
+  },
+  {
+    "neighborhood": "Fenway",
+    "correlation_matrix": {
+      "Minority_Percentage": {
+        "Minority_Percentage": 1.0,
+        "College_Housing_Percentage": 0.679,
+        "Average_Rent": 0.521,
+        "Total_Population": 0.159,
+        "Total_Transit_Lines": 0.122,
+        "Per_Capita_Income": 0.683
+      },
+      "College_Housing_Percentage": {
+        "Minority_Percentage": 0.679,
+        "College_Housing_Percentage": 1.0,
+        "Average_Rent": 0.535,
+        "Total_Population": 0.186,
+        "Total_Transit_Lines": 0.105,
+        "Per_Capita_Income": 0.369
+      },
+      "Average_Rent": {
+        "Minority_Percentage": 0.521,
+        "College_Housing_Percentage": 0.535,
+        "Average_Rent": 1.0,
+        "Total_Population": 0.131,
+        "Total_Transit_Lines": 0.08,
+        "Per_Capita_Income": 0.79
+      },
+      "Total_Population": {
+        "Minority_Percentage": 0.159,
+        "College_Housing_Percentage": 0.186,
+        "Average_Rent": 0.131,
+        "Total_Population": 1.0,
+        "Total_Transit_Lines": 0.992,
+        "Per_Capita_Income": 0.134
+      },
+      "Total_Transit_Lines": {
+        "Minority_Percentage": 0.122,
+        "College_Housing_Percentage": 0.105,
+        "Average_Rent": 0.08,
+        "Total_Population": 0.992,
+        "Total_Transit_Lines": 1.0,
+        "Per_Capita_Income": 0.116
+      },
+      "Per_Capita_Income": {
+        "Minority_Percentage": 0.683,
+        "College_Housing_Percentage": 0.369,
+        "Average_Rent": 0.79,
+        "Total_Population": 0.134,
+        "Total_Transit_Lines": 0.116,
+        "Per_Capita_Income": 1.0
+      }
+    }
+  },
+  {
+    "neighborhood": "Hyde Park",
+    "correlation_matrix": {
+      "Minority_Percentage": {
+        "Minority_Percentage": 1.0,
+        "College_Housing_Percentage": 0.679,
+        "Average_Rent": 0.521,
+        "Total_Population": 0.159,
+        "Total_Transit_Lines": 0.122,
+        "Per_Capita_Income": 0.683
+      },
+      "College_Housing_Percentage": {
+        "Minority_Percentage": 0.679,
+        "College_Housing_Percentage": 1.0,
+        "Average_Rent": 0.535,
+        "Total_Population": 0.186,
+        "Total_Transit_Lines": 0.105,
+        "Per_Capita_Income": 0.369
+      },
+      "Average_Rent": {
+        "Minority_Percentage": 0.521,
+        "College_Housing_Percentage": 0.535,
+        "Average_Rent": 1.0,
+        "Total_Population": 0.131,
+        "Total_Transit_Lines": 0.08,
+        "Per_Capita_Income": 0.79
+      },
+      "Total_Population": {
+        "Minority_Percentage": 0.159,
+        "College_Housing_Percentage": 0.186,
+        "Average_Rent": 0.131,
+        "Total_Population": 1.0,
+        "Total_Transit_Lines": 0.992,
+        "Per_Capita_Income": 0.134
+      },
+      "Total_Transit_Lines": {
+        "Minority_Percentage": 0.122,
+        "College_Housing_Percentage": 0.105,
+        "Average_Rent": 0.08,
+        "Total_Population": 0.992,
+        "Total_Transit_Lines": 1.0,
+        "Per_Capita_Income": 0.116
+      },
+      "Per_Capita_Income": {
+        "Minority_Percentage": 0.683,
+        "College_Housing_Percentage": 0.369,
+        "Average_Rent": 0.79,
+        "Total_Population": 0.134,
+        "Total_Transit_Lines": 0.116,
+        "Per_Capita_Income": 1.0
+      }
+    }
+  },
+  {
+    "neighborhood": "Jamaica Plain",
+    "correlation_matrix": {
+      "Minority_Percentage": {
+        "Minority_Percentage": 1.0,
+        "College_Housing_Percentage": 0.679,
+        "Average_Rent": 0.521,
+        "Total_Population": 0.159,
+        "Total_Transit_Lines": 0.122,
+        "Per_Capita_Income": 0.683
+      },
+      "College_Housing_Percentage": {
+        "Minority_Percentage": 0.679,
+        "College_Housing_Percentage": 1.0,
+        "Average_Rent": 0.535,
+        "Total_Population": 0.186,
+        "Total_Transit_Lines": 0.105,
+        "Per_Capita_Income": 0.369
+      },
+      "Average_Rent": {
+        "Minority_Percentage": 0.521,
+        "College_Housing_Percentage": 0.535,
+        "Average_Rent": 1.0,
+        "Total_Population": 0.131,
+        "Total_Transit_Lines": 0.08,
+        "Per_Capita_Income": 0.79
+      },
+      "Total_Population": {
+        "Minority_Percentage": 0.159,
+        "College_Housing_Percentage": 0.186,
+        "Average_Rent": 0.131,
+        "Total_Population": 1.0,
+        "Total_Transit_Lines": 0.992,
+        "Per_Capita_Income": 0.134
+      },
+      "Total_Transit_Lines": {
+        "Minority_Percentage": 0.122,
+        "College_Housing_Percentage": 0.105,
+        "Average_Rent": 0.08,
+        "Total_Population": 0.992,
+        "Total_Transit_Lines": 1.0,
+        "Per_Capita_Income": 0.116
+      },
+      "Per_Capita_Income": {
+        "Minority_Percentage": 0.683,
+        "College_Housing_Percentage": 0.369,
+        "Average_Rent": 0.79,
+        "Total_Population": 0.134,
+        "Total_Transit_Lines": 0.116,
+        "Per_Capita_Income": 1.0
+      }
+    }
+  },
+  {
+    "neighborhood": "Longwood",
+    "correlation_matrix": {
+      "Minority_Percentage": {
+        "Minority_Percentage": 1.0,
+        "College_Housing_Percentage": 0.679,
+        "Average_Rent": 0.521,
+        "Total_Population": 0.159,
+        "Total_Transit_Lines": 0.122,
+        "Per_Capita_Income": 0.683
+      },
+      "College_Housing_Percentage": {
+        "Minority_Percentage": 0.679,
+        "College_Housing_Percentage": 1.0,
+        "Average_Rent": 0.535,
+        "Total_Population": 0.186,
+        "Total_Transit_Lines": 0.105,
+        "Per_Capita_Income": 0.369
+      },
+      "Average_Rent": {
+        "Minority_Percentage": 0.521,
+        "College_Housing_Percentage": 0.535,
+        "Average_Rent": 1.0,
+        "Total_Population": 0.131,
+        "Total_Transit_Lines": 0.08,
+        "Per_Capita_Income": 0.79
+      },
+      "Total_Population": {
+        "Minority_Percentage": 0.159,
+        "College_Housing_Percentage": 0.186,
+        "Average_Rent": 0.131,
+        "Total_Population": 1.0,
+        "Total_Transit_Lines": 0.992,
+        "Per_Capita_Income": 0.134
+      },
+      "Total_Transit_Lines": {
+        "Minority_Percentage": 0.122,
+        "College_Housing_Percentage": 0.105,
+        "Average_Rent": 0.08,
+        "Total_Population": 0.992,
+        "Total_Transit_Lines": 1.0,
+        "Per_Capita_Income": 0.116
+      },
+      "Per_Capita_Income": {
+        "Minority_Percentage": 0.683,
+        "College_Housing_Percentage": 0.369,
+        "Average_Rent": 0.79,
+        "Total_Population": 0.134,
+        "Total_Transit_Lines": 0.116,
+        "Per_Capita_Income": 1.0
+      }
+    }
+  },
+  {
+    "neighborhood": "Mattapan",
+    "correlation_matrix": {
+      "Minority_Percentage": {
+        "Minority_Percentage": 1.0,
+        "College_Housing_Percentage": 0.679,
+        "Average_Rent": 0.521,
+        "Total_Population": 0.159,
+        "Total_Transit_Lines": 0.122,
+        "Per_Capita_Income": 0.683
+      },
+      "College_Housing_Percentage": {
+        "Minority_Percentage": 0.679,
+        "College_Housing_Percentage": 1.0,
+        "Average_Rent": 0.535,
+        "Total_Population": 0.186,
+        "Total_Transit_Lines": 0.105,
+        "Per_Capita_Income": 0.369
+      },
+      "Average_Rent": {
+        "Minority_Percentage": 0.521,
+        "College_Housing_Percentage": 0.535,
+        "Average_Rent": 1.0,
+        "Total_Population": 0.131,
+        "Total_Transit_Lines": 0.08,
+        "Per_Capita_Income": 0.79
+      },
+      "Total_Population": {
+        "Minority_Percentage": 0.159,
+        "College_Housing_Percentage": 0.186,
+        "Average_Rent": 0.131,
+        "Total_Population": 1.0,
+        "Total_Transit_Lines": 0.992,
+        "Per_Capita_Income": 0.134
+      },
+      "Total_Transit_Lines": {
+        "Minority_Percentage": 0.122,
+        "College_Housing_Percentage": 0.105,
+        "Average_Rent": 0.08,
+        "Total_Population": 0.992,
+        "Total_Transit_Lines": 1.0,
+        "Per_Capita_Income": 0.116
+      },
+      "Per_Capita_Income": {
+        "Minority_Percentage": 0.683,
+        "College_Housing_Percentage": 0.369,
+        "Average_Rent": 0.79,
+        "Total_Population": 0.134,
+        "Total_Transit_Lines": 0.116,
+        "Per_Capita_Income": 1.0
+      }
+    }
+  },
+  {
+    "neighborhood": "Mission Hill",
+    "correlation_matrix": {
+      "Minority_Percentage": {
+        "Minority_Percentage": 1.0,
+        "College_Housing_Percentage": 0.679,
+        "Average_Rent": 0.521,
+        "Total_Population": 0.159,
+        "Total_Transit_Lines": 0.122,
+        "Per_Capita_Income": 0.683
+      },
+      "College_Housing_Percentage": {
+        "Minority_Percentage": 0.679,
+        "College_Housing_Percentage": 1.0,
+        "Average_Rent": 0.535,
+        "Total_Population": 0.186,
+        "Total_Transit_Lines": 0.105,
+        "Per_Capita_Income": 0.369
+      },
+      "Average_Rent": {
+        "Minority_Percentage": 0.521,
+        "College_Housing_Percentage": 0.535,
+        "Average_Rent": 1.0,
+        "Total_Population": 0.131,
+        "Total_Transit_Lines": 0.08,
+        "Per_Capita_Income": 0.79
+      },
+      "Total_Population": {
+        "Minority_Percentage": 0.159,
+        "College_Housing_Percentage": 0.186,
+        "Average_Rent": 0.131,
+        "Total_Population": 1.0,
+        "Total_Transit_Lines": 0.992,
+        "Per_Capita_Income": 0.134
+      },
+      "Total_Transit_Lines": {
+        "Minority_Percentage": 0.122,
+        "College_Housing_Percentage": 0.105,
+        "Average_Rent": 0.08,
+        "Total_Population": 0.992,
+        "Total_Transit_Lines": 1.0,
+        "Per_Capita_Income": 0.116
+      },
+      "Per_Capita_Income": {
+        "Minority_Percentage": 0.683,
+        "College_Housing_Percentage": 0.369,
+        "Average_Rent": 0.79,
+        "Total_Population": 0.134,
+        "Total_Transit_Lines": 0.116,
+        "Per_Capita_Income": 1.0
+      }
+    }
+  },
+  {
+    "neighborhood": "North End",
+    "correlation_matrix": {
+      "Minority_Percentage": {
+        "Minority_Percentage": 1.0,
+        "College_Housing_Percentage": 0.679,
+        "Average_Rent": 0.521,
+        "Total_Population": 0.159,
+        "Total_Transit_Lines": 0.122,
+        "Per_Capita_Income": 0.683
+      },
+      "College_Housing_Percentage": {
+        "Minority_Percentage": 0.679,
+        "College_Housing_Percentage": 1.0,
+        "Average_Rent": 0.535,
+        "Total_Population": 0.186,
+        "Total_Transit_Lines": 0.105,
+        "Per_Capita_Income": 0.369
+      },
+      "Average_Rent": {
+        "Minority_Percentage": 0.521,
+        "College_Housing_Percentage": 0.535,
+        "Average_Rent": 1.0,
+        "Total_Population": 0.131,
+        "Total_Transit_Lines": 0.08,
+        "Per_Capita_Income": 0.79
+      },
+      "Total_Population": {
+        "Minority_Percentage": 0.159,
+        "College_Housing_Percentage": 0.186,
+        "Average_Rent": 0.131,
+        "Total_Population": 1.0,
+        "Total_Transit_Lines": 0.992,
+        "Per_Capita_Income": 0.134
+      },
+      "Total_Transit_Lines": {
+        "Minority_Percentage": 0.122,
+        "College_Housing_Percentage": 0.105,
+        "Average_Rent": 0.08,
+        "Total_Population": 0.992,
+        "Total_Transit_Lines": 1.0,
+        "Per_Capita_Income": 0.116
+      },
+      "Per_Capita_Income": {
+        "Minority_Percentage": 0.683,
+        "College_Housing_Percentage": 0.369,
+        "Average_Rent": 0.79,
+        "Total_Population": 0.134,
+        "Total_Transit_Lines": 0.116,
+        "Per_Capita_Income": 1.0
+      }
+    }
+  },
+  {
+    "neighborhood": "Roslindale",
+    "correlation_matrix": {
+      "Minority_Percentage": {
+        "Minority_Percentage": 1.0,
+        "College_Housing_Percentage": 0.679,
+        "Average_Rent": 0.521,
+        "Total_Population": 0.159,
+        "Total_Transit_Lines": 0.122,
+        "Per_Capita_Income": 0.683
+      },
+      "College_Housing_Percentage": {
+        "Minority_Percentage": 0.679,
+        "College_Housing_Percentage": 1.0,
+        "Average_Rent": 0.535,
+        "Total_Population": 0.186,
+        "Total_Transit_Lines": 0.105,
+        "Per_Capita_Income": 0.369
+      },
+      "Average_Rent": {
+        "Minority_Percentage": 0.521,
+        "College_Housing_Percentage": 0.535,
+        "Average_Rent": 1.0,
+        "Total_Population": 0.131,
+        "Total_Transit_Lines": 0.08,
+        "Per_Capita_Income": 0.79
+      },
+      "Total_Population": {
+        "Minority_Percentage": 0.159,
+        "College_Housing_Percentage": 0.186,
+        "Average_Rent": 0.131,
+        "Total_Population": 1.0,
+        "Total_Transit_Lines": 0.992,
+        "Per_Capita_Income": 0.134
+      },
+      "Total_Transit_Lines": {
+        "Minority_Percentage": 0.122,
+        "College_Housing_Percentage": 0.105,
+        "Average_Rent": 0.08,
+        "Total_Population": 0.992,
+        "Total_Transit_Lines": 1.0,
+        "Per_Capita_Income": 0.116
+      },
+      "Per_Capita_Income": {
+        "Minority_Percentage": 0.683,
+        "College_Housing_Percentage": 0.369,
+        "Average_Rent": 0.79,
+        "Total_Population": 0.134,
+        "Total_Transit_Lines": 0.116,
+        "Per_Capita_Income": 1.0
+      }
+    }
+  },
+  {
+    "neighborhood": "Roxbury",
+    "correlation_matrix": {
+      "Minority_Percentage": {
+        "Minority_Percentage": 1.0,
+        "College_Housing_Percentage": 0.679,
+        "Average_Rent": 0.521,
+        "Total_Population": 0.159,
+        "Total_Transit_Lines": 0.122,
+        "Per_Capita_Income": 0.683
+      },
+      "College_Housing_Percentage": {
+        "Minority_Percentage": 0.679,
+        "College_Housing_Percentage": 1.0,
+        "Average_Rent": 0.535,
+        "Total_Population": 0.186,
+        "Total_Transit_Lines": 0.105,
+        "Per_Capita_Income": 0.369
+      },
+      "Average_Rent": {
+        "Minority_Percentage": 0.521,
+        "College_Housing_Percentage": 0.535,
+        "Average_Rent": 1.0,
+        "Total_Population": 0.131,
+        "Total_Transit_Lines": 0.08,
+        "Per_Capita_Income": 0.79
+      },
+      "Total_Population": {
+        "Minority_Percentage": 0.159,
+        "College_Housing_Percentage": 0.186,
+        "Average_Rent": 0.131,
+        "Total_Population": 1.0,
+        "Total_Transit_Lines": 0.992,
+        "Per_Capita_Income": 0.134
+      },
+      "Total_Transit_Lines": {
+        "Minority_Percentage": 0.122,
+        "College_Housing_Percentage": 0.105,
+        "Average_Rent": 0.08,
+        "Total_Population": 0.992,
+        "Total_Transit_Lines": 1.0,
+        "Per_Capita_Income": 0.116
+      },
+      "Per_Capita_Income": {
+        "Minority_Percentage": 0.683,
+        "College_Housing_Percentage": 0.369,
+        "Average_Rent": 0.79,
+        "Total_Population": 0.134,
+        "Total_Transit_Lines": 0.116,
+        "Per_Capita_Income": 1.0
+      }
+    }
+  },
+  {
+    "neighborhood": "South Boston",
+    "correlation_matrix": {
+      "Minority_Percentage": {
+        "Minority_Percentage": 1.0,
+        "College_Housing_Percentage": 0.679,
+        "Average_Rent": 0.521,
+        "Total_Population": 0.159,
+        "Total_Transit_Lines": 0.122,
+        "Per_Capita_Income": 0.683
+      },
+      "College_Housing_Percentage": {
+        "Minority_Percentage": 0.679,
+        "College_Housing_Percentage": 1.0,
+        "Average_Rent": 0.535,
+        "Total_Population": 0.186,
+        "Total_Transit_Lines": 0.105,
+        "Per_Capita_Income": 0.369
+      },
+      "Average_Rent": {
+        "Minority_Percentage": 0.521,
+        "College_Housing_Percentage": 0.535,
+        "Average_Rent": 1.0,
+        "Total_Population": 0.131,
+        "Total_Transit_Lines": 0.08,
+        "Per_Capita_Income": 0.79
+      },
+      "Total_Population": {
+        "Minority_Percentage": 0.159,
+        "College_Housing_Percentage": 0.186,
+        "Average_Rent": 0.131,
+        "Total_Population": 1.0,
+        "Total_Transit_Lines": 0.992,
+        "Per_Capita_Income": 0.134
+      },
+      "Total_Transit_Lines": {
+        "Minority_Percentage": 0.122,
+        "College_Housing_Percentage": 0.105,
+        "Average_Rent": 0.08,
+        "Total_Population": 0.992,
+        "Total_Transit_Lines": 1.0,
+        "Per_Capita_Income": 0.116
+      },
+      "Per_Capita_Income": {
+        "Minority_Percentage": 0.683,
+        "College_Housing_Percentage": 0.369,
+        "Average_Rent": 0.79,
+        "Total_Population": 0.134,
+        "Total_Transit_Lines": 0.116,
+        "Per_Capita_Income": 1.0
+      }
+    }
+  },
+  {
+    "neighborhood": "South Boston Waterfront",
+    "correlation_matrix": {
+      "Minority_Percentage": {
+        "Minority_Percentage": 1.0,
+        "College_Housing_Percentage": 0.679,
+        "Average_Rent": 0.521,
+        "Total_Population": 0.159,
+        "Total_Transit_Lines": 0.122,
+        "Per_Capita_Income": 0.683
+      },
+      "College_Housing_Percentage": {
+        "Minority_Percentage": 0.679,
+        "College_Housing_Percentage": 1.0,
+        "Average_Rent": 0.535,
+        "Total_Population": 0.186,
+        "Total_Transit_Lines": 0.105,
+        "Per_Capita_Income": 0.369
+      },
+      "Average_Rent": {
+        "Minority_Percentage": 0.521,
+        "College_Housing_Percentage": 0.535,
+        "Average_Rent": 1.0,
+        "Total_Population": 0.131,
+        "Total_Transit_Lines": 0.08,
+        "Per_Capita_Income": 0.79
+      },
+      "Total_Population": {
+        "Minority_Percentage": 0.159,
+        "College_Housing_Percentage": 0.186,
+        "Average_Rent": 0.131,
+        "Total_Population": 1.0,
+        "Total_Transit_Lines": 0.992,
+        "Per_Capita_Income": 0.134
+      },
+      "Total_Transit_Lines": {
+        "Minority_Percentage": 0.122,
+        "College_Housing_Percentage": 0.105,
+        "Average_Rent": 0.08,
+        "Total_Population": 0.992,
+        "Total_Transit_Lines": 1.0,
+        "Per_Capita_Income": 0.116
+      },
+      "Per_Capita_Income": {
+        "Minority_Percentage": 0.683,
+        "College_Housing_Percentage": 0.369,
+        "Average_Rent": 0.79,
+        "Total_Population": 0.134,
+        "Total_Transit_Lines": 0.116,
+        "Per_Capita_Income": 1.0
+      }
+    }
+  },
+  {
+    "neighborhood": "South End",
+    "correlation_matrix": {
+      "Minority_Percentage": {
+        "Minority_Percentage": 1.0,
+        "College_Housing_Percentage": 0.679,
+        "Average_Rent": 0.521,
+        "Total_Population": 0.159,
+        "Total_Transit_Lines": 0.122,
+        "Per_Capita_Income": 0.683
+      },
+      "College_Housing_Percentage": {
+        "Minority_Percentage": 0.679,
+        "College_Housing_Percentage": 1.0,
+        "Average_Rent": 0.535,
+        "Total_Population": 0.186,
+        "Total_Transit_Lines": 0.105,
+        "Per_Capita_Income": 0.369
+      },
+      "Average_Rent": {
+        "Minority_Percentage": 0.521,
+        "College_Housing_Percentage": 0.535,
+        "Average_Rent": 1.0,
+        "Total_Population": 0.131,
+        "Total_Transit_Lines": 0.08,
+        "Per_Capita_Income": 0.79
+      },
+      "Total_Population": {
+        "Minority_Percentage": 0.159,
+        "College_Housing_Percentage": 0.186,
+        "Average_Rent": 0.131,
+        "Total_Population": 1.0,
+        "Total_Transit_Lines": 0.992,
+        "Per_Capita_Income": 0.134
+      },
+      "Total_Transit_Lines": {
+        "Minority_Percentage": 0.122,
+        "College_Housing_Percentage": 0.105,
+        "Average_Rent": 0.08,
+        "Total_Population": 0.992,
+        "Total_Transit_Lines": 1.0,
+        "Per_Capita_Income": 0.116
+      },
+      "Per_Capita_Income": {
+        "Minority_Percentage": 0.683,
+        "College_Housing_Percentage": 0.369,
+        "Average_Rent": 0.79,
+        "Total_Population": 0.134,
+        "Total_Transit_Lines": 0.116,
+        "Per_Capita_Income": 1.0
+      }
+    }
+  },
+  {
+    "neighborhood": "West End",
+    "correlation_matrix": {
+      "Minority_Percentage": {
+        "Minority_Percentage": 1.0,
+        "College_Housing_Percentage": 0.679,
+        "Average_Rent": 0.521,
+        "Total_Population": 0.159,
+        "Total_Transit_Lines": 0.122,
+        "Per_Capita_Income": 0.683
+      },
+      "College_Housing_Percentage": {
+        "Minority_Percentage": 0.679,
+        "College_Housing_Percentage": 1.0,
+        "Average_Rent": 0.535,
+        "Total_Population": 0.186,
+        "Total_Transit_Lines": 0.105,
+        "Per_Capita_Income": 0.369
+      },
+      "Average_Rent": {
+        "Minority_Percentage": 0.521,
+        "College_Housing_Percentage": 0.535,
+        "Average_Rent": 1.0,
+        "Total_Population": 0.131,
+        "Total_Transit_Lines": 0.08,
+        "Per_Capita_Income": 0.79
+      },
+      "Total_Population": {
+        "Minority_Percentage": 0.159,
+        "College_Housing_Percentage": 0.186,
+        "Average_Rent": 0.131,
+        "Total_Population": 1.0,
+        "Total_Transit_Lines": 0.992,
+        "Per_Capita_Income": 0.134
+      },
+      "Total_Transit_Lines": {
+        "Minority_Percentage": 0.122,
+        "College_Housing_Percentage": 0.105,
+        "Average_Rent": 0.08,
+        "Total_Population": 0.992,
+        "Total_Transit_Lines": 1.0,
+        "Per_Capita_Income": 0.116
+      },
+      "Per_Capita_Income": {
+        "Minority_Percentage": 0.683,
+        "College_Housing_Percentage": 0.369,
+        "Average_Rent": 0.79,
+        "Total_Population": 0.134,
+        "Total_Transit_Lines": 0.116,
+        "Per_Capita_Income": 1.0
+      }
+    }
+  },
+  {
+    "neighborhood": "West Roxbury",
+    "correlation_matrix": {
+      "Minority_Percentage": {
+        "Minority_Percentage": 1.0,
+        "College_Housing_Percentage": 0.679,
+        "Average_Rent": 0.521,
+        "Total_Population": 0.159,
+        "Total_Transit_Lines": 0.122,
+        "Per_Capita_Income": 0.683
+      },
+      "College_Housing_Percentage": {
+        "Minority_Percentage": 0.679,
+        "College_Housing_Percentage": 1.0,
+        "Average_Rent": 0.535,
+        "Total_Population": 0.186,
+        "Total_Transit_Lines": 0.105,
+        "Per_Capita_Income": 0.369
+      },
+      "Average_Rent": {
+        "Minority_Percentage": 0.521,
+        "College_Housing_Percentage": 0.535,
+        "Average_Rent": 1.0,
+        "Total_Population": 0.131,
+        "Total_Transit_Lines": 0.08,
+        "Per_Capita_Income": 0.79
+      },
+      "Total_Population": {
+        "Minority_Percentage": 0.159,
+        "College_Housing_Percentage": 0.186,
+        "Average_Rent": 0.131,
+        "Total_Population": 1.0,
+        "Total_Transit_Lines": 0.992,
+        "Per_Capita_Income": 0.134
+      },
+      "Total_Transit_Lines": {
+        "Minority_Percentage": 0.122,
+        "College_Housing_Percentage": 0.105,
+        "Average_Rent": 0.08,
+        "Total_Population": 0.992,
+        "Total_Transit_Lines": 1.0,
+        "Per_Capita_Income": 0.116
+      },
+      "Per_Capita_Income": {
+        "Minority_Percentage": 0.683,
+        "College_Housing_Percentage": 0.369,
+        "Average_Rent": 0.79,
+        "Total_Population": 0.134,
+        "Total_Transit_Lines": 0.116,
+        "Per_Capita_Income": 1.0
+      }
+    }
+  },
+  {
+    "neighborhood": "Citywide",
+    "correlation_matrix": {
+      "Minority_Percentage": {
+        "Minority_Percentage": 1.0,
+        "College_Housing_Percentage": 0.679,
+        "Average_Rent": 0.521,
+        "Total_Population": 0.159,
+        "Total_Transit_Lines": 0.122,
+        "Per_Capita_Income": 0.683
+      },
+      "College_Housing_Percentage": {
+        "Minority_Percentage": 0.679,
+        "College_Housing_Percentage": 1.0,
+        "Average_Rent": 0.535,
+        "Total_Population": 0.186,
+        "Total_Transit_Lines": 0.105,
+        "Per_Capita_Income": 0.369
+      },
+      "Average_Rent": {
+        "Minority_Percentage": 0.521,
+        "College_Housing_Percentage": 0.535,
+        "Average_Rent": 1.0,
+        "Total_Population": 0.131,
+        "Total_Transit_Lines": 0.08,
+        "Per_Capita_Income": 0.79
+      },
+      "Total_Population": {
+        "Minority_Percentage": 0.159,
+        "College_Housing_Percentage": 0.186,
+        "Average_Rent": 0.131,
+        "Total_Population": 1.0,
+        "Total_Transit_Lines": 0.992,
+        "Per_Capita_Income": 0.134
+      },
+      "Total_Transit_Lines": {
+        "Minority_Percentage": 0.122,
+        "College_Housing_Percentage": 0.105,
+        "Average_Rent": 0.08,
+        "Total_Population": 0.992,
+        "Total_Transit_Lines": 1.0,
+        "Per_Capita_Income": 0.116
+      },
+      "Per_Capita_Income": {
+        "Minority_Percentage": 0.683,
+        "College_Housing_Percentage": 0.369,
+        "Average_Rent": 0.79,
+        "Total_Population": 0.134,
+        "Total_Transit_Lines": 0.116,
+        "Per_Capita_Income": 1.0
+      }
+    }
+  }
+]
