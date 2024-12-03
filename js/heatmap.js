@@ -314,5 +314,4 @@ function createHeatmap(containerId, data = sampleData) {
     }
 }
 
-// Export the function for use in other files
-export { createHeatmap };
+window.createHeatmap = createHeatmap;

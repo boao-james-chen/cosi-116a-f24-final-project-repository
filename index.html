@@ -131,18 +131,8 @@
   
   <!-- Scripts at the end avoid need for dealing with async, defer, or onload event handlers -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+  <script src="js/heatmap.js"></script>
   <script src="js/table.js"></script>
-  <script type="module">
-    import { createHeatmap } from './js/heatmap.js';
-    // Make sure the DOM is loaded before creating heatmap
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => {
-            createHeatmap('correlation-matrix');
-        });
-    } else {
-        createHeatmap('correlation-matrix');
-    }
-</script>
   <script src="js/visualization.js"></script>
 </body>
 </html>
