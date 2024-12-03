@@ -96,17 +96,18 @@ function createHeatmap(containerId, data = sampleData) {
         .attr('transform', `translate(${margin.left},${margin.top})`);
 
     // Create tooltip
-    const tooltip = d3.select('#' + containerId)  
-        .append('div')
-        .attr('class', 'tooltip')
-        .style('position', 'fixed')  
-        .style('visibility', 'hidden') 
-        .style('background-color', 'rgba(0, 0, 0, 0.8)')
-        .style('color', 'white')
-        .style('padding', '8px')
-        .style('border-radius', '4px')
-        .style('font-size', '12px')
-        .style('z-index', '9999');
+    const tooltip = d3.select("body")    
+    .append('div')
+    .attr('class', 'tooltip')
+    .style('opacity', 0)
+    .style('position', 'absolute')
+    .style('background-color', 'rgba(0, 0, 0, 0.8)')
+    .style('color', 'white')
+    .style('padding', '8px')
+    .style('border-radius', '4px')
+    .style('font-size', '12px')
+    .style('pointer-events', 'none')
+    .style('z-index', 9999);
 
     // Get variables and handle sorting
     let variables = Object.keys(data[0]).filter(key => key !== 'variable');
@@ -194,43 +195,40 @@ function createHeatmap(containerId, data = sampleData) {
 
     // Add hover effects and tooltip
     cells
-        .on('mouseover', function(event, d) {
-            // Log event for debugging
-            console.log('mouseover event:', event, 'd:', d);
+    .on('mouseover', function(d) {
+        // Border effect
+        d3.select(this)
+            .style('stroke', '#2563eb')
+            .style('stroke-width', '2px');
             
-            d3.select(this)
-                .style('stroke', '#2563eb')
-                .style('stroke-width', '2px');
-
-            // Show tooltip with fixed positioning
-            tooltip
-                .style('visibility', 'visible')
-                .html(`
-                    <div style="text-align: center;">
-                        <strong>${d.row} × ${d.col}</strong><br/>
-                        Correlation: ${d.toFixed(3)}
-                    </div>
-                `)
-                .style('left', (event.clientX + 10) + 'px')
-                .style('top', (event.clientY - 28) + 'px');
-        })
-        .on('mousemove', function(event) {
+        // Tooltip
+        tooltip
+            .transition()
+            .duration(200)
+            .style('opacity', .9);
+        
+        tooltip
+            .html(`${d.row} × ${d.col}<br/>Correlation: ${d.value.toFixed(3)}`)
+            .style('left', (d3.event.pageX) + 'px')
+            .style('top', (d3.event.pageY - 28) + 'px');
+    })
+    .on('mousemove', function(d) {
+        tooltip
+            .style('left', (d3.event.pageX) + 'px')
+            .style('top', (d3.event.pageY - 28) + 'px');
+    })
+    .on('mouseout', function(d) {
+        // Border effect reset
+        d3.select(this)
+            .style('stroke', 'white')
+            .style('stroke-width', '1px');
             
-            tooltip
-                .style('left', (event.clientX + 10) + 'px')
-                .style('top', (event.clientY - 28) + 'px');
-        })
-        .on('mouseout', function(event) {
-            
-            // Remove highlight
-            d3.select(this)
-                .style('stroke', 'white')
-                .style('stroke-width', '1px');
-
-            // Hide tooltip
-            tooltip
-                .style('visibility', 'hidden');
-        });
+        // Tooltip hide
+        tooltip
+            .transition()
+            .duration(500)
+            .style('opacity', 0);
+    });
 
     // Add correlation values as text
     const textLabels = svg.selectAll('text.value')
