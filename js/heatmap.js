@@ -18,6 +18,12 @@ function addStyles() {
             position: absolute;
             pointer-events: none;
             z-index: 100;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            transition: opacity 0.2s;
         }
         .control-button {
             padding: 8px 16px;
@@ -58,19 +64,20 @@ function createHeatmap(containerId, data = sampleData) {
         addStyles();
     }
 
-    // Create button group if it doesn't exist
-    let container = document.getElementById(containerId);
-    if (!container.querySelector('.button-group')) {
-        const buttonGroup = document.createElement('div');
-        buttonGroup.className = 'button-group';
-        buttonGroup.innerHTML = `
-            <button class="control-button" id="highCorr">High Correlations (≥0.7)</button>
-            <button class="control-button" id="lowCorr">Low Correlations (≤0.2)</button>
-        `;
-        container.prepend(buttonGroup);
-    }
+    // Clear any existing content
+    const container = document.getElementById(containerId);
+    container.innerHTML = '';
 
-    // Clear existing content
+    // Create button group
+    const buttonGroup = document.createElement('div');
+    buttonGroup.className = 'button-group';
+    buttonGroup.innerHTML = `
+        <button class="control-button" id="highCorr">High Correlations (≥0.7)</button>
+        <button class="control-button" id="lowCorr">Low Correlations (≤0.2)</button>
+    `;
+    container.appendChild(buttonGroup);
+
+    // Create visualization container
     const vizContainer = document.createElement('div');
     vizContainer.id = 'heatmap-viz';
     container.appendChild(vizContainer);
@@ -89,10 +96,17 @@ function createHeatmap(containerId, data = sampleData) {
         .attr('transform', `translate(${margin.left},${margin.top})`);
 
     // Create tooltip
-    const tooltip = d3.select('#heatmap-viz')
+    const tooltip = d3.select('#' + containerId)  
         .append('div')
         .attr('class', 'tooltip')
-        .style('opacity', 0);
+        .style('position', 'fixed')  
+        .style('visibility', 'hidden') 
+        .style('background-color', 'rgba(0, 0, 0, 0.8)')
+        .style('color', 'white')
+        .style('padding', '8px')
+        .style('border-radius', '4px')
+        .style('font-size', '12px')
+        .style('z-index', '9999');
 
     // Get variables and handle sorting
     let variables = Object.keys(data[0]).filter(key => key !== 'variable');
@@ -150,7 +164,7 @@ function createHeatmap(containerId, data = sampleData) {
                 variable: d,
                 ascending: currentSort.variable === d ? !currentSort.ascending : true
             };
-            container.removeChild(vizContainer);
+            container.innerHTML = '';
             createHeatmap(containerId, data);
         });
 
@@ -177,32 +191,44 @@ function createHeatmap(containerId, data = sampleData) {
         .style('stroke-width', 1);
 
     // Add hover effects and tooltip
-    cells.on('mouseover', function(event, d) {
-        d3.select(this)
-            .style('stroke', '#2563eb')
-            .style('stroke-width', 2);
+    cells
+        .on('mouseover', function(event, d) {
+            // Log event for debugging
+            console.log('mouseover event:', event, 'd:', d);
+            
+            d3.select(this)
+                .style('stroke', '#2563eb')
+                .style('stroke-width', '2px');
 
-        tooltip.style('opacity', 1)
-            .html(`
-                <div style="background: rgba(0,0,0,0.8); color: white; padding: 8px 12px; border-radius: 4px;">
-                    <strong>${d.row} × ${d.col}</strong><br/>
-                    Correlation: ${d.value.toFixed(3)}
-                </div>
-            `)
-            .style('left', (event.pageX + 5) + 'px')
-            .style('top', (event.pageY - 28) + 'px');
-    })
-    .on('mousemove', function(event) {
-        tooltip
-            .style('left', (event.pageX + 5) + 'px')
-            .style('top', (event.pageY - 28) + 'px');
-    })
-    .on('mouseout', function() {
-        d3.select(this)
-            .style('stroke', 'white')
-            .style('stroke-width', 1);
-        tooltip.style('opacity', 0);
-    });
+            // Show tooltip with fixed positioning
+            tooltip
+                .style('visibility', 'visible')
+                .html(`
+                    <div style="text-align: center;">
+                        <strong>${d.row} × ${d.col}</strong><br/>
+                        Correlation: ${d.value.toFixed(3)}
+                    </div>
+                `)
+                .style('left', (event.clientX + 10) + 'px')
+                .style('top', (event.clientY - 28) + 'px');
+        })
+        .on('mousemove', function(event) {
+            
+            tooltip
+                .style('left', (event.clientX + 10) + 'px')
+                .style('top', (event.clientY - 28) + 'px');
+        })
+        .on('mouseout', function(event) {
+            
+            // Remove highlight
+            d3.select(this)
+                .style('stroke', 'white')
+                .style('stroke-width', '1px');
+
+            // Hide tooltip
+            tooltip
+                .style('visibility', 'hidden');
+        });
 
     // Add correlation values as text
     const textLabels = svg.selectAll('text.value')
@@ -314,4 +340,5 @@ function createHeatmap(containerId, data = sampleData) {
     }
 }
 
+// Make createHeatmap available globally
 window.createHeatmap = createHeatmap;
