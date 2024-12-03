@@ -131,9 +131,10 @@ function createHeatmap(containerId, data = sampleData) {
         .domain(variables)
         .padding(0.05);
 
-    const colorScale = d3.scaleSequential()
-        .interpolator(d3.interpolateYlGnBu)
-        .domain([0, 1]);
+    const colorScale = d3.scaleLinear()
+        // .interpolator(d3.interpolateYlGnBu)
+        .domain([0, 1])
+        .range(['#f0f9e8', '#08589e']);
 
     // Add sort indicator if needed
     if (currentSort.variable) {
@@ -181,7 +182,8 @@ function createHeatmap(containerId, data = sampleData) {
                 value: row[col]
             }))
         ))
-        .join('rect')
+        .enter()
+        .append('rect')
         .attr('x', d => x(d.col))
         .attr('y', d => y(d.row))
         .attr('width', x.bandwidth())
@@ -206,7 +208,7 @@ function createHeatmap(containerId, data = sampleData) {
                 .html(`
                     <div style="text-align: center;">
                         <strong>${d.row} × ${d.col}</strong><br/>
-                        Correlation: ${d.value.toFixed(3)}
+                        Correlation: ${d.toFixed(3)}
                     </div>
                 `)
                 .style('left', (event.clientX + 10) + 'px')
@@ -239,7 +241,8 @@ function createHeatmap(containerId, data = sampleData) {
                 value: row[col]
             }))
         ))
-        .join('text')
+        .enter()
+        .append('text')
         .attr('class', 'value')
         .attr('x', d => x(d.col) + x.bandwidth() / 2)
         .attr('y', d => y(d.row) + y.bandwidth() / 2)
