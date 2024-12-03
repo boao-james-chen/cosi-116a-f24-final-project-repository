@@ -111,6 +111,30 @@ td {
 	flex-direction: column;
 }
 
+th {
+	background-color: lightgray;
+}
+
+.Neighborhood {
+	background-color: lightgray;
+}
+
+th.mouseover {
+	background-color: darkgray;
+}
+
+td.mouseover {
+	background-color: lightgray;
+}
+
+td.selected {
+	background-color: lightblue;
+}
+
+th.selected {
+	background-color: cadetblue;
+}
+
 /* Don't also do text drag selection */
 table.text-unselectable {
 	-webkit-touch-callout: none;
