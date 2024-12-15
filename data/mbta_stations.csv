@@ -1,0 +1,156 @@
+Name,Municipality,Line,Latitude,Longitude
+Alewife,Cambridge,Red,42.39583,-71.141287
+Davis,Somerville,Red,42.39674,-71.121815
+Porter,Cambridge,Red,42.3884,-71.119149
+Harvard,Cambridge,Red,42.373362,-71.118956
+Central,Cambridge,Red,42.365486,-71.103802
+Kendall/MIT,Cambridge,Red,42.362491,-71.086176
+Charles/MGH,Boston,Red,42.361166,-71.070628
+Park Street,Boston,Red,42.356395,-71.062424
+Downtown Crossing,Boston,Red,42.355518,-71.060225
+South Station,Boston,Red,42.352271,-71.055242
+Broadway,Boston,Red,42.342622,-71.056967
+Andrew,Boston,Red,42.330154,-71.057655
+JFK/UMass,Boston,Red,42.320685,-71.052391
+Savin Hill,Boston,Red,42.31129,-71.053331
+Fields Corner,Boston,Red,42.300093,-71.061667
+Shawmut,Boston,Red,42.293126,-71.065738
+Ashmont,Boston,Red,42.28452,-71.063777
+North Quincy,Quincy,Red,42.275275,-71.029583
+Wollaston,Quincy,Red,42.266514,-71.020337
+Quincy Center,Quincy,Red,42.251809,-71.005409
+Quincy Adams,Quincy,Red,42.233391,-71.007153
+Braintree,Braintree,Red,42.207854,-71.001138
+Ashmont,Boston,Mattapan,42.28452,-71.063777
+Cedar Grove,Boston,Mattapan,42.279629,-71.060394
+Butler,Boston,Mattapan,42.272429,-71.062519
+Milton,Milton,Mattapan,42.270349,-71.067266
+Central Avenue,Milton,Mattapan,42.270027,-71.073444
+Valley Road,Milton,Mattapan,42.268347,-71.081343
+Capen Street,Milton,Mattapan,42.267563,-71.087338
+Mattapan,Boston,Mattapan,42.26762,-71.092486
+Forest Hills,Boston,Orange,42.300713,-71.113943
+Green Street,Boston,Orange,42.310525,-71.107414
+Stony Brook,Boston,Orange,42.317062,-71.104248
+Jackson Square,Boston,Orange,42.323132,-71.099592
+Roxbury Crossing,Boston,Orange,42.331397,-71.095451
+Ruggles,Boston,Orange,42.336377,-71.088961
+Massachusetts Avenue,Boston,Orange,42.341512,-71.083423
+Back Bay,Boston,Orange,42.34735,-71.075727
+Tufts Medical Center,Boston,Orange,42.349662,-71.063917
+Chinatown,Boston,Orange,42.352547,-71.062752
+Downtown Crossing,Boston,Orange,42.355518,-71.060225
+State,Boston,Orange,42.358978,-71.057598
+Haymarket,Boston,Orange,42.363021,-71.05829
+North Station,Boston,Orange,42.365577,-71.06129
+Community College,Boston,Orange,42.373622,-71.069533
+Sullivan Square,Boston,Orange,42.383975,-71.076994
+Assembly,Somerville,Orange,42.392811,-71.077257
+Wellington,Medford,Orange,42.40237,-71.077082
+Malden Center,Malden,Orange,42.426632,-71.07411
+Oak Grove,Malden,Orange,42.43668,-71.071097
+Government Center,Boston,Green-B,42.359705,-71.059215
+Park Street,Boston,Green-B,42.356395,-71.062424
+Boylston,Boston,Green-B,42.35302,-71.06459
+Arlington,Boston,Green-B,42.351902,-71.070893
+Copley,Boston,Green-B,42.349974,-71.077447
+Hynes Convention Center,Boston,Green-B,42.347888,-71.087903
+Kenmore,Boston,Green-B,42.348949,-71.095169
+Blandford Street,Boston,Green-B,42.349293,-71.100258
+Boston University East,Boston,Green-B,42.349735,-71.103889
+Boston University Central,Boston,Green-B,42.350082,-71.106865
+Amory Street,Boston,Green-B,42.350992,-71.114748
+Babcock Street,Boston,Green-B,42.351616,-71.119924
+Packard's Corner,Boston,Green-B,42.351967,-71.125031
+Harvard Avenue,Boston,Green-B,42.350243,-71.131355
+Griggs Street,Boston,Green-B,42.348545,-71.134949
+Allston Street,Boston,Green-B,42.348701,-71.137955
+Warren Street,Boston,Green-B,42.348343,-71.140457
+Washington Street,Boston,Green-B,42.343864,-71.142853
+Sutherland Road,Boston,Green-B,42.341614,-71.146202
+Chiswick Road,Boston,Green-B,42.340805,-71.150711
+Chestnut Hill Avenue,Boston,Green-B,42.338169,-71.15316
+South Street,Boston,Green-B,42.3396,-71.157661
+Boston College,Boston,Green-B,42.340081,-71.166769
+Cleveland Circle,Boston,Green-C,42.336142,-71.149326
+Englewood Avenue,Brookline,Green-C,42.336971,-71.14566
+Dean Road,Brookline,Green-C,42.337807,-71.141853
+Tappan Street,Brookline,Green-C,42.338459,-71.138702
+Washington Square,Brookline,Green-C,42.339394,-71.13533
+Fairbanks Street,Brookline,Green-C,42.339725,-71.131073
+Brandon Hall,Brookline,Green-C,42.340023,-71.129082
+Summit Avenue,Brookline,Green-C,42.34111,-71.12561
+Coolidge Corner,Brookline,Green-C,42.342116,-71.121263
+Saint Paul Street,Brookline,Green-C,42.343327,-71.116997
+Kent Street,Brookline,Green-C,42.344074,-71.114197
+Hawes Street,Brookline,Green-C,42.344906,-71.111145
+Saint Mary's Street,Brookline,Green-C,42.345974,-71.107353
+Kenmore,Boston,Green-C,42.348949,-71.095169
+Hynes Convention Center,Boston,Green-C,42.347888,-71.087903
+Copley,Boston,Green-C,42.349974,-71.077447
+Arlington,Boston,Green-C,42.351902,-71.070893
+Boylston,Boston,Green-C,42.35302,-71.06459
+Park Street,Boston,Green-C,42.356395,-71.062424
+Government Center,Boston,Green-C,42.359705,-71.059215
+Riverside,Newton,Green-D,42.337352,-71.252685
+Woodland,Newton,Green-D,42.332902,-71.243362
+Waban,Newton,Green-D,42.325845,-71.230609
+Eliot,Newton,Green-D,42.319045,-71.216684
+Newton Highlands,Newton,Green-D,42.322381,-71.205509
+Newton Centre,Newton,Green-D,42.329443,-71.192414
+Chestnut Hill,Newton,Green-D,42.326753,-71.164699
+Reservoir,Brookline,Green-D,42.335088,-71.148758
+Beaconsfield,Brookline,Green-D,42.335765,-71.140455
+Brookline Hills,Brookline,Green-D,42.331316,-71.126683
+Brookline Village,Brookline,Green-D,42.332608,-71.116857
+Longwood,Brookline,Green-D,42.341702,-71.109956
+Fenway,Boston,Green-D,42.345403,-71.104213
+Kenmore,Boston,Green-D,42.348949,-71.095169
+Hynes Convention Center,Boston,Green-D,42.347888,-71.087903
+Copley,Boston,Green-D,42.349974,-71.077447
+Arlington,Boston,Green-D,42.351902,-71.070893
+Boylston,Boston,Green-D,42.35302,-71.06459
+Park Street,Boston,Green-D,42.356395,-71.062424
+Government Center,Boston,Green-D,42.359705,-71.059215
+Haymarket,Boston,Green-D,42.363021,-71.05829
+North Station,Boston,Green-D,42.365577,-71.06129
+Science Park/West End,Boston,Green-D,42.366664,-71.067666
+Lechmere,Cambridge,Green-D,42.371572,-71.076584
+Union Square,Somerville,Green-D,42.377359,-71.094761
+Heath Street,Boston,Green-E,42.328316,-71.110252
+Back of the Hill,Boston,Green-E,42.330139,-71.111313
+Riverway,Boston,Green-E,42.331684,-71.111931
+Mission Park,Boston,Green-E,42.333195,-71.109756
+Fenwood Road,Boston,Green-E,42.333706,-71.105728
+Brigham Circle,Boston,Green-E,42.334229,-71.104609
+Longwood Medical Area,Boston,Green-E,42.33596,-71.100052
+Museum of Fine Arts,Boston,Green-E,42.337711,-71.095512
+Northeastern University,Boston,Green-E,42.340401,-71.088806
+Symphony,Boston,Green-E,42.342687,-71.085056
+Prudential,Boston,Green-E,42.34557,-71.081696
+Copley,Boston,Green-E,42.349974,-71.077447
+Arlington,Boston,Green-E,42.351902,-71.070893
+Boylston,Boston,Green-E,42.35302,-71.06459
+Park Street,Boston,Green-E,42.356395,-71.062424
+Government Center,Boston,Green-E,42.359705,-71.059215
+Haymarket,Boston,Green-E,42.363021,-71.05829
+North Station,Boston,Green-E,42.365577,-71.06129
+Science Park/West End,Boston,Green-E,42.366664,-71.067666
+Lechmere,Cambridge,Green-E,42.371572,-71.076584
+East Somerville,Somerville,Green-E,42.379467,-71.086625
+Gilman Square,Somerville,Green-E,42.387928,-71.096766
+Magoun Square,Somerville,Green-E,42.393682,-71.106388
+Ball Square,Medford,Green-E,42.399889,-71.111003
+Medford/Tufts,Medford,Green-E,42.407975,-71.117044
+Bowdoin,Boston,Blue,42.361365,-71.062037
+Government Center,Boston,Blue,42.359705,-71.059215
+State,Boston,Blue,42.358978,-71.057598
+Aquarium,Boston,Blue,42.359784,-71.051652
+Maverick,Boston,Blue,42.369119,-71.03953
+Airport,Boston,Blue,42.374262,-71.030395
+Wood Island,Boston,Blue,42.37964,-71.022865
+Orient Heights,Boston,Blue,42.386867,-71.004736
+Suffolk Downs,Boston,Blue,42.390501,-70.997123
+Beachmont,Revere,Blue,42.397542,-70.992319
+Revere Beach,Revere,Blue,42.407843,-70.992533
+Wonderland,Revere,Blue,42.41342,-70.991648
