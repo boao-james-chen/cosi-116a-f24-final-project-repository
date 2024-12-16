@@ -160,6 +160,7 @@ tr.mouseover.selected {
 #map-holder {
 	position: relative;
 	max-width: 1024px;
+	max-height: 90%;
 	margin: 1em auto;
 }
 #boston-map {
@@ -181,7 +182,7 @@ tr.mouseover.selected {
 .station {
 	stroke: black;
 	stroke-width: 1px;
-	stroke-opacity: 0.5;
+	stroke-opacity: 0.25;
 	cursor: pointer;
 	transition: all 0.5s;
 }

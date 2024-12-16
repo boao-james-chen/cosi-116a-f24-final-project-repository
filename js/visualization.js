@@ -2,49 +2,49 @@
 (() => {
 
   d3.json("data/neighborhood_stations.json", data => {
-  try {
-    console.log("Data loaded:", data);
+    try {
+      console.log("Data loaded:", data);
 
-    const dispatchString = "selectionUpdated";
+      const dispatchString = "selectionUpdated";
 
-    // Create table visualization
-    console.log("Creating table...");
-    if (typeof table === 'undefined') {
-    console.error("table function is not defined!");
-    return;
+      // Create table visualization
+      console.log("Creating table...");
+      if (typeof table === 'undefined') {
+      console.error("table function is not defined!");
+      return;
+      }
+
+      let selectionTable = table()
+      ("#table", data);
+
+      // Create heatmap
+      console.log("Creating heatmap...");
+      if (typeof createHeatmap === 'undefined') {
+      console.error("createHeatmap function is not defined!");
+      return;
+      }
+      createHeatmap('correlation-matrix');
+    } 
+    catch (error) {
+      console.error("Error loading the data:", error);
     }
-
-    let selectionTable = table()
-    ("#table", data);
-
-    // Create heatmap
-    console.log("Creating heatmap...");
-    if (typeof createHeatmap === 'undefined') {
-    console.error("createHeatmap function is not defined!");
-    return;
-    }
-    createHeatmap('correlation-matrix');
-  } 
-  catch (error) {
-    console.error("Error loading the data:", error);
-  }
   });
 
   const bounds = {
-  topLeft: { lat: 42.465, lng: -71.285 },
-  bottomRight: { lat: 42.225, lng: -70.965 }
+    topLeft: { lat: 42.445, lng: -71.275 },
+    bottomRight: { lat: 42.205, lng: -70.975 }
   };
 
   // Define colors for lines
   const lineColors = {
-  Red: "#FF0000",
-  Mattapan: "#FF9999",
-  Orange: "#FFA500",
-  "Green-B": "#008000",
-  "Green-C": "#008000",
-  "Green-D": "#008000",
-  "Green-E": "#008000",
-  Blue: "#0000FF"
+    Red: "#FF0000",
+    Mattapan: "#FF9999",
+    Orange: "#FFA500",
+    "Green-B": "#008000",
+    "Green-C": "#008000",
+    "Green-D": "#008000",
+    "Green-E": "#008000",
+    Blue: "#0000FF"
   };
 
   // Map dimensions
