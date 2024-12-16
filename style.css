@@ -156,3 +156,45 @@ tr.mouseover {
 tr.mouseover.selected {
 	background-color: #e08fa3;
 }
+
+#map-holder {
+	position: relative;
+	max-width: 1024px;
+	margin: 1em auto;
+}
+#boston-map {
+	width: 100%;
+	height: auto;
+	filter: saturate(70%);
+}
+#boston-map-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.line {
+	fill: none;
+	stroke-width: 3px;
+}
+.station {
+	stroke: black;
+	stroke-width: 1px;
+	stroke-opacity: 0.5;
+	cursor: pointer;
+	transition: all 0.5s;
+}
+.station:hover, .station:focus {
+	filter: brightness(70%);
+}
+.map-tooltip {
+	position: absolute;
+	background-color: #fff;
+	padding: 5px;
+	font-size: 12px;
+	pointer-events: none;
+	transition: all 0.25s;
+	white-space: pre;
+	box-shadow: 0 2.5px 5px rgba(0, 0, 0, 0.24), 0 4px 8px rgba(0, 0, 0, 0.12);
+}
