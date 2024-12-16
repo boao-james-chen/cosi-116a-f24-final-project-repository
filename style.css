@@ -160,12 +160,13 @@ tr.mouseover.selected {
 #map-holder {
 	position: relative;
 	max-width: 1024px;
-	max-height: 90%;
 	margin: 1em auto;
 }
 #boston-map {
 	width: 100%;
 	height: auto;
+	max-height: 100%;
+	max-width: 100%;
 	filter: saturate(70%);
 }
 #boston-map-overlay {

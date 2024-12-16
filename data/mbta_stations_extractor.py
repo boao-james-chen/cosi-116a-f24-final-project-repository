@@ -29,6 +29,7 @@ for line in lines:
     for neighborhood, data in neighborhoods.items():
       if station_name in data[line_equivalent]:
         station["attributes"]["municipality"] = neighborhood
+        break
       
     output += f"{station_name},{station['attributes']['municipality']},{line},{station['attributes']['latitude']},{station['attributes']['longitude']}"
     output += "\n"
