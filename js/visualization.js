@@ -17,6 +17,8 @@ const lineColors = {
   Blue: "#0000FF"
 };
 
+const dispatchString = "selectionUpdated";
+
 // Map dimensions
 const mapImage = document.getElementById("boston-map");
 const mapOverlay = d3.select("#boston-map-overlay");
@@ -48,21 +50,22 @@ let stationsData;
       // Create table visualization
       console.log("Creating table...");
       if (typeof table === 'undefined') {
-      console.error("table function is not defined!");
-      return;
+        console.error("table function is not defined!");
+        return;
       }
 
       let selectionTable = table()
-      ("#table", data);
+        .selectionDispatcher(d3.dispatch(dispatchString))
+        ("#table", data);
 
       // Create heatmap
       console.log("Creating heatmap...");
       if (typeof createHeatmap === 'undefined') {
-      console.error("createHeatmap function is not defined!");
-      return;
+        console.error("createHeatmap function is not defined!");
+        return;
       }
       createHeatmap('correlation-matrix');
-    } 
+    }
     catch (error) {
       console.error("Error loading the data:", error);
     }
@@ -95,7 +98,7 @@ let stationsData;
     // Draw lines
     lines.forEach((line) => {
       const coordinates = line.values.map(d =>
-                          project(Number(d.Latitude), Number(d.Longitude), imgWidth, imgHeight));
+        project(Number(d.Latitude), Number(d.Longitude), imgWidth, imgHeight));
 
       mapOverlay.append("path")
         .datum(coordinates)
@@ -109,7 +112,7 @@ let stationsData;
     });
 
     // Draw stations
-    stationsData.forEach(function(d) {
+    stationsData.forEach(function (d) {
       // Make sure we don't draw a station twice
       const stationKey = `${d.Name}-${d.Latitude}-${d.Longitude}`;
 
@@ -132,15 +135,15 @@ let stationsData;
           .attr("fill", lineColors[d.Line] || "#000")
           .on("mouseover", () => {
             tooltip.style("display", "block")
-                  .html(
-                    `<b>${d.Name}</b><br>` +
-                    `  Lines: ${[...stationInfo.lines].join(", ")}<br>` +
-                    `  Municipality: ${[...stationInfo.municipalities].join(", ")}`
-                  );
+              .html(
+                `<b>${d.Name}</b><br>` +
+                `  Lines: ${[...stationInfo.lines].join(", ")}<br>` +
+                `  Municipality: ${[...stationInfo.municipalities].join(", ")}`
+              );
           })
           .on("mousemove", () => {
             tooltip.style("top", (d3.event.pageY + 10) + "px")
-                  .style("left", (d3.event.pageX + 10) + "px");
+              .style("left", (d3.event.pageX + 10) + "px");
           })
           .on("mouseout", () => {
             tooltip.style("display", "none");
@@ -154,9 +157,14 @@ let stationsData;
     });
   }
 
-    // Redraw everything on window resize
-    window.addEventListener("resize", function() {
-      mapOverlay.selectAll("*").remove();
-      drawStations();
-    });
+  // Redraw everything on window resize
+  window.addEventListener("resize", function () {
+    mapOverlay.selectAll("*").remove();
+    drawStations();
+  });
+
+  selectionTable.selectionDispatcher().on(dispatchString, function (selectedData) {
+    console.log("Table selection updated:", selectedData);
+  });
+
 })();

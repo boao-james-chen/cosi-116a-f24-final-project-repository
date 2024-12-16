@@ -100,6 +100,12 @@ table {
 	text-align: center;
 	margin: 0 auto;
 	border: black 1px solid;
+
+	/* Make the table scrollable */
+	overflow: auto;
+	max-width: 100%;
+	max-height: 90%;
+	
 }
 
 th,
@@ -119,8 +125,16 @@ th {
 	background-color: lightgray;
 }
 
-th.mouseover {
+th.mouseover, tr.mouseover {
 	background-color: darkgray;
+}
+
+.Neighborhood.mouseover {
+	background-color: darkgray;
+}
+
+.Neighborhood.selected {
+	background-color: cadetblue;
 }
 
 td.mouseover {
@@ -148,14 +162,14 @@ table.text-unselectable {
 }
 
 /* Recreate the D3 brush style... */
-tr.mouseover {
+/* tr.mouseover {
 	background-color: #d6d6d6;
-}
+} */
 
 /* ...but add a darker selected and brushed color. */
-tr.mouseover.selected {
+/* tr.mouseover.selected {
 	background-color: #e08fa3;
-}
+} */
 
 #map-holder {
 	position: relative;

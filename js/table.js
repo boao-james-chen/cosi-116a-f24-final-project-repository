@@ -90,8 +90,10 @@ function table() {
 
           // send the dispatcher the updated selected points
           // this is going to have to be different so that each CELL gets sent
-          // let dispatchString = Object.getOwnPropertyNames(dispatcher._)[0];
-          // dispatcher.call(dispatchString, this, selected);
+          let dispatchString = Object.getOwnPropertyNames(dispatcher._)[0];
+          console.log(dispatchString);
+          console.log(selected);
+          dispatcher.call(dispatchString, this, selected);
 
 
         }) // end of mouseover
@@ -126,6 +128,68 @@ function table() {
           })
 
           // send the dispatcher the updated selected points
+          let dispatchString = Object.getOwnPropertyNames(dispatcher._)[0];
+          console.log(dispatchString);
+          dispatcher.call(dispatchString, this, selected);
+        })
+        .on('mouseup', (d, i, elements) => {
+          // when mouseup, stop dragging and clear selected array
+          selected = [];
+        })
+    }
+
+    function selectRow() {
+      let tbody = d3.select("tbody");
+      let selected = [];
+
+      tbody.selectAll('tr')
+        .on('mouseover', (d, i, elements) => {
+          console.log(d);
+          console.log(i);
+          console.log(elements);
+          console.log(elements[i]);
+          if (elements[i].classList[1] === "Neighborhood") {
+            // because the Neighborhood column is essentially the row header
+            return;
+          };
+
+          // on mouseover, highlight row, and add to selected array
+          d3.select(elements[i]).classed("mouseover", true);
+          selected.push(d);
+
+          // then find each cell in the row and highlight accordingly
+          let rowCells = d3.select(elements[i]).selectAll('td');
+          rowCells.each((d2, j, elements2) => {
+            selected.push(d2);
+            d3.select(elements2[j]).classed("mouseover", true);
+          });
+
+          // send the dispatcher the updated selected points
+          // this is going to have to be different so that each CELL gets sent
+          // let dispatchString = Object.getOwnPropertyNames(dispatcher._)[0];
+          // dispatcher.call(dispatchString, this, selected);
+        }) // end of mouseover
+        .on('mouseout', (d, i, elements) => {
+          d3.select(elements[i]).classed("mouseover", false);
+          let rowCells = d3.select(elements[i]).selectAll('td');
+          rowCells.each((d2, j, elements2) => {
+            selected = [];
+            d3.select(elements2[j]).classed("mouseover", false);
+          })
+        })
+        .on('mousedown', (d, i, elements) => {
+          console.log(elements[i]);
+          // when mousedown on column header, remove all previously selected columns
+          d3.selectAll('td').classed("selected", false);
+          d3.selectAll('th').classed("selected", false);
+
+          let rowCells = d3.select(elements[i]).selectAll('td');
+          rowCells.each((d2, j, elements2) => {
+            selected.push(d2);
+            d3.select(elements2[j]).classed("selected", true);
+          });
+        
+          // send the dispatcher the updated selected points
           // let dispatchString = Object.getOwnPropertyNames(dispatcher._)[0];
           // dispatcher.call(dispatchString, this, selected);
         })
@@ -136,10 +200,33 @@ function table() {
     }
 
     selectColumn();
-
+    selectRow();
 
     return chart;
   }
+
+  // Gets or sets the dispatcher we use for selection events
+  chart.selectionDispatcher = function (_) {
+    if (!arguments.length) return dispatcher;
+    dispatcher = _;
+    return chart;
+  };
+
+
+  // Update the selection in the table
+  chart.updateSelection = function (selectedData, updateType) {
+    console.log("Table selection updated:", selectedData);
+
+    // if (!arguments.length) return;
+
+    // if (updateType === "line") {
+    //   d3.selectAll('th').classed("selected", true);
+    // } 
+    // else if (updateType === "neighborhood") {
+    //   d3.selectAll('td').classed("selected", true);
+    // }
+
+  };
 
   return chart;
 }
