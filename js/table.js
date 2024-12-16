@@ -66,11 +66,11 @@ function table() {
 
       thead.selectAll('th')
         .on('mouseover', (d, i, elements) => {
-          console.log(d);
-          console.log(i);
-          console.log(elements);
-          console.log(elements[i]);
-          console.log(elements[i].classList[1]);
+          // console.log(d);
+          // console.log(i);
+          // console.log(elements);
+          // console.log(elements[i]);
+          // console.log(elements[i].classList[1]);
           if (elements[i].classList[1] === "Neighborhood") {
             // because the Neighborhood column is essentially the row header
             return;
@@ -91,8 +91,8 @@ function table() {
           // send the dispatcher the updated selected points
           // this is going to have to be different so that each CELL gets sent
           let dispatchString = Object.getOwnPropertyNames(dispatcher._)[0];
-          console.log(dispatchString);
-          console.log(selected);
+          // console.log(dispatchString);
+          // console.log(selected);
           dispatcher.call(dispatchString, this, selected);
 
 
@@ -106,7 +106,7 @@ function table() {
             selected = [];
             d3.select(elements2[j]).classed("mouseover", false);
           })
-          console.log(selected);
+          // console.log(selected);
         })
         .on('mousedown', (d, i, elements) => {
           if (elements[i].classList[1] == "Neighborhood") {
@@ -129,8 +129,8 @@ function table() {
 
           // send the dispatcher the updated selected points
           let dispatchString = Object.getOwnPropertyNames(dispatcher._)[0];
-          console.log(dispatchString);
-          dispatcher.call(dispatchString, this, selected);
+          // console.log(dispatchString);
+          dispatcher.call(dispatchString, this, "line," + selected[0]);
         })
         .on('mouseup', (d, i, elements) => {
           // when mouseup, stop dragging and clear selected array
@@ -144,10 +144,10 @@ function table() {
 
       tbody.selectAll('tr')
         .on('mouseover', (d, i, elements) => {
-          console.log(d);
-          console.log(i);
-          console.log(elements);
-          console.log(elements[i]);
+          // console.log(d);
+          // console.log(i);
+          // console.log(elements);
+          // console.log(elements[i]);
           if (elements[i].classList[1] === "Neighborhood") {
             // because the Neighborhood column is essentially the row header
             return;
@@ -178,7 +178,6 @@ function table() {
           })
         })
         .on('mousedown', (d, i, elements) => {
-          console.log(elements[i]);
           // when mousedown on column header, remove all previously selected columns
           d3.selectAll('td').classed("selected", false);
           d3.selectAll('th').classed("selected", false);
@@ -190,8 +189,8 @@ function table() {
           });
         
           // send the dispatcher the updated selected points
-          // let dispatchString = Object.getOwnPropertyNames(dispatcher._)[0];
-          // dispatcher.call(dispatchString, this, selected);
+          let dispatchString = Object.getOwnPropertyNames(dispatcher._)[0];
+          dispatcher.call(dispatchString, this, "neighborhood," + rowCells.nodes()[0].textContent);
         })
         .on('mouseup', (d, i, elements) => {
           // when mouseup, stop dragging and clear selected array
