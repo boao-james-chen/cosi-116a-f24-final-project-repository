@@ -8,7 +8,7 @@ const bounds = {
 // Define colors for lines
 const lineColors = {
   Red: "#FF0000",
-  Mattapan: "#FF9999",
+  Mattapan: "#FF6666",
   Orange: "#FFA500",
   "Green-B": "#008000",
   "Green-C": "#008000",
@@ -16,8 +16,6 @@ const lineColors = {
   "Green-E": "#008000",
   Blue: "#0000FF"
 };
-
-const dispatchString = "selectionUpdated";
 
 // Map dimensions
 const mapImage = document.getElementById("boston-map");
@@ -39,13 +37,15 @@ function project(lat, lng, canvasWidth, canvasHeight) {
 
 let stationsData;
 
+let selectionTable, dispatcher;
+
+const dispatchString = "selectionUpdated";
+
 (() => {
 
   d3.json("data/neighborhood_stations.json", data => {
     try {
       console.log("Data loaded:", data);
-
-      const dispatchString = "selectionUpdated";
 
       // Create table visualization
       console.log("Creating table...");
@@ -54,9 +54,10 @@ let stationsData;
         return;
       }
 
-      let selectionTable = table()
+      selectionTable = table()
         .selectionDispatcher(d3.dispatch(dispatchString))
         ("#table", data);
+      dispatcher = selectionTable.selectionDispatcher();
 
       // Create heatmap
       console.log("Creating heatmap...");
@@ -65,6 +66,15 @@ let stationsData;
         return;
       }
       createHeatmap('correlation-matrix');
+
+      dispatcher.on(dispatchString, (selectedData) => {
+        if (selectedData.startsWith("station")) {
+          return;
+        }
+        mapOverlay.selectAll("*").remove();
+        mapHighlight = selectedData;
+        drawStations();
+      });
     }
     catch (error) {
       console.error("Error loading the data:", error);
@@ -83,6 +93,8 @@ let stationsData;
       drawStations();
     });
 
+  let mapHighlight = "";
+
   function drawStations() {
     const imgWidth = mapImage.offsetWidth;
     const imgHeight = mapImage.offsetHeight;
@@ -95,11 +107,23 @@ let stationsData;
     // Store plotted stations and their lines
     const stationMap = new Map();
 
+    let highlightedNeighborhood = null;
+    let highlightedLine = null;
+    switch (mapHighlight.slice(0, mapHighlight.indexOf(','))) {
+      case "neighborhood":
+        highlightedNeighborhood = mapHighlight.slice(mapHighlight.indexOf(',') + 1);
+        break;
+      case "line":
+        highlightedLine = mapHighlight.slice(mapHighlight.indexOf(',') + 1);
+        break;
+    }
+
     // Draw lines
     lines.forEach((line) => {
       const coordinates = line.values.map(d =>
         project(Number(d.Latitude), Number(d.Longitude), imgWidth, imgHeight));
 
+      const strokewidth = (highlightedLine === line.key || (highlightedLine === "Red" && line.key === "Mattapan")) ? 7 : 3;
       mapOverlay.append("path")
         .datum(coordinates)
         .attr("class", "line")
@@ -107,6 +131,7 @@ let stationsData;
           .x(d => d.x)
           .y(d => d.y))
         .attr("stroke", lineColors[line.key] || "#000")
+        .attr("stroke-width", strokewidth)
         .attr("stroke-linejoin", "round")
         .attr("stroke-linecap", "round");
     });
@@ -126,11 +151,12 @@ let stationsData;
 
       const { x, y } = project(Number(d.Latitude), Number(d.Longitude), imgWidth, imgHeight);
 
+      const radius = (highlightedNeighborhood && stationInfo.municipalities.has(highlightedNeighborhood)) ? 8 : 5;
       if (!stationInfo.circle) {
         stationInfo.circle = mapOverlay.append("circle")
           .attr("cx", x)
           .attr("cy", y)
-          .attr("r", 5)
+          .attr("r", radius)
           .attr("class", "station")
           .attr("fill", lineColors[d.Line] || "#000")
           .on("mouseover", () => {
@@ -140,6 +166,8 @@ let stationsData;
                 `  Lines: ${[...stationInfo.lines].join(", ")}<br>` +
                 `  Municipality: ${[...stationInfo.municipalities].join(", ")}`
               );
+            stationInfo.circle.attr("r", 8);
+            dispatcher.call(dispatchString, this, "station," + d.Name);
           })
           .on("mousemove", () => {
             tooltip.style("top", (d3.event.pageY + 10) + "px")
@@ -147,6 +175,7 @@ let stationsData;
           })
           .on("mouseout", () => {
             tooltip.style("display", "none");
+            stationInfo.circle.attr("r", radius);
           });
       }
 
@@ -162,9 +191,4 @@ let stationsData;
     mapOverlay.selectAll("*").remove();
     drawStations();
   });
-
-  selectionTable.selectionDispatcher().on(dispatchString, function (selectedData) {
-    console.log("Table selection updated:", selectedData);
-  });
-
 })();
