@@ -38,7 +38,10 @@ function table() {
 
     for (let neighborhood in data) {
       let row = tbody.append('tr');
-      row.append('td').text(neighborhood).classed("Neighborhood", true);
+      row.append('td')
+        .text(neighborhood)
+        .classed("Neighborhood", true)
+        .classed(neighborhood.split(' ').join('-'), true);
       // change the styling of the neighborhood cell so that it's darker
       // probably make this a custom CSS class so it can have specific actions when selected
       // probably do the same for the column headers
@@ -52,25 +55,95 @@ function table() {
       tbody.append('tr');
     }
 
-    function selectColumn() {
+  
+    function selectCells() {
+      let tbody = d3.select("tbody");
       let thead = d3.select("thead");
       let selected = [];
-      // highlight the whole column when hovering over the header
-      // then highlight a different color when selecting the header
-      // probably don't actually want to drag, just want to let them select the column
-      // then send that data to the dispatcher
-      // makes it more difficult for the correlation matrix to update if we let it do full brushing
 
-      console.log(thead);
-      console.log(thead.selectAll('th'));
+      function updateSelection(cells, className, value, addToSelected=true) {
+        cells.each((d, i, elements) => {
+          if (addToSelected) {
+            selected.push(d);
+          }
+          d3.select(elements[i]).classed(className, value);
+        });
+      }
+      
+      tbody.selectAll('td')
+        .on('mouseover', (d, i, elements) => {
+          let rowCells = tbody.selectAll(`td.${elements[i].classList[1]}`);
+          updateSelection(rowCells, "mouseover", true);
 
+          if (elements[i].classList[0] === "Neighborhood") {
+            // because the Neighborhood column is essentially the row header, only highlight its row
+            return;
+          };
+
+          // highlight column too
+          let columnCells = tbody.selectAll(`td.${elements[i].classList[0]}`);
+          updateSelection(columnCells, "mouseover", true);
+          let columnHeader = thead.selectAll(`th.${elements[i].classList[0]}`);
+          updateSelection(columnHeader, "mouseover", true);
+
+          // send the dispatcher the updated selected points
+          // this is going to have to be different so that each CELL gets sent
+          // let dispatchString = Object.getOwnPropertyNames(dispatcher._)[0];
+          // dispatcher.call(dispatchString, this, selected);
+
+        }) // end of mouseover
+        .on('mouseout', (d, i, elements) => {
+          selected = [];
+          d3.select(elements[i]).classed("mouseover", false);
+          let rowCells = tbody.selectAll(`td.${elements[i].classList[1]}`);
+          updateSelection(rowCells, "mouseover", false, false);
+          
+          // update column mouseover style
+          let columnCells = tbody.selectAll(`td.${elements[i].classList[0]}`);
+          updateSelection(columnCells, "mouseover", false, false);
+          let columnHeader = thead.selectAll(`th.${elements[i].classList[0]}`);
+          updateSelection(columnHeader, "mouseover", false, false);
+
+        })
+        .on('mousedown', (d, i, elements) => {
+          console.log(elements[i]);
+          // when mousedown anywhere, remove all previously selected cells
+          d3.selectAll('td').classed("selected", false);
+          d3.selectAll('th').classed("selected", false);
+          d3.selectAll('th').classed("clicked", false);
+          d3.selectAll('td').classed("clicked", false);
+
+          // highlight clicked cell darker than rest of row/column, but matching the headers
+          // makes it stand out as the nexus of row/column
+          d3.select(elements[i]).classed("clicked", true);
+
+          // highlight selected row, lighter than the selected cell
+          let rowCells = tbody.selectAll(`td.${elements[i].classList[1]}`);
+          updateSelection(rowCells, "selected", true);
+
+          if (elements[i].classList[0] === "Neighborhood") {
+            // because the Neighborhood column is essentially the row header, only highlight its row
+            return;
+          };
+
+          // highlight column of the selected cell
+          let columnCells = tbody.selectAll(`td.${elements[i].classList[0]}`);
+          updateSelection(columnCells, "selected", true);
+          let columnHeader = thead.selectAll(`th.${elements[i].classList[0]}`);
+          updateSelection(columnHeader, "selected", true);
+
+          // send the dispatcher the updated selected points
+          // let dispatchString = Object.getOwnPropertyNames(dispatcher._)[0];
+          // dispatcher.call(dispatchString, this, selected);
+        })
+        .on('mouseup', (d, i, elements) => {
+          // when mouseup, stop dragging and clear selected array
+          selected = [];
+        })
+
+      // need to do the same for the column headers
       thead.selectAll('th')
         .on('mouseover', (d, i, elements) => {
-          // console.log(d);
-          // console.log(i);
-          // console.log(elements);
-          // console.log(elements[i]);
-          // console.log(elements[i].classList[1]);
           if (elements[i].classList[1] === "Neighborhood") {
             // because the Neighborhood column is essentially the row header
             return;
@@ -83,11 +156,8 @@ function table() {
           // then find each cell in the column and highlight accordingly
           let tbody = d3.select("tbody");
           let columnCells = tbody.selectAll(`td.${elements[i].classList[1]}`);
-          columnCells.each((d2, j, elements2) => {
-            selected.push(d2)
-            d3.select(elements2[j]).classed("mouseover", true)
-          });
-
+          updateSelection(columnCells, "mouseover", true);
+         
           // send the dispatcher the updated selected points
           // this is going to have to be different so that each CELL gets sent
           let dispatchString = Object.getOwnPropertyNames(dispatcher._)[0];
@@ -98,15 +168,10 @@ function table() {
 
         }) // end of mouseover
         .on('mouseout', (d, i, elements) => {
+          selected = [];
           d3.select(elements[i]).classed("mouseover", false);
-          let tbody = d3.select("tbody");
           let columnCells = tbody.selectAll(`td.${elements[i].classList[1]}`);
-          columnCells.each((d2, j, elements2) => {
-            // TODO: hopefully this is fine for removing everything from selected
-            selected = [];
-            d3.select(elements2[j]).classed("mouseover", false);
-          })
-          // console.log(selected);
+          updateSelection(columnCells, "mouseover", false, false);
         })
         .on('mousedown', (d, i, elements) => {
           if (elements[i].classList[1] == "Neighborhood") {
@@ -116,20 +181,21 @@ function table() {
           // when mousedown on column header, remove all previously selected columns
           d3.selectAll('td').classed("selected", false);
           d3.selectAll('th').classed("selected", false);
+          d3.selectAll('th').classed("clicked", false);
+          d3.selectAll('td').classed("clicked", false);
+          
           // then class current column as 'selected', push to selected array, and start dragging
           d3.select(elements[i]).classed("selected", true);
           selected.push(d);
 
-          let tbody = d3.select("tbody");
           let columnCells = tbody.selectAll(`td.${elements[i].classList[1]}`);
-          columnCells.each((d2, j, elements2) => {
-            selected.push(d2);
-            d3.select(elements2[j]).classed("selected", true);
-          })
+          updateSelection(columnCells, "selected", true);
 
           // send the dispatcher the updated selected points
           let dispatchString = Object.getOwnPropertyNames(dispatcher._)[0];
           // console.log(dispatchString);
+          console.log(selected[0]);
+          console.log(selected);
           dispatcher.call(dispatchString, this, "line," + selected[0]);
         })
         .on('mouseup', (d, i, elements) => {
@@ -138,68 +204,7 @@ function table() {
         })
     }
 
-    function selectRow() {
-      let tbody = d3.select("tbody");
-      let selected = [];
-
-      tbody.selectAll('tr')
-        .on('mouseover', (d, i, elements) => {
-          // console.log(d);
-          // console.log(i);
-          // console.log(elements);
-          // console.log(elements[i]);
-          if (elements[i].classList[1] === "Neighborhood") {
-            // because the Neighborhood column is essentially the row header
-            return;
-          };
-
-          // on mouseover, highlight row, and add to selected array
-          d3.select(elements[i]).classed("mouseover", true);
-          selected.push(d);
-
-          // then find each cell in the row and highlight accordingly
-          let rowCells = d3.select(elements[i]).selectAll('td');
-          rowCells.each((d2, j, elements2) => {
-            selected.push(d2);
-            d3.select(elements2[j]).classed("mouseover", true);
-          });
-
-          // send the dispatcher the updated selected points
-          // this is going to have to be different so that each CELL gets sent
-          // let dispatchString = Object.getOwnPropertyNames(dispatcher._)[0];
-          // dispatcher.call(dispatchString, this, selected);
-        }) // end of mouseover
-        .on('mouseout', (d, i, elements) => {
-          d3.select(elements[i]).classed("mouseover", false);
-          let rowCells = d3.select(elements[i]).selectAll('td');
-          rowCells.each((d2, j, elements2) => {
-            selected = [];
-            d3.select(elements2[j]).classed("mouseover", false);
-          })
-        })
-        .on('mousedown', (d, i, elements) => {
-          // when mousedown on column header, remove all previously selected columns
-          d3.selectAll('td').classed("selected", false);
-          d3.selectAll('th').classed("selected", false);
-
-          let rowCells = d3.select(elements[i]).selectAll('td');
-          rowCells.each((d2, j, elements2) => {
-            selected.push(d2);
-            d3.select(elements2[j]).classed("selected", true);
-          });
-        
-          // send the dispatcher the updated selected points
-          let dispatchString = Object.getOwnPropertyNames(dispatcher._)[0];
-          dispatcher.call(dispatchString, this, "neighborhood," + rowCells.nodes()[0].textContent);
-        })
-        .on('mouseup', (d, i, elements) => {
-          // when mouseup, stop dragging and clear selected array
-          selected = [];
-        })
-    }
-
-    selectColumn();
-    selectRow();
+    selectCells();
 
     return chart;
   }
@@ -229,10 +234,3 @@ function table() {
 
   return chart;
 }
-
-// need to add brushing/linking to table
-// consider adding full brushing? Or just add selection?
-// I guess if we let it be brushed, we can just add the text of each selected cell to some object
-// then send that object to the dispatcher and let the other charts update their selections
-
-// window.table = table;
