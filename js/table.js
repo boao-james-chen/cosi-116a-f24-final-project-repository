@@ -15,7 +15,7 @@ function table() {
       .classed("text-unselectable", true);
     
     // build table headers and class accordingly
-    let tableHeaders = ["Neighborhood"].concat(Object.keys(data["Allston"]));
+    let tableHeaders = ["neighborhood"].concat(Object.keys(data["Allston"]));
     let tr = table.append('thead').append('tr');
     tr.selectAll('th').data(tableHeaders).enter().append('th').text((d) => d).classed("header", true);
     tr.selectAll('th').each((d, i, elements) => {
@@ -29,7 +29,7 @@ function table() {
       let row = tbody.append('tr');
       row.append('td')
         .text(neighborhood)
-        .classed("Neighborhood", true)
+        .classed("neighborhood", true)
         .classed(neighborhood.split(' ').join('-'), true);
       for (let key in data[neighborhood]) {
         row.append('td')
@@ -60,7 +60,7 @@ function table() {
           let rowCells = tbody.selectAll(`td.${elements[i].classList[1]}`);
           updateSelection(rowCells, "mouseover", true);
 
-          if (elements[i].classList[0] === "Neighborhood") {
+          if (elements[i].classList[0] === "neighborhood") {
             // because the Neighborhood column is essentially the row header, only highlight its row
             return;
           };
@@ -97,7 +97,7 @@ function table() {
           let rowCells = tbody.selectAll(`td.${elements[i].classList[1]}`);
           updateSelection(rowCells, "selected", true);
 
-          if (elements[i].classList[0] === "Neighborhood") {
+          if (elements[i].classList[0] === "neighborhood") {
             // because the Neighborhood column is essentially the row header, only highlight its row
             dispatcher.call(dispatchString, this, "neighborhood," + elements[i].textContent);
             return;
@@ -120,7 +120,7 @@ function table() {
       // need to do the same for the column headers
       thead.selectAll('th')
         .on('mouseover', (d, i, elements) => {
-          if (elements[i].classList[1] === "Neighborhood") {
+          if (elements[i].classList[1] === "neighborhood") {
             // because the Neighborhood column is essentially the row header
             return;
           };
@@ -146,7 +146,7 @@ function table() {
           updateSelection(columnCells, "mouseover", false, false);
         })
         .on('mousedown', (d, i, elements) => {
-          if (elements[i].classList[1] == "Neighborhood") {
+          if (elements[i].classList[1] == "neighborhood") {
             // because the Neighborhood column is essentially the row header
             return;
           };
