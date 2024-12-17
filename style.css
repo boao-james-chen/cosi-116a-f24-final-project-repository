@@ -166,12 +166,8 @@ tr:nth-child(even) {
 	filter: brightness(95%);
 }
 
-th.mouseover, tr.mouseover {
-	background-color: darkgray;
-}
-
-.Neighborhood.mouseover {
-	background-color: darkgray;
+th.mouseover, tr.mouseover, .Neighborhood.mouseover, td:hover {
+	filter: brightness(90%);
 }
 
 .Neighborhood.selected {
