@@ -65,16 +65,25 @@ const dispatchString = "selectionUpdated";
         console.error("createHeatmap function is not defined!");
         return;
       }
-      createHeatmap('correlation-matrix');
+      const heatmap = createHeatmap('correlation-matrix');
 
       dispatcher.on(dispatchString, (selectedData) => {
         if (selectedData.startsWith("station")) {
           return;
         }
+        console.log("Selection updated:", selectedData);
         mapOverlay.selectAll("*").remove();
         mapHighlight = selectedData;
         drawStations();
+
+        const neighborhood = selectedData.split(',')[1];
+        try {
+          heatmap.update(neighborhood);
+        } catch (error) {
+          console.error("Error updating heatmap:", error);
+      }
       });
+
     }
     catch (error) {
       console.error("Error loading the data:", error);

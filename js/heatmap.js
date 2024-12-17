@@ -1,3 +1,29 @@
+const variableDescriptions = {
+    'Total_Transit_Lines': {
+        description: 'The total number of public transit lines (bus, rail, etc.) serving the neighborhood.',
+        interpretation: 'Higher values indicate better public transportation accessibility.'
+    },
+    'Average_Rent': {
+        description: 'The average monthly rental cost for residential properties in the neighborhood.',
+        interpretation: 'Reflects the cost of living and housing market conditions in the area.'
+    },
+    'Minority_Percentage': {
+        description: 'The percentage of neighborhood residents who identify as racial or ethnic minorities.',
+        interpretation: 'Indicates the demographic diversity of the neighborhood.'
+    },
+    'Per_Capita_Income': {
+        description: 'The average annual income per person in the neighborhood.',
+        interpretation: 'Reflects the economic status of neighborhood residents.'
+    },
+    'Total_Population': {
+        description: 'The total number of residents living in the neighborhood.',
+        interpretation: 'Indicates the size and density of the neighborhood.'
+    },
+    'College_Housing_Percentage': {
+        description: 'The percentage of housing units occupied by college students.',
+        interpretation: 'Higher values suggest a stronger presence of student population.'
+    }
+};
 function createHeatmap(containerId) {
     // Store the full dataset
     let fullData = null;
@@ -5,7 +31,7 @@ function createHeatmap(containerId) {
     let currentHighlight = null;
 
     // Load the JSON data
-    d3.json("data/neighborhood_correlation_matrices.json", function(error, data) {
+    d3.json("data/neighborhood_correlation_matrices.json", function (error, data) {
         if (error) {
             console.error("Error loading correlation data:", error);
             return;
@@ -39,8 +65,14 @@ function createHeatmap(containerId) {
         const container = document.getElementById(containerId);
         container.innerHTML = '';
 
-        // Set up header
+        // Create main container with flex layout
+        const mainContainer = document.createElement('div');
+        mainContainer.className = 'main-container';
+        container.appendChild(mainContainer);
+
+        // Create header (remains centered above both sections)
         const header = document.createElement('div');
+        header.className = 'header-container';
         header.innerHTML = `
             <h2 class="heatmap-title">${currentNeighborhood} Correlation Analysis</h2>
             <div class="button-group">
@@ -48,20 +80,30 @@ function createHeatmap(containerId) {
                 <button class="control-button" id="lowCorr">Low Correlations (≤0.2)</button>
             </div>
         `;
-        container.appendChild(header);
+        container.insertBefore(header, mainContainer);
+
+        // Create heatmap container
+        const heatmapContainer = document.createElement('div');
+        heatmapContainer.className = 'heatmap-section';
+        mainContainer.appendChild(heatmapContainer);
+
+        // Create explanation container
+        const explanationContainer = document.createElement('div');
+        explanationContainer.className = 'explanation-section';
+        mainContainer.appendChild(explanationContainer);
 
         // Set up dimensions
-        const margin = { top: 60, right: 50, bottom: 50, left: 100 };
-        const width = 600 - margin.left - margin.right;
+        const margin = { top: 100, right: 50, bottom: 50, left: 100 };
+        const width = 600 - margin.left - margin.right;  
         const height = 600 - margin.top - margin.bottom;
 
-        // Create SVG
-        const svg = d3.select(`#${containerId}`)
-            .append('svg')
-            .attr('width', width + margin.left + margin.right)
-            .attr('height', height + margin.top + margin.bottom)
-            .append('g')
-            .attr('transform', `translate(${margin.left},${margin.top})`);
+       // Create SVG
+       const svg = d3.select(heatmapContainer)
+       .append('svg')
+       .attr('width', width + margin.left + margin.right)
+       .attr('height', height + margin.top + margin.bottom)
+       .append('g')
+       .attr('transform', `translate(${margin.left},${margin.top})`);
 
         // Create tooltip
         const tooltip = d3.select("body").append('div')
@@ -73,15 +115,15 @@ function createHeatmap(containerId) {
 
         // Get variables
         let variables = Object.keys(data[0]).filter(key => key !== 'variable');
-        
+
         // Variable name mapping
         const variableMap = {
-            'Total_Transit_Lines': 'Total Lines Avaialble',
-            'Average_Rent': 'Average Rent',
-            'Minority_Percentage': 'Percentage of Minority',
-            'Per_Capita_Income': 'Average Income',
-            'Total_Population': 'Total Population',
-            'College_Housing_Percentage': 'Percentage of College'
+            'Total_Transit_Lines': 'Transit Lines',
+            'Average_Rent': 'Rent',
+            'Minority_Percentage': 'Minority',
+            'Per_Capita_Income': 'Income',
+            'Total_Population': 'Population',
+            'College_Housing_Percentage': 'College Housing'
         };
 
         // Create scales
@@ -118,7 +160,7 @@ function createHeatmap(containerId) {
 
         // Create heatmap cells
         const cells = svg.selectAll('rect')
-            .data(data.flatMap(row => 
+            .data(data.flatMap(row =>
                 variables.map(col => ({
                     row: row.variable,
                     col,
@@ -137,24 +179,24 @@ function createHeatmap(containerId) {
 
         // Add hover interactions
         cells
-            .on('mouseover', function(d) {
+            .on('mouseover', function (d) {
                 d3.select(this)
                     .style('stroke', '#2563eb')
                     .style('stroke-width', '2px');
-                
+
                 tooltip.transition()
                     .duration(200)
                     .style('opacity', .9);
-                
+
                 tooltip.html(`${variableMap[d.row] || d.row} × ${variableMap[d.col] || d.col}<br/>Correlation: ${d.value.toFixed(3)}`)
                     .style('left', (d3.event.pageX + 10) + 'px')
                     .style('top', (d3.event.pageY - 28) + 'px');
             })
-            .on('mouseout', function() {
+            .on('mouseout', function () {
                 d3.select(this)
                     .style('stroke', 'white')
                     .style('stroke-width', '1px');
-                
+
                 tooltip.transition()
                     .duration(500)
                     .style('opacity', 0);
@@ -162,7 +204,7 @@ function createHeatmap(containerId) {
 
         // Add correlation values
         svg.selectAll('text.value')
-            .data(data.flatMap(row => 
+            .data(data.flatMap(row =>
                 variables.map(col => ({
                     row: row.variable,
                     col,
@@ -202,7 +244,7 @@ function createHeatmap(containerId) {
         }
 
         // Button handlers
-        d3.select('#highCorr').on('click', function() {
+        d3.select('#highCorr').on('click', function () {
             const isActive = d3.select(this).classed('active');
             d3.selectAll('.control-button').classed('active', false);
             if (!isActive) {
@@ -214,7 +256,7 @@ function createHeatmap(containerId) {
             updateHighlight(currentHighlight);
         });
 
-        d3.select('#lowCorr').on('click', function() {
+        d3.select('#lowCorr').on('click', function () {
             const isActive = d3.select(this).classed('active');
             d3.selectAll('.control-button').classed('active', false);
             if (!isActive) {
@@ -225,18 +267,48 @@ function createHeatmap(containerId) {
             }
             updateHighlight(currentHighlight);
         });
+
+        // Add explanation content
+        explanationContainer.innerHTML = `
+            <h3 class="explanation-header">Understanding the Variables</h3>
+            <div class="explanation-list">
+                ${Object.entries(variableMap).map(([key, label]) => `
+                    <div class="variable-explanation">
+                        <h4 class="variable-name">${label}</h4>
+                        <p class="variable-description">${variableDescriptions[key]?.description || ''}</p>
+                        <p class="variable-interpretation">${variableDescriptions[key]?.interpretation || ''}</p>
+                    </div>
+                `).join('')}
+            </div>
+            <div class="correlation-guide">
+                <h3>Understanding Correlation Values</h3>
+                <ul>
+                    <li><strong>1.0:</strong> Perfect positive correlation</li>
+                    <li><strong>0.7 to 1.0:</strong> Strong positive correlation</li>
+                    <li><strong>0.3 to 0.7:</strong> Moderate positive correlation</li>
+                    <li><strong>0.0 to 0.3:</strong> Weak positive correlation</li>
+                    <li><strong>0.0:</strong> No correlation</li>
+                    <li><strong>Less than 0.0:</strong> Negative correlation</li>
+                </ul>
+                <p class="correlation-note">Note: Correlation does not imply causation. These values show relationships between variables but do not indicate that one variable causes changes in another.</p>
+            </div>
+        `;
     }
 
     // Handle updates from table selection
     function handleTableSelection(selectedNeighborhood) {
         if (!fullData) return;
-        
-        const neighborhoodData = fullData.find(d => d.neighborhood === selectedNeighborhood);
-        if (neighborhoodData) {
-            updateHeatmap(neighborhoodData);
-        } else {
-            console.log("Neighborhood not found:", selectedNeighborhood);
+
+        // First try to find the specific neighborhood data
+        let neighborhoodData = fullData.find(d => d.neighborhood === selectedNeighborhood);
+
+        // If neighborhood not found, use citywide data
+        if (!neighborhoodData) {
+            console.log(`Neighborhood "${selectedNeighborhood}" not found, using citywide data`);
+            neighborhoodData = fullData.find(d => d.neighborhood === "Citywide");
         }
+
+        updateHeatmap(neighborhoodData);
     }
 
     return {
@@ -245,17 +317,44 @@ function createHeatmap(containerId) {
 }
 
 const style = document.createElement('style');
-style.textContent = `
+    style.textContent = `
     #correlation-matrix {
-        max-width: 800px;
+        width: 100%;
+        max-width: 1200px;
         margin: 0 auto;
         padding: 20px;
-    }
-
-    .heatmap-container {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    .header-container {
+        width: 100%;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .main-container {
+        display: flex;
+        gap: 40px;
+        align-items: flex-start;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .heatmap-section {
+        flex: 0 0 auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    .explanation-section {
+        flex: 0 0 400px;
+        padding: 20px;
+        background: #f8fafc;
+        border-radius: 8px;
+        overflow-y: auto;
+        max-height: 600px;
     }
 
     .heatmap-title {
@@ -300,19 +399,70 @@ style.textContent = `
         transition: opacity 0.2s;
     }
 
+    .explanation-header {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 16px;
+        text-align: center;
+    }
+
+    .variable-explanation {
+        margin-bottom: 20px;
+    }
+
+    .variable-name {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #1e40af;
+    }
+
+    .variable-description {
+        margin-bottom: 8px;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .variable-interpretation {
+        font-size: 14px;
+        color: #4b5563;
+        font-style: italic;
+    }
+
+    .correlation-guide {
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 1px solid #e2e8f0;
+        text-align: center;
+    }
+
+    .correlation-guide h3 {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 12px;
+    }
+
+    .correlation-guide ul {
+        list-style-type: none;
+        padding: 0;
+        text-align: left;
+    }
+
+    .correlation-guide li {
+        margin-bottom: 8px;
+        font-size: 14px;
+    }
+
+    .correlation-note {
+        margin-top: 16px;
+        font-size: 14px;
+        color: #4b5563;
+        font-style: italic;
+        text-align: center;
+    }
+
     svg {
         display: block;
-        margin: 0 auto;
-    }
-
-    .tick text {
-        font-size: 12px;
-        font-weight: 500;
-    }
-
-    .value {
-        font-size: 11px;
-        font-weight: 500;
     }
 `;
 document.head.appendChild(style);
