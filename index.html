@@ -193,77 +193,164 @@
         <td>Total Population, Household Population, Household size, Average rent (2019-2021)</td>
       </tr>
     </table>
-  <h3>MBTA Stations Dataset</h3>
-  <p>Contains detailed information about MBTA transit stations including their locations and lines from MBTA. We gathered the information from MBTA Api and MBTA Ridership Map</p>
-  <table>
-    <tr>
-      <th>Data Type</th>
-      <th>Variables</th>
-    </tr>
-    <tr>
-      <td>Categorical</td>
-      <td>Name, Municipality, Line</td>
-    </tr>
-    <tr>
-      <td>Quantitative</td>
-      <td>Latitude, Longitude</td>
-    </tr>
-  </table>
-  <h2>Data Preprocessing Steps</h2>
-  <ol>
-    <li><strong>Transit Line Counting:</strong>
-      <ul>
-        <li>Manually counted unique transit lines per neighborhood using the MBTA stations dataset</li>
-        <li>Created a mapping between stations and neighborhoods</li>
-        <li>Verified station locations against neighborhood boundaries</li>
-      </ul>
-    </li>
-    <li><strong>Demographic Data Processing:</strong>
-      <ul>
-        <li>Calculated minority percentage from racial composition data and college housing percentage from institutional housing data</li>
-      </ul>
-    </li>
-    <li><strong>Correlation Analysis:</strong>
-      <ul>
-        <li>Generated neighborhood-specific correlation matrices and stored it as JSON</li>
-      </ul>
-    </li>
-  </ol>
+    <h3>MBTA Stations Dataset</h3>
+    <p>Contains detailed information about MBTA transit stations including their locations and lines from MBTA. We
+      gathered the information from MBTA Api and MBTA Ridership Map</p>
+    <table>
+      <tr>
+        <th>Data Type</th>
+        <th>Variables</th>
+      </tr>
+      <tr>
+        <td>Categorical</td>
+        <td>Name, Municipality, Line</td>
+      </tr>
+      <tr>
+        <td>Quantitative</td>
+        <td>Latitude, Longitude</td>
+      </tr>
+    </table>
+    <h2>Data Preprocessing Steps</h2>
+    <ol>
+      <li><strong>Transit Line Counting:</strong>
+        <ul>
+          <li>Manually counted unique transit lines per neighborhood using the MBTA stations dataset</li>
+          <li>Created a mapping between stations and neighborhoods</li>
+          <li>Verified station locations against neighborhood boundaries</li>
+        </ul>
+      </li>
+      <li><strong>Demographic Data Processing:</strong>
+        <ul>
+          <li>Calculated minority percentage from racial composition data and college housing percentage from
+            institutional housing data</li>
+        </ul>
+      </li>
+      <li><strong>Correlation Analysis:</strong>
+        <ul>
+          <li>Generated neighborhood-specific correlation matrices and stored it as JSON</li>
+        </ul>
+      </li>
+    </ol>
 
-  <h1>Task Analysis</h1>
+    <h1>Task Analysis</h1>
+    <p>
+      The task table outlines a series of domain-specific questions related to public transportation, housing, and
+      population density within the Boston area. We aim to explore key relationships and comparisons within the data,
+      focusing on transportation accessibility, housing quality, rent prices, and population distribution.
+    </p>
+    <p>
+      The ultimate goal is to derive meaningful insights about transportation infrastructure and housing dynamics. For
+      example, identifying areas with balanced accessibility, understanding relationships between housing density and
+      transportation options, and exploring disparities in public transit coverage.
+    </p>
 
-  <p><em>Summary of task table.</em></p>
+    <table>
+      <caption>Ordered Task Analysis Table</caption>
+      <thead>
+        <tr>
+          <th>Index (ID #)</th>
+          <th>Domain Task</th>
+          <th>Analytic Task (Low-level, "Query")</th>
+          <th>Search Task (Mid-level)</th>
+          <th>Analyze Task (High-level)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Is there a relationship between transportation options and housing density?</td>
+          <td>Compare</td>
+          <td>Explore</td>
+          <td>Discover</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Of population density and housing quality, which correlates more closely to more public transportation
+            options?</td>
+          <td>Compare</td>
+          <td>Explore</td>
+          <td>Record</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Which area of Boston is best served by public transportation?</td>
+          <td>Identify</td>
+          <td>Locate</td>
+          <td>Present</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Which area of Boston strikes a balance between housing prices and quality of public transportation?</td>
+          <td>Identify</td>
+          <td>Locate</td>
+          <td>Record</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Is there a relationship between distance from a metro stop and housing prices?</td>
+          <td>Compare</td>
+          <td>Explore</td>
+          <td>Derive</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Which metro line serves the most affluent areas?</td>
+          <td>Identify</td>
+          <td>Browse</td>
+          <td>Present</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Are there areas with similarly high population density that are not served by public transit?</td>
+          <td>Identify</td>
+          <td>Locate</td>
+          <td>Present</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>Identify areas that balance population density, rent prices, and transportation accessibility?</td>
+          <td>Identify</td>
+          <td>Locate</td>
+          <td>Present</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Do areas that are served by the commuter rail have higher population density than areas without?</td>
+          <td>Compare</td>
+          <td>Explore</td>
+          <td>Discover</td>
+        </tr>
+      </tbody>
+    </table>
 
-  <p><em>Expectation: Clearly describes domain tasks, processes, goals and abstract tasks for domain problems.</em>
-  </p>
+    <h1>Design Process</h1>
 
-  <h1>Design Process</h1>
+    <p><em>Sketches and design choices to justify final visualization.</em></p>
 
-  <p><em>Sketches and design choices to justify final visualization.</em></p>
-
-  <p><em>Expectation: Evidence of iterative improvement.
-      Logical discussion of design choices grounded in theory from course.
-      Discusses feedback from usability testing.</em></p>
+    <p><em>Expectation: Evidence of iterative improvement.
+        Logical discussion of design choices grounded in theory from course.
+        Discusses feedback from usability testing.</em></p>
 
 
-  <h1>Conclusion</h1>
+    <h1>Conclusion</h1>
 
-  <p><em>Short summary of work completed and areas for improvement/future-work.</em></p>
+    <p><em>Short summary of work completed and areas for improvement/future-work.</em></p>
 
-  <p><em>Expectation: Meaningfully wraps up project and has good future directions.</em></p>
+    <p><em>Expectation: Meaningfully wraps up project and has good future directions.</em></p>
 
 
-  <h1>Acknowledgments</h1>
+    <h1>Acknowledgments</h1>
 
-  <p><em>List here where any code, packages/libraries, text, images, designs, etc. that you leverage come from.</em>
-  </p>
+    <p><em>List here where any code, packages/libraries, text, images, designs, etc. that you leverage come from.</em>
+    </p>
 
-  <ul>
-    <li><a href="https://d3js.org/">D3: Data-Driven Documents</a> by Mike Bostock.</li>
-    <li><a href="https://github.com/mapbox/polyline">Polyline Library</a> from the <a href="https://www.mapbox.com/">Mapbox company</a>.</li>
-    <li><a href="https://codepo8.github.io/css-fork-on-github-ribbon/#">Pure CSS responsive "Fork me on GitHub"
-        ribbon</a> by Chris Heilmann.</li>
-  </ul>
+    <ul>
+      <li><a href="https://d3js.org/">D3: Data-Driven Documents</a> by Mike Bostock.</li>
+      <li><a href="https://github.com/mapbox/polyline">Polyline Library</a> from the <a
+          href="https://www.mapbox.com/">Mapbox company</a>.</li>
+      <li><a href="https://codepo8.github.io/css-fork-on-github-ribbon/#">Pure CSS responsive "Fork me on GitHub"
+          ribbon</a> by Chris Heilmann.</li>
+    </ul>
 
   </div>
 
