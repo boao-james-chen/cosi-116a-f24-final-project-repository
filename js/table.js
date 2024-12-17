@@ -1,5 +1,7 @@
 // table.js
 function table() {
+  const dispatchString = "selectionUpdated";
+
   console.log("top of table");
   let ourBrush = null,
     selectableElements = d3.select(null),
