@@ -88,7 +88,7 @@ h3 {
 
 /* Pretty table layout */
 table {
-	font-size: 0.75rem;
+	font-size: 0.875rem;
 	border-collapse: separate;
 	/* vertical | horizontal */
 	border-spacing: 0 0;
@@ -110,10 +110,14 @@ table {
 	display: block;
 }
 
+.table-holder table {
+	font-size: 0.75rem;
+}
+
 th,
 td {
 	/* vertical | horizontal */
-	padding: 0.5rem 0.64rem;
+	padding: 0.48rem 0.64rem;
 	text-align: center;
 	flex-direction: column;
 	border-collapse: collapse;
@@ -141,7 +145,7 @@ th, td, tr {
 th, .Neighborhood {
 	background-color: #ddd;
 	font-weight: bold;
-	font-size: large;
+	font-size: 1rem;
 }
 
 tr {

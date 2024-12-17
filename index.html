@@ -84,9 +84,7 @@
       The tool will enable administrators to identify which neighborhoods are well-served by public transportation and
       which are underserved. These insights could guide decisions about future MBTA expansion or improvements.</p>
 
-
     <h1>Visualization</h1>
-
 
   </div>
 
@@ -103,7 +101,6 @@
 
     <div id="correlation-matrix"></div>
   </div>
-
 
   <!-- Your writeup goes here -->
   <div class="content-column">
@@ -191,9 +188,9 @@
         <td>Total Population, Household Population, Household size, Average rent (2019-2021)</td>
       </tr>
     </table>
-    <h3>MBTA Stations Dataset</h3>
-    <p>Contains detailed information about MBTA transit stations including their locations and lines from MBTA. We
-      gathered the information from MBTA Api and MBTA Ridership Map</p>
+    <h3>MBTA Geographical Dataset</h3>
+    <p>Contains detailed information about MBTA transit lines and stations, including their shapes and locations. We
+      gathered the information from the MBTA API and MBTA Ridership Map.</p>
     <table>
       <tr>
         <th>Data Type</th>
@@ -205,7 +202,7 @@
       </tr>
       <tr>
         <td>Quantitative</td>
-        <td>Latitude, Longitude</td>
+        <td>Latitude, Longitude, Line Shapes</td>
       </tr>
     </table>
     <h2>Data Preprocessing Steps</h2>
@@ -345,33 +342,33 @@
 
     Next to the map, an interactive table makes it easy to see city-specific details while keeping the connection to the map clear. Hovering over rows (cities) or columns (metro lines) highlights the relevant areas on the map, helping users naturally link the data to the city’s layout. To add further depth, a heat map uncovers relationships between housing, population density, and transit access, turning complex data into clear, actionable insights. This design isn’t just about showing numbers—it’s about helping users discover meaningful patterns in a way that feels natural, intuitive, and visually engaging. </p>
 
-  <h2>Usability Testing and Feedback</h2>
-  <p>
-  The reviewers found our data visualization engaging and interactive but noted that its purpose and functionality are not immediately clear, requiring users time to understand. Specific areas for improvement include clarifying the x and y axes on the heatmap and refining the color scheme for better accessibility. To address this feedback, we plan to add annotations to the heatmap to clearly explain axis meanings and data relationships. By enhancing clarity with annotations and improving user-friendliness overall, the visualization will become more intuitive, effective, and accessible for all users.
-  </p>
+    <h2>Usability Testing and Feedback</h2>
+    <p>
+    The reviewers found our data visualization engaging and interactive but noted that its purpose and functionality are not immediately clear, requiring users time to understand. Specific areas for improvement include clarifying the x and y axes on the heatmap and refining the color scheme for better accessibility. To address this feedback, we plan to add annotations to the heatmap to clearly explain axis meanings and data relationships. By enhancing clarity with annotations and improving user-friendliness overall, the visualization will become more intuitive, effective, and accessible for all users.
+    </p>
 
-  <hr>
-
-
-  <h1>Conclusion</h1>
-
-  <p>Our team succeeded in developing an interactive visualization system that explores the connections between MBTA transportation services and demographic factors across Boston neighborhoods. The project brought together three key components: an interactive MBTA ridership map, a heatmap showing correlations between transit access and socioeconomic factors, and a detailed table with neighborhood-specific metrics. These tools are interconnected through linking and brushing features, allowing users to seamlessly explore relationships between transportation access, housing costs, and demographic trends.</p>
-
-  <p>While we achieved our core goals, there’s room to make the system even more insightful. Incorporating chronological data could reveal how these patterns change over time, offering a richer perspective beyond the current static snapshot. The correlation analysis would also benefit from <em>more granular community-level data</em>, as neighborhood-wide averages show limited variation. Additionally, integrating accurate GIS data would allow us to color-code precise neighborhood boundaries. Looking ahead, this project provides a strong foundation for further exploration. Future directions include integrating real-time MBTA service data, allowing users to observe how delays or changes impact neighborhoods in real-time. Expanding the analysis to include additional factors like commute times, air quality, or employment access could uncover new insights into urban living challenges. By refining both the data and visualization components, this system has the potential to become an essential tool for cities striving to create more equitable, accessible, and sustainable communities.</p>
+    <hr>
 
 
-  <h1>Acknowledgments</h1>
+    <h1>Conclusion</h1>
 
-  <p><em>List here where any code, packages/libraries, text, images, designs, etc. that you leverage come from.</em>
-  </p>
+    <p>Our team succeeded in developing an interactive visualization system that explores the connections between MBTA transportation services and demographic factors across Boston neighborhoods. The project brought together three key components: an interactive MBTA ridership map, a heatmap showing correlations between transit access and socioeconomic factors, and a detailed table with neighborhood-specific metrics. These tools are interconnected through linking and brushing features, allowing users to seamlessly explore relationships between transportation access, housing costs, and demographic trends.</p>
 
-  <ul>
-    <li><a href="https://d3js.org/">D3: Data-Driven Documents</a> by Mike Bostock.</li>
-    <li><a href="https://github.com/mapbox/polyline">Polyline Library</a> from the <a
-        href="https://www.mapbox.com/">Mapbox company</a>.</li>
-    <li><a href="https://codepo8.github.io/css-fork-on-github-ribbon/#">Pure CSS responsive "Fork me on GitHub"
-        ribbon</a> by Chris Heilmann.</li>
-  </ul>
+    <p>While we achieved our core goals, there’s room to make the system even more insightful. Incorporating chronological data could reveal how these patterns change over time, offering a richer perspective beyond the current static snapshot. The correlation analysis would also benefit from <em>more granular community-level data</em>, as neighborhood-wide averages show limited variation. Additionally, integrating accurate GIS data would allow us to color-code precise neighborhood boundaries. Looking ahead, this project provides a strong foundation for further exploration. Future directions include integrating real-time MBTA service data, allowing users to observe how delays or changes impact neighborhoods in real-time. Expanding the analysis to include additional factors like commute times, air quality, or employment access could uncover new insights into urban living challenges. By refining both the data and visualization components, this system has the potential to become an essential tool for cities striving to create more equitable, accessible, and sustainable communities.</p>
+
+
+    <h1>Acknowledgments</h1>
+
+    <p><em>List here where any code, packages/libraries, text, images, designs, etc. that you leverage come from.</em>
+    </p>
+
+    <ul>
+      <li><a href="https://d3js.org/">D3: Data-Driven Documents</a> by Mike Bostock.</li>
+      <li><a href="https://github.com/mapbox/polyline">Polyline Library</a> from the <a
+          href="https://www.mapbox.com/">Mapbox company</a>.</li>
+      <li><a href="https://codepo8.github.io/css-fork-on-github-ribbon/#">Pure CSS responsive "Fork me on GitHub"
+          ribbon</a> by Chris Heilmann.</li>
+    </ul>
 
   </div>
 
