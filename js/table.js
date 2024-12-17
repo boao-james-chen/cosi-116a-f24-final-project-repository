@@ -106,12 +106,10 @@ function table() {
 
         })
         .on('mousedown', (d, i, elements) => {
-          console.log(elements[i]);
+          // console.log(elements[i]);
           // when mousedown anywhere, remove all previously selected cells
-          d3.selectAll('td').classed("selected", false);
-          d3.selectAll('th').classed("selected", false);
-          d3.selectAll('th').classed("clicked", false);
-          d3.selectAll('td').classed("clicked", false);
+          d3.selectAll('td, th').classed("selected", false);
+          d3.selectAll('td, th').classed("clicked", false);
 
           // highlight clicked cell darker than rest of row/column, but matching the headers
           // makes it stand out as the nexus of row/column
@@ -123,6 +121,7 @@ function table() {
 
           if (elements[i].classList[0] === "Neighborhood") {
             // because the Neighborhood column is essentially the row header, only highlight its row
+            dispatcher.call(dispatchString, this, "neighborhood," + elements[i].textContent);
             return;
           };
 
@@ -134,7 +133,8 @@ function table() {
 
           // send the dispatcher the updated selected points
           // let dispatchString = Object.getOwnPropertyNames(dispatcher._)[0];
-          // dispatcher.call(dispatchString, this, selected);
+          // table/station,neighborhood,station(s)
+          dispatcher.call(dispatchString, this, "table/station," + elements[i].parentElement.querySelector("td").textContent + "," + elements[i].textContent);
         })
         .on('mouseup', (d, i, elements) => {
           // when mouseup, stop dragging and clear selected array
