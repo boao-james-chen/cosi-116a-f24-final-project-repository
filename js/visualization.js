@@ -1,47 +1,45 @@
 // visualization.js
 
-const bounds = {
-  topLeft: { lat: 42.445, lng: -71.275 },
-  bottomRight: { lat: 42.205, lng: -70.975 }
-};
-
-// Define colors for lines
-const lineColors = {
-  Red: "#FF0000",
-  Mattapan: "#FF6666",
-  Orange: "#FFA500",
-  "Green-B": "#008000",
-  "Green-C": "#008000",
-  "Green-D": "#008000",
-  "Green-E": "#008000",
-  Blue: "#0000FF"
-};
-
-// Map dimensions
-const mapImage = document.getElementById("boston-map");
-const mapOverlay = d3.select("#boston-map-overlay");
-
-// Tooltip
-const tooltip = d3.select(".map-tooltip");
-
-// Convert geographic coordinates to pixel positions
-function project(lat, lng, canvasWidth, canvasHeight) {
-  const xScale = canvasWidth / (bounds.bottomRight.lng - bounds.topLeft.lng);
-  const yScale = canvasHeight / (bounds.topLeft.lat - bounds.bottomRight.lat);
-
-  const x = (lng - bounds.topLeft.lng) * xScale;
-  const y = (bounds.topLeft.lat - lat) * yScale;
-
-  return { x, y };
-}
-
-let stationsData, shapeData;
-
-let selectionTable, dispatcher;
-
-const dispatchString = "selectionUpdated";
-
 (() => {
+  const bounds = {
+    topLeft: { lat: 42.445, lng: -71.275 },
+    bottomRight: { lat: 42.205, lng: -70.975 }
+  };
+  
+  // Define colors for lines
+  const lineColors = {
+    Red: "#FF0000",
+    Mattapan: "#FF6666",
+    Orange: "#FFA500",
+    "Green-B": "#008000",
+    "Green-C": "#008000",
+    "Green-D": "#008000",
+    "Green-E": "#008000",
+    Blue: "#0000FF"
+  };
+  
+  // Map dimensions
+  const mapImage = document.getElementById("boston-map");
+  const mapOverlay = d3.select("#boston-map-overlay");
+  
+  // Tooltip
+  const tooltip = d3.select(".map-tooltip");
+  
+  // Convert geographic coordinates to pixel positions
+  function project(lat, lng, canvasWidth, canvasHeight) {
+    const xScale = canvasWidth / (bounds.bottomRight.lng - bounds.topLeft.lng);
+    const yScale = canvasHeight / (bounds.topLeft.lat - bounds.bottomRight.lat);
+  
+    const x = (lng - bounds.topLeft.lng) * xScale;
+    const y = (bounds.topLeft.lat - lat) * yScale;
+  
+    return { x, y };
+  }
+  
+  let stationsData, shapeData;
+  let selectionTable, dispatcher;
+  
+  const dispatchString = "selectionUpdated";
 
   d3.json("data/neighborhood_stations.json", data => {
     try {
@@ -215,5 +213,9 @@ const dispatchString = "selectionUpdated";
   window.addEventListener("resize", () => {
     mapOverlay.selectAll("*").remove();
     drawMap();
+  });
+
+  document.querySelector("#line-colors-table")?.querySelectorAll("span").forEach(line => {
+    line.style.color = lineColors[line.textContent] || "#000";
   });
 })();

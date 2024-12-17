@@ -8,7 +8,7 @@ body {
 h1,
 h2,
 h3 {
-	line-height: 1.2
+	line-height: 1.2;
 }
 
 /* Your text should be in a nice narrow column */
@@ -86,16 +86,6 @@ h3 {
 	}
 }
 
-/* Style for selected marks (table rows) */
-/* tr.selected {
-	background-color: pink;
-} */
-
-/* .table-container {
-	max-width: 90%;
-	max-height: 600px;
-} */
-
 /* Pretty table layout */
 table {
 	font-size: 0.75rem;
@@ -131,7 +121,7 @@ td {
 }
 
 .table-holder th, .table-holder td {
-	min-width: 8em;
+	min-width: 6em;
 }
 
 tr td:first-child {
@@ -260,7 +250,7 @@ table.text-unselectable {
 	white-space: pre;
 }
 
-.map-tooltip, .table-holder, #boston-map, #correlation-matrix {
+.map-tooltip, .table-holder, img, #correlation-matrix {
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.24), 0 5px 10px rgba(0, 0, 0, 0.12);
 }
 
@@ -274,4 +264,9 @@ table.text-unselectable {
 
 .explanation-section {
 	background-color: #f6f6f6;
+}
+
+.explanations img {
+	width: 100%;
+	max-width: 800px;
 }

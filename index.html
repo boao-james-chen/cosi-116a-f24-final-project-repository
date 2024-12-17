@@ -120,53 +120,64 @@
         instead.</p>
     </video>
 
-    <h1>Visualization explanation</h1>
-    <p>slide placeholders</p>
-    <p>Each visulzation should have UI walkthrough and deisgn justification</p>
-    <section>
-      <h2>MBTA Ridership Map</h2>
-      <img src="placeholder" alt=" Ridership Map" style="width: 100%; max-width: 800px;">
-      <p>placeholder</p>
-    </section>
+    <div class="explanations">
+      <h1>Visualization explanation</h1>
+      <section>
+        <h2>MBTA Rapid Transit ("T") Map</h2>
+        <img src="images/mbta_map.png" alt="MBTA Map">
+        <p>A simple map showing all existing MBTA rapid transit lines (also called "T") serving the Boston Area. Hovering above stations allows the user to view the lines and municipality (or neighborhood) the station belongs to. Stations serviced by multiple different lines are colored gray. This map provides a quick overview of the T system in Boston, helping users understand the distribution of transit lines across the city. </p>
 
-    <section>
-      <h2>Table</h2>
-      <img src="images/neighborhood-lines-table.png" alt=" Table" style="width: 100%; max-width: 800px;">
-      <p>The table is designed to be an easy way for users to find information on a particular neighborhood/city or line of the T that they are interested in. With its simple alphabetical organization, users can easily find a city by its name to select and highlight all of the stations along the lines that run through that neighborhood. Likewise, if they are interested in observing patterns along a whole line through different neighborhoods, they can select a line instead.</p>
+        <p>Notably, some lines, especially the "Green" line, share a same track, so they are named and represented as branches from the same line on the map.</p>
 
-      <p>When a user selects a column or row, each cell in that line will highlight in light blue, chosen as a widely accessible color that aligns with the heatmap color scheme. When an individual cell is selected, it is highlighted a slightly darker blue than the column and row and the text is bolded so that the eye is drawn to that cell. After any selection on the table, the corresponding line or stations in that neighborhood are highlighted in the map view. The heatmap also updates with new values whenever a neighborhood is selected.</p>
+        <p>In total, there are 125 stations and 8 MBTA lines shown on the map, grouped here according to their branches:</p>
 
-      <p>In addition to being a simple way to interact with and select parts of the visualization that the user is interested in, the table also implicitly encodes information about how well each neighborhood is served by public transportation. Since each cell adapts to the text inside it, the size of the cell indirectly correlates with how well-served an area is by the T. For example, Brookline has a high number of stops along the C branch of the Green Line, which increases the size of the cell, making it stand out compared to nearby neighborhoods with significantly fewer stations, such as Braintree. And because there is more text inside certain cells, they have a higher weight and contrast themselves with the empty cells nearby. Downtown is a good example of this, since it has a significant number of stations spread out across each line, instead of being a large number of stations on one line.</p>
-    </section>
+        <table id="line-colors-table">
+          <tr><td><span>Red</span>, <span>Mattapan</span></td></tr>
+          <tr><td><span>Orange</span></td></tr>
+          <tr><td><span>Green-B</span>, <span>Green-C</span>, <span>Green-D</span>, <span>Green-E</span></td></tr>
+          <tr><td><span>Blue</span></td></tr>
+        </table>
+      </section>
 
-    <section>
-      <h2>Correlation Analysis Heatmap</h2>
-      <img src="files/correlation_matrix.png" alt="Correlation Matrix" style="width: 100%; max-width: 800px;">
-      <p>Our correlation analysis tool is designed with clarity and user engagement in mind. At the top, users first
-        see the neighborhood name and two intuitive filter buttons that help highlight important patterns - high
-        correlations (≥0.7) and low correlations (≤0.2). These filters allow users to quickly identify the strongest
-        and weakest relationships between variables.</p>
+      <section>
+        <h2>Table</h2>
+        <img src="images/neighborhood-lines-table.png" alt="Neighborhoods/Lines Table"">
+        <p>The table is designed to be an easy way for users to find information on a particular neighborhood/city or line of the T that they are interested in. With its simple alphabetical organization, users can easily find a city by its name to select and highlight all of the stations along the lines that run through that neighborhood. Likewise, if they are interested in observing patterns along a whole line through different neighborhoods, they can select a line instead.</p>
 
-      <p>The central heatmap uses a soft blue color gradient that increases in intensity with stronger correlations.
-        We chose blue because it's widely accessible for colorblind users and creates a professional, trustworthy
-        feel. Each cell displays both color and the actual correlation value for precision. When users hover over any
-        cell, a tooltip appears showing the exact relationship between variables (for example, "Transit Lines ×
-        Population, Correlation: 0.990"). This interactive feature helps users explore specific relationships they're
-        interested in.</p>
-      <p>To aid understanding, we placed a variable explanation panel directly next to the heatmap. This side-by-side
-        layout ensures users can easily reference variable definitions while exploring correlations. The panel
-        includes both straightforward descriptions of each variable and practical interpretations of what the values
-        mean for the neighborhood. We also included a "Understanding Correlation Values" guide that breaks down how to
-        interpret different correlation strengths, using plain language rather than statistical jargon.</p>
-    </section>
+        <p>When a user selects a column or row, each cell in that line will highlight in light blue, chosen as a widely accessible color that aligns with the heatmap color scheme. When an individual cell is selected, it is highlighted a slightly darker blue than the column and row and the text is bolded so that the eye is drawn to that cell. After any selection on the table, the corresponding line or stations in that neighborhood are highlighted in the map view. The heatmap also updates with new values whenever a neighborhood is selected.</p>
 
-    <section>
-      <h2>Interactive Features and Linking</h2>
-      <p>The visualization is dynamically linked to each other - when users click on different station on the map, it
-        will highlight the neighborhoods in the table, and the heatmap instantly updates to show that neighborhood's
-        specific correlation patterns. This linking creates a seamless exploration experience, allowing users to
-        quickly glimpse across different areas of the city. </p>
-    </section>
+        <p>In addition to being a simple way to interact with and select parts of the visualization that the user is interested in, the table also implicitly encodes information about how well each neighborhood is served by public transportation. Since each cell adapts to the text inside it, the size of the cell indirectly correlates with how well-served an area is by the T. For example, Brookline has a high number of stops along the C branch of the Green Line, which increases the size of the cell, making it stand out compared to nearby neighborhoods with significantly fewer stations, such as Braintree. And because there is more text inside certain cells, they have a higher weight and contrast themselves with the empty cells nearby. Downtown is a good example of this, since it has a significant number of stations spread out across each line, instead of being a large number of stations on one line.</p>
+      </section>
+
+      <section>
+        <h2>Correlation Analysis Heatmap</h2>
+        <img src="images/correlation_matrix.png" alt="Correlation Matrix">
+        <p>Our correlation analysis tool is designed with clarity and user engagement in mind. At the top, users first
+          see the neighborhood name and two intuitive filter buttons that help highlight important patterns - high
+          correlations (≥0.7) and low correlations (≤0.2). These filters allow users to quickly identify the strongest
+          and weakest relationships between variables.</p>
+
+        <p>The central heatmap uses a soft blue color gradient that increases in intensity with stronger correlations.
+          We chose blue because it's widely accessible for colorblind users and creates a professional, trustworthy
+          feel. Each cell displays both color and the actual correlation value for precision. When users hover over any
+          cell, a tooltip appears showing the exact relationship between variables (for example, "Transit Lines ×
+          Population, Correlation: 0.990"). This interactive feature helps users explore specific relationships they're
+          interested in.</p>
+        <p>To aid understanding, we placed a variable explanation panel directly next to the heatmap. This side-by-side
+          layout ensures users can easily reference variable definitions while exploring correlations. The panel
+          includes both straightforward descriptions of each variable and practical interpretations of what the values
+          mean for the neighborhood. We also included a "Understanding Correlation Values" guide that breaks down how to
+          interpret different correlation strengths, using plain language rather than statistical jargon.</p>
+      </section>
+
+      <section>
+        <h2>Interactive Features and Linking</h2>
+        <p>The visualization is dynamically linked to each other - when users click on different station on the map, it
+          will highlight the neighborhoods in the table, and the heatmap instantly updates to show that neighborhood's
+          specific correlation patterns. This linking creates a seamless exploration experience, allowing users to
+          quickly glimpse across different areas of the city. However, brushing is not provided as the data could be meaningless, if the user chooses to select multiple disconnected stations from different lines at once.</p>
+      </section>
+    </div>
 
     <h1>Data Analysis</h1>
     <h2>Dataset Overview</h2>
