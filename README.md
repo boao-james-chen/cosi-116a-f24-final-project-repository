@@ -9,7 +9,7 @@ See the complete project: https://boao-james-chen.github.io/cosi-116a-f24-final-
 
 ## Setup
 
-1. Clone this repository to your local machine. E.g., in your terminal / command prompt `CD` to where you want this the folder for this activity to be. Then run `git clone <YOUR_REPO_URL>`
+1. Clone this repository **RECURSIVELY** to your local machine. E.g., in your terminal / command prompt `CD` to where you want this the folder for this activity to be. Then run `git clone https://github.com/boao-james-chen/cosi-116a-f24-final-project-repository.git --recursive`
 1. In `README.md` update the URL above to point to your GitHub pages website.
 1. `CD` or open a terminal / command prompt window into the cloned folder.
 1. Start a simple python webserver. E.g., one of these commands:
@@ -22,7 +22,7 @@ See the complete project: https://boao-james-chen.github.io/cosi-116a-f24-final-
 
 ## Updating Data
 
-* To get the latest MBTA stations data, run our scrape script in the `data` directory together with our neighborhood data. It should save the data to `mbta_stations.csv`.
+* To get the latest MBTA line shapes and stations data, run our scrape script in the `data` directory together with our neighborhood data. It should save the data to `mbta_shapes.json` and `mbta_stations.csv`.
 
 ```
 cd data

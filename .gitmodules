@@ -1,0 +1,3 @@
+[submodule "lib/polyline"]
+	path = lib/polyline
+	url = https://github.com/mapbox/polyline
