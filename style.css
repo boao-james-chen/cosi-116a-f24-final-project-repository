@@ -126,6 +126,11 @@ th {
 	font-size: large;
 }
 
+thead, th {
+	position: sticky;
+	top: 0;
+}
+
 .Neighborhood {
 	background-color: lightgray;
 	font-weight: bold;
