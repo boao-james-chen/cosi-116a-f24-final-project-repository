@@ -43,10 +43,10 @@
 
   d3.json("data/neighborhood_stations.json", data => {
     try {
-      console.log("Data loaded:", data);
+      // console.log("Data loaded:", data);
 
       // Create table visualization
-      console.log("Creating table...");
+      // console.log("Creating table...");
       if (typeof table === 'undefined') {
         console.error("table function is not defined!");
         return;
@@ -58,7 +58,7 @@
       dispatcher = selectionTable.selectionDispatcher();
 
       // Create heatmap
-      console.log("Creating heatmap...");
+      // console.log("Creating heatmap...");
       if (typeof createHeatmap === 'undefined') {
         console.error("createHeatmap function is not defined!");
         return;

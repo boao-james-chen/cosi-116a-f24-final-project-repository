@@ -2,7 +2,6 @@
 function table() {
   const dispatchString = "selectionUpdated";
 
-  console.log("top of table");
   let ourBrush = null,
     selectableElements = d3.select(null),
     dispatcher;
@@ -10,20 +9,11 @@ function table() {
   // Create the chart by adding an svg to the div with the id 
   // specified by the selector using the given data
   function chart(selector, data) {
-    console.log("in chart");
     let table = d3.select(selector)
       .append("table")
       .classed("my-table", true)
       .classed("text-unselectable", true);
 
-    console.log(typeof data);
-    console.log(data);
-    console.log(Object.keys(data["Allston"]));
-
-    console.log(typeof data)
-    console.log(data)
-    console.log(Object.keys(data["Allston"]))
-    // headers should be each metro line
     let tableHeaders = ["Neighborhood"].concat(Object.keys(data["Allston"]));
 
     let tr = table.append('thead').append('tr');
@@ -35,20 +25,13 @@ function table() {
 
     let tbody = table.append('tbody');
 
-    console.log("in table")
-    console.log(data)
-
     for (let neighborhood in data) {
       let row = tbody.append('tr');
       row.append('td')
         .text(neighborhood)
         .classed("Neighborhood", true)
         .classed(neighborhood.split(' ').join('-'), true);
-      // change the styling of the neighborhood cell so that it's darker
-      // probably make this a custom CSS class so it can have specific actions when selected
-      // probably do the same for the column headers
       for (let key in data[neighborhood]) {
-        // console.log(data[neighborhood][key])
         row.append('td')
           .text(data[neighborhood][key].join(', '))
           .classed(key, true)
@@ -87,11 +70,6 @@ function table() {
           let columnHeader = thead.selectAll(`th.${elements[i].classList[0]}`);
           updateSelection(columnHeader, "mouseover", true);
 
-          // send the dispatcher the updated selected points
-          // this is going to have to be different so that each CELL gets sent
-          // let dispatchString = Object.getOwnPropertyNames(dispatcher._)[0];
-          // dispatcher.call(dispatchString, this, selected);
-
         }) // end of mouseover
         .on('mouseout', (d, i, elements) => {
           selected = [];
@@ -107,7 +85,6 @@ function table() {
 
         })
         .on('mousedown', (d, i, elements) => {
-          // console.log(elements[i]);
           // when mousedown anywhere, remove all previously selected cells
           d3.selectAll('td, th').classed("selected", false);
           d3.selectAll('td, th').classed("clicked", false);
@@ -133,8 +110,6 @@ function table() {
           updateSelection(columnHeader, "selected", true);
 
           // send the dispatcher the updated selected points
-          // let dispatchString = Object.getOwnPropertyNames(dispatcher._)[0];
-          // table/station,neighborhood,station(s)
           dispatcher.call(dispatchString, this, "table/station," + elements[i].parentElement.querySelector("td").textContent + "," + elements[i].textContent);
         })
         .on('mouseup', (d, i, elements) => {
@@ -162,8 +137,6 @@ function table() {
           // send the dispatcher the updated selected points
           // this is going to have to be different so that each CELL gets sent
           let dispatchString = Object.getOwnPropertyNames(dispatcher._)[0];
-          // console.log(dispatchString);
-          // console.log(selected);
           dispatcher.call(dispatchString, this, selected);
 
 
@@ -194,9 +167,6 @@ function table() {
 
           // send the dispatcher the updated selected points
           let dispatchString = Object.getOwnPropertyNames(dispatcher._)[0];
-          // console.log(dispatchString);
-          console.log(selected[0]);
-          console.log(selected);
           dispatcher.call(dispatchString, this, "line," + selected[0]);
         })
         .on('mouseup', (d, i, elements) => {
@@ -220,8 +190,8 @@ function table() {
 
   // Update the selection in the table
   chart.updateSelection = function (selectedData, updateType) {
-    console.log("Table selection updated:", selectedData);
-
+    // console.log("Table selection updated:", selectedData);
+    // ended up not being used because table had less interactivity than originally planned
     // if (!arguments.length) return;
 
     // if (updateType === "line") {
