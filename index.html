@@ -65,7 +65,9 @@
     <ul>
       <li>Population density: More people, more demand for public transportation.</li>
       <li>Distance from downtown: Closer to downtown, more likely to have MBTA services.</li>
-      <li><strong>Socioeconomic status:</strong> Neighborhoods with higher income levels may have more resources to advocate for transportation improvements, while lower-income areas might face greater transportation challenges.</li>
+      <li><strong>Socioeconomic status:</strong> Neighborhoods with higher income levels may have more resources to
+        advocate for transportation improvements, while lower-income areas might face greater transportation challenges.
+      </li>
       <li>Demographics: Age, occupation, and other demographic factors can influence public transportation usage.</li>
     </ul>
     <p>In addition, presence of consistent T services also influences those qualities:</p>
@@ -128,49 +130,139 @@
     </video>
 
     <h1>Visualization explanation</h1>
+    <p>slide placeholders</p>
+    <p>Each visulzation should have UI walkthrough and deisgn justification</p>
+    <section>
+      <h2>MBTA Ridership Map</h2>
+      <img src="placeholder"" alt=" Ridership Map" style="width: 100%; max-width: 800px;">
+      <p>placeholder</p>
+    </section>
 
-    <p><em>Final visualization screenshots (PNG images), design justifications, UI walk-through, and linked presentation
-        slides.</em></p>
+    <section>
+      <h2>Table</h2>
+      <img src="placehoder"" alt=" Table" style="width: 100%; max-width: 800px;">
+      <p>placeholder</p>
+    </section>
+
+    <section>
+      <h2>Correlation Analysis Heatmap</h2>
+      <img src="files/correlation_matrix.png" alt="Correlation Matrix" style="width: 100%; max-width: 800px;">
+      <p>Our correlation analysis tool is designed with clarity and user engagement in mind. At the top, users first
+        see the neighborhood name and two intuitive filter buttons that help highlight important patterns - high
+        correlations (≥0.7) and low correlations (≤0.2). These filters allow users to quickly identify the strongest
+        and weakest relationships between variables.</p>
+
+      <p>The central heatmap uses a soft blue color gradient that increases in intensity with stronger correlations.
+        We chose blue because it's widely accessible for colorblind users and creates a professional, trustworthy
+        feel. Each cell displays both color and the actual correlation value for precision. When users hover over any
+        cell, a tooltip appears showing the exact relationship between variables (for example, "Transit Lines ×
+        Population, Correlation: 0.990"). This interactive feature helps users explore specific relationships they're
+        interested in.</p>
+      <p>To aid understanding, we placed a variable explanation panel directly next to the heatmap. This side-by-side
+        layout ensures users can easily reference variable definitions while exploring correlations. The panel
+        includes both straightforward descriptions of each variable and practical interpretations of what the values
+        mean for the neighborhood. We also included a "Understanding Correlation Values" guide that breaks down how to
+        interpret different correlation strengths, using plain language rather than statistical jargon.</p>
+    </section>
+
+    <section>
+      <h2>Interactive Features and Linking</h2>
+      <p>The visualization is dynamically linked to each other - when users click on different station on the map, it
+        will highlight the neighborhoods in the table, and the heatmap instantly updates to show that neighborhood's
+        specific correlation patterns. This linking creates a seamless exploration experience, allowing users to
+        quickly glimpse across different areas of the city. </p>
+    </section>
 
     <h1>Data Analysis</h1>
-    <p><em>Summary of data, data types, and data preprocessing.</em></p>
+    <h2>Dataset Overview</h2>
+    <p>Our analysis utilizes two primary datasets and one derived dataset focusing on Boston's neighborhoods, transit
+      systems, and demographic information:</p>
+    <h3>Boston Neighborhood Populations Dataset</h3>
+    <p>Contains 2020 census data for Boston neighborhoods, including detailed demographic breakdowns.</p>
+    <table>
+      <tr>
+        <th>Data Type</th>
+        <th>Variables</th>
+      </tr>
+      <tr>
+        <td>Categorical</td>
+        <td>Race (White, Latino, Asian, etc.), Age groups, Field Concept, Type of institution</td>
+      </tr>
+      <tr>
+        <td>Quantitative</td>
+        <td>Total Population, Household Population, Household size, Average rent (2019-2021)</td>
+      </tr>
+    </table>
+  <h3>MBTA Stations Dataset</h3>
+  <p>Contains detailed information about MBTA transit stations including their locations and lines from MBTA. We gathered the information from MBTA Api and MBTA Ridership Map</p>
+  <table>
+    <tr>
+      <th>Data Type</th>
+      <th>Variables</th>
+    </tr>
+    <tr>
+      <td>Categorical</td>
+      <td>Name, Municipality, Line</td>
+    </tr>
+    <tr>
+      <td>Quantitative</td>
+      <td>Latitude, Longitude</td>
+    </tr>
+  </table>
+  <h2>Data Preprocessing Steps</h2>
+  <ol>
+    <li><strong>Transit Line Counting:</strong>
+      <ul>
+        <li>Manually counted unique transit lines per neighborhood using the MBTA stations dataset</li>
+        <li>Created a mapping between stations and neighborhoods</li>
+        <li>Verified station locations against neighborhood boundaries</li>
+      </ul>
+    </li>
+    <li><strong>Demographic Data Processing:</strong>
+      <ul>
+        <li>Calculated minority percentage from racial composition data and college housing percentage from institutional housing data</li>
+      </ul>
+    </li>
+    <li><strong>Correlation Analysis:</strong>
+      <ul>
+        <li>Generated neighborhood-specific correlation matrices and stored it as JSON</li>
+      </ul>
+    </li>
+  </ol>
 
-    <p><em>Expectation: Data sources match the problem statement and are appropriate. These descriptions should be very
-        explicit so someone could read your page and properly reproduce your results.</em></p>
+  <h1>Task Analysis</h1>
 
-    <h1>Task Analysis</h1>
+  <p><em>Summary of task table.</em></p>
 
-    <p><em>Summary of task table.</em></p>
+  <p><em>Expectation: Clearly describes domain tasks, processes, goals and abstract tasks for domain problems.</em>
+  </p>
 
-    <p><em>Expectation: Clearly describes domain tasks, processes, goals and abstract tasks for domain problems.</em>
-    </p>
+  <h1>Design Process</h1>
 
-    <h1>Design Process</h1>
+  <p><em>Sketches and design choices to justify final visualization.</em></p>
 
-    <p><em>Sketches and design choices to justify final visualization.</em></p>
-
-    <p><em>Expectation: Evidence of iterative improvement.
-        Logical discussion of design choices grounded in theory from course.
-        Discusses feedback from usability testing.</em></p>
+  <p><em>Expectation: Evidence of iterative improvement.
+      Logical discussion of design choices grounded in theory from course.
+      Discusses feedback from usability testing.</em></p>
 
 
-    <h1>Conclusion</h1>
+  <h1>Conclusion</h1>
 
-    <p><em>Short summary of work completed and areas for improvement/future-work.</em></p>
+  <p><em>Short summary of work completed and areas for improvement/future-work.</em></p>
 
-    <p><em>Expectation: Meaningfully wraps up project and has good future directions.</em></p>
+  <p><em>Expectation: Meaningfully wraps up project and has good future directions.</em></p>
 
 
-    <h1>Acknowledgments</h1>
+  <h1>Acknowledgments</h1>
 
-    <p><em>List here where any code, packages/libraries, text, images, designs, etc. that you leverage come from.</em>
-    </p>
+  <p><em>List here where any code, packages/libraries, text, images, designs, etc. that you leverage come from.</em>
+  </p>
 
-    <ul>
-      <li><a href="https://d3js.org/">D3: Data-Driven Documents</a> by Mike Bostock.</li>
-      <li><a href="https://codepo8.github.io/css-fork-on-github-ribbon/#">Pure CSS responsive "Fork me on GitHub"
-          ribbon</a> by Chris Heilmann.</li>
-    </ul>
+  <ul>
+    <li><a href="https://d3js.org/">D3: Data-Driven Documents</a> by Mike Bostock.</li>
+    <li><a href="https://codepo8.github.io/css-fork-on-github-ribbon/#">Pure CSS responsive "Fork me on GitHub"
+        ribbon</a> by Chris Heilmann.</li>
+  </ul>
 
   </div>
 
