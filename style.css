@@ -128,7 +128,10 @@ td {
 	flex-direction: column;
 	border-collapse: collapse;
 	background-color: none;
-	min-width: 10em;
+}
+
+.table-holder th, .table-holder td {
+	min-width: 8em;
 }
 
 tr td:first-child {
@@ -139,9 +142,10 @@ th, td, tr {
 	transition: all 0.5s;
 }
 
-thead, th {
+.table-holder thead, .table-holder th {
 	position: sticky;
 	top: 0;
+	z-index: 1024;
 }
 
 th, .Neighborhood {
@@ -154,15 +158,7 @@ tr {
 	background-color: #fafafa;
 }
 
-tr:nth-child(even) {
-	filter: brightness(95%);
-}
-
-tr {
-	background-color: #fafafa;
-}
-
-tr:nth-child(even) {
+tr:nth-child(odd) {
 	filter: brightness(95%);
 }
 
