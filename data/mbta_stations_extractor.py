@@ -18,11 +18,14 @@ print("Found", len(lines), "T line(s):", lines)
 with open(neighborhood_file, "r") as neighborhood_file:
   neighborhoods = json.load(neighborhood_file)
 
-output = "Name,Municipality,Line,Latitude,Longitude\n"
+stations_output = "Name,Municipality,Line,Latitude,Longitude\n"
+shapes = {}
 
 for line in lines:
+  shapes_data = requests.get(f"{MBTA_API}/shapes?filter[route]={line}").json()
+  shapes[line] = [i["attributes"]["polyline"] for i in shapes_data["data"] if not i["id"].endswith("-S")] # ignore special shapes
   stations = requests.get(f"{MBTA_API}/stops?filter[route]={line}").json()
-  print("Downloaded", len(stations["data"]), "station(s) from the", line, "Line")
+  print("Downloaded shapes and", len(stations["data"]), "station(s) from the", line, "Line")
   for station in stations["data"]:
     station_name = station['attributes']['name']
     line_equivalent = line if line != "Mattapan" else "Red"
@@ -31,8 +34,12 @@ for line in lines:
         station["attributes"]["municipality"] = neighborhood
         break
       
-    output += f"{station_name},{station['attributes']['municipality']},{line},{station['attributes']['latitude']},{station['attributes']['longitude']}"
-    output += "\n"
+    stations_output += f"{station_name},{station['attributes']['municipality']},{line},{station['attributes']['latitude']},{station['attributes']['longitude']}"
+    stations_output += "\n"
 
 with open("mbta_stations.csv", "w") as output_file:
-  output_file.write(output)
+  output_file.write(stations_output)
+
+with open("mbta_shapes.json", "w") as output_file:
+  json.dump(shapes, output_file) # no need to indent, it's in encoded format and not human-readable
+

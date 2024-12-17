@@ -35,7 +35,7 @@ function project(lat, lng, canvasWidth, canvasHeight) {
   return { x, y };
 }
 
-let stationsData;
+let stationsData, shapeData;
 
 let selectionTable, dispatcher;
 
@@ -73,7 +73,7 @@ const dispatchString = "selectionUpdated";
         }
         mapOverlay.selectAll("*").remove();
         mapHighlight = selectedData;
-        drawStations();
+        drawMap();
 
         const neighborhood = selectedData.split(',')[1];
         try {
@@ -89,21 +89,24 @@ const dispatchString = "selectionUpdated";
     }
   });
 
-  // Load station data and plot lines and points
-  d3.request("data/mbta_stations.csv")
-    .mimeType("text/csv")
-    .response((xhr) => { return d3.csvParse(xhr.responseText); })
-    .get((error, data) => {
-      if (error) throw error;
+  d3.queue()
+    .defer(d3.request, "data/mbta_stations.csv")
+    .defer(d3.json, "data/mbta_shapes.json")
+    .await(mapReady);
 
-      stationsData = data; // save data globally for redraws
+  // Load map data and plot lines and points
+  function mapReady(error, stationResponse, shapeResponse) {
+    if (error) throw error;
 
-      drawStations();
-    });
+    stationsData = d3.csvParse(stationResponse.responseText);
+    shapeData = shapeResponse;
+
+    drawMap();
+  }
 
   let mapHighlight = "";
 
-  function drawStations() {
+  function drawMap() {
     const imgWidth = mapImage.offsetWidth;
     const imgHeight = mapImage.offsetHeight;
 
@@ -131,23 +134,28 @@ const dispatchString = "selectionUpdated";
         break;
     }
 
-    // Draw lines
-    lines.forEach((line) => {
-      const coordinates = line.values.map(d =>
-        project(Number(d.Latitude), Number(d.Longitude), imgWidth, imgHeight));
+    // Draw polylines for each line
+    for (const line in shapeData) {
+      shapeData[line].forEach(encodedPolyline => {
+        const decoded = polyline.decode(encodedPolyline);
+        const projectedCoordinates = decoded.map(coords => {
+          const [lat, lng] = coords;
+          return project(lat, lng, imgWidth, imgHeight);
+        });
 
-      const strokewidth = (highlightedLine === line.key || (highlightedLine === "Red" && line.key === "Mattapan")) ? 7 : 3;
-      mapOverlay.append("path")
-        .datum(coordinates)
-        .attr("class", "line")
-        .attr("d", d3.line()
-          .x(d => d.x)
-          .y(d => d.y))
-        .attr("stroke", lineColors[line.key] || "#000")
-        .attr("stroke-width", strokewidth)
-        .attr("stroke-linejoin", "round")
-        .attr("stroke-linecap", "round");
-    });
+        const strokeWidth = (highlightedLine === line || (highlightedLine === "Red" && line === "Mattapan")) ? 7 : 3;
+        mapOverlay.append("path")
+          .datum(projectedCoordinates)
+          .attr("class", "line")
+          .attr("d", d3.line()
+            .x(d => d.x)
+            .y(d => d.y))
+          .attr("stroke", lineColors[line] || "#000")
+          .attr("stroke-width", strokeWidth)
+          .attr("stroke-linejoin", "round")
+          .attr("stroke-linecap", "round");
+      });
+    }
 
     // Draw stations
     stationsData.forEach(function (d) {
@@ -203,6 +211,6 @@ const dispatchString = "selectionUpdated";
   // Redraw everything on window resize
   window.addEventListener("resize", function () {
     mapOverlay.selectAll("*").remove();
-    drawStations();
+    drawMap();
   });
 })();
