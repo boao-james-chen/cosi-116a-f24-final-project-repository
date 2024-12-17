@@ -52,7 +52,6 @@ function table() {
           .classed(key, true)
           .classed(neighborhood.split(' ').join('-'), true);
       }
-      tbody.append('tr');
     }
 
   

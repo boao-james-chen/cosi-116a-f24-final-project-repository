@@ -21,15 +21,6 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="msapplication-config" content="favicons/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
-  <style>
-    #correlation-matrix {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      margin: 20px 0;
-    }
-  </style>
 </head>
 
 <!-- Main page content -->
@@ -110,7 +101,7 @@
     <div class="map-tooltip" style="display: none"></div>
     <div class="table-holder" id="table"></div>
 
-    <div id="correlation-matrix" style="min-height: 600px;"></div>
+    <div id="correlation-matrix"></div>
   </div>
 
 
@@ -134,14 +125,18 @@
     <p>Each visulzation should have UI walkthrough and deisgn justification</p>
     <section>
       <h2>MBTA Ridership Map</h2>
-      <img src="placeholder"" alt=" Ridership Map" style="width: 100%; max-width: 800px;">
+      <img src="placeholder" alt=" Ridership Map" style="width: 100%; max-width: 800px;">
       <p>placeholder</p>
     </section>
 
     <section>
       <h2>Table</h2>
-      <img src="placehoder"" alt=" Table" style="width: 100%; max-width: 800px;">
-      <p>placeholder</p>
+      <img src="images/neighborhood-lines-table.png" alt=" Table" style="width: 100%; max-width: 800px;">
+      <p>The table is designed to be an easy way for users to find information on a particular neighborhood/city or line of the T that they are interested in. With its simple alphabetical organization, users can easily find a city by its name to select and highlight all of the stations along the lines that run through that neighborhood. Likewise, if they are interested in observing patterns along a whole line through different neighborhoods, they can select a line instead.</p>
+
+      <p>When a user selects a column or row, each cell in that line will highlight in light blue, chosen as a widely accessible color that aligns with the heatmap color scheme. When an individual cell is selected, it is highlighted a slightly darker blue than the column and row and the text is bolded so that the eye is drawn to that cell. After any selection on the table, the corresponding line or stations in that neighborhood are highlighted in the map view. The heatmap also updates with new values whenever a neighborhood is selected.</p>
+
+      <p>In addition to being a simple way to interact with and select parts of the visualization that the user is interested in, the table also implicitly encodes information about how well each neighborhood is served by public transportation. Since each cell adapts to the text inside it, the size of the cell indirectly correlates with how well-served an area is by the T. For example, Brookline has a high number of stops along the C branch of the Green Line, which increases the size of the cell, making it stand out compared to nearby neighborhoods with significantly fewer stations, such as Braintree. And because there is more text inside certain cells, they have a higher weight and contrast themselves with the empty cells nearby. Downtown is a good example of this, since it has a significant number of stations spread out across each line, instead of being a large number of stations on one line.</p>
     </section>
 
     <section>
