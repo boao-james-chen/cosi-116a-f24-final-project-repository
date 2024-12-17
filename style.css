@@ -87,9 +87,9 @@ h3 {
 }
 
 /* Style for selected marks (table rows) */
-tr.selected {
+/* tr.selected {
 	background-color: pink;
-}
+} */
 
 /* Pretty table layout */
 table {
@@ -122,6 +122,7 @@ th {
 
 .Neighborhood {
 	background-color: lightgray;
+	font-weight: bold;
 }
 
 th.mouseover, tr.mouseover {
@@ -146,6 +147,11 @@ td.selected {
 
 th.selected {
 	background-color: cadetblue;
+}
+
+td.clicked {
+	background-color: cadetblue;
+	font-weight: bold;
 }
 
 /* Don't also do text drag selection */
