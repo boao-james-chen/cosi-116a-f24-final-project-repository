@@ -13,18 +13,18 @@ function table() {
       .append("table")
       .classed("my-table", true)
       .classed("text-unselectable", true);
-
+    
+    // build table headers and class accordingly
     let tableHeaders = ["Neighborhood"].concat(Object.keys(data["Allston"]));
-
     let tr = table.append('thead').append('tr');
     tr.selectAll('th').data(tableHeaders).enter().append('th').text((d) => d).classed("header", true);
-
     tr.selectAll('th').each((d, i, elements) => {
       d3.select(elements[i]).classed(elements[i].innerText, true)
     });
 
     let tbody = table.append('tbody');
 
+    // create and append to tbody a row for each neighborhood 
     for (let neighborhood in data) {
       let row = tbody.append('tr');
       row.append('td')
@@ -39,13 +39,14 @@ function table() {
       }
     }
 
-  
+    // add highlighting and interactivity for linking to other views
     function selectCells() {
       let tbody = d3.select("tbody");
       let thead = d3.select("thead");
       let selected = [];
 
-      function updateSelection(cells, className, value, addToSelected=true) {
+      // helper function to update selection styles for sets (rows, columns) of cells
+      function updateSelection(cells, className, value, addToSelected = true) {
         cells.each((d, i, elements) => {
           if (addToSelected) {
             selected.push(d);
@@ -53,7 +54,7 @@ function table() {
           d3.select(elements[i]).classed(className, value);
         });
       }
-      
+
       tbody.selectAll('td')
         .on('mouseover', (d, i, elements) => {
           let rowCells = tbody.selectAll(`td.${elements[i].classList[1]}`);
@@ -69,20 +70,19 @@ function table() {
           updateSelection(columnCells, "mouseover", true);
           let columnHeader = thead.selectAll(`th.${elements[i].classList[0]}`);
           updateSelection(columnHeader, "mouseover", true);
-
-        }) // end of mouseover
+        })
         .on('mouseout', (d, i, elements) => {
+          // when mouseout, remove highlighting from previous selection (row/column)
           selected = [];
           d3.select(elements[i]).classed("mouseover", false);
           let rowCells = tbody.selectAll(`td.${elements[i].classList[1]}`);
           updateSelection(rowCells, "mouseover", false, false);
-          
+
           // update column mouseover style
           let columnCells = tbody.selectAll(`td.${elements[i].classList[0]}`);
           updateSelection(columnCells, "mouseover", false, false);
           let columnHeader = thead.selectAll(`th.${elements[i].classList[0]}`);
           updateSelection(columnHeader, "mouseover", false, false);
-
         })
         .on('mousedown', (d, i, elements) => {
           // when mousedown anywhere, remove all previously selected cells
@@ -133,15 +133,13 @@ function table() {
           let tbody = d3.select("tbody");
           let columnCells = tbody.selectAll(`td.${elements[i].classList[1]}`);
           updateSelection(columnCells, "mouseover", true);
-         
+
           // send the dispatcher the updated selected points
-          // this is going to have to be different so that each CELL gets sent
           let dispatchString = Object.getOwnPropertyNames(dispatcher._)[0];
           dispatcher.call(dispatchString, this, selected);
-
-
-        }) // end of mouseover
+        })
         .on('mouseout', (d, i, elements) => {
+          // when mouseout of header, remove highlighting
           selected = [];
           d3.select(elements[i]).classed("mouseover", false);
           let columnCells = tbody.selectAll(`td.${elements[i].classList[1]}`);
@@ -157,7 +155,7 @@ function table() {
           d3.selectAll('th').classed("selected", false);
           d3.selectAll('th').classed("clicked", false);
           d3.selectAll('td').classed("clicked", false);
-          
+
           // then class current column as 'selected', push to selected array, and start dragging
           d3.select(elements[i]).classed("selected", true);
           selected.push(d);
@@ -189,9 +187,9 @@ function table() {
 
 
   // Update the selection in the table
+  // ended up not being used because table had less interactivity than originally planned
   chart.updateSelection = function (selectedData, updateType) {
     // console.log("Table selection updated:", selectedData);
-    // ended up not being used because table had less interactivity than originally planned
     // if (!arguments.length) return;
 
     // if (updateType === "line") {
