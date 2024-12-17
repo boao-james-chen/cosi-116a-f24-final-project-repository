@@ -217,6 +217,12 @@
           <li>Verified station locations against neighborhood boundaries</li>
         </ul>
       </li>
+      <li><strong>Geographical Data Processing:</strong>
+        <ul>
+          <li>Downloaded a list of all the T lines from the <a href="https://api-v3.mbta.com/">MBTA API website</a> and used those lines to query geographical data of their shapes and stations.</li>
+          <li>The full script is located at <code>data/mbta_stations_extractor.py</code>.</li>
+        </ul>
+      </li>
       <li><strong>Demographic Data Processing:</strong>
         <ul>
           <li>Calculated minority percentage from racial composition data and college housing percentage from
@@ -327,15 +333,17 @@
       The design process began with rough sketches to outline the basic structure of the visualization. We chose the
       following three sketches in the initial phase:
     </p>
-    <img style='width: 300px;' src="files/sketch1.png" alt="Initial Sketch 1">
-    <img style='width: 300px;' src="files/sketch2.png" alt="Initial Sketch 2">
-    <img style='width: 300px;' src="files/sketch3.png" alt="Initial Sketch 3">
+    <div class="image-gallery">
+      <img src="files/sketch1.png" alt="Initial Sketch 1">
+      <img src="files/sketch2.png" alt="Initial Sketch 2">
+      <img src="files/sketch3.png" alt="Initial Sketch 3">
+    </div>
 
     <h2>Final sketch</h2>
-    <img style='width: 650px;' src="files/final_sketch.png" alt="Final Sketch">
-      <p>The final design blends thoughtful visualization principles with an engaging, user-friendly experience to help people explore Boston’s housing and transportation dynamics. At its core is an interactive map that displays MBTA ridership, color-coded by metro lines, making patterns immediately visible.  Inspired by Shneiderman’s mantra of “overview first, zoom and filter, then details-on-demand,” we included a dropdown menu that lets users choose specific station/neighborhood, we enables linking and brushing to other visualizations, giving them the freedom to start broad and then dive deeper based on their interests.
+    <img class="full-text-width-img" src="files/final_sketch.png" alt="Final Sketch">
+    <p>The final design blends thoughtful visualization principles with an engaging, user-friendly experience to help people explore Boston’s housing and transportation dynamics. At its core is an interactive map that displays MBTA ridership, color-coded by metro lines, making patterns immediately visible.  Inspired by Shneiderman’s mantra of “overview first, zoom and filter, then details-on-demand,” we included a dropdown menu that lets users choose specific station/neighborhood, we enables linking and brushing to other visualizations, giving them the freedom to start broad and then dive deeper based on their interests.
 
-        Next to the map, an interactive table makes it easy to see city-specific details while keeping the connection to the map clear. Hovering over rows (cities) or columns (metro lines) highlights the relevant areas on the map, helping users naturally link the data to the city’s layout. To add further depth, a heat map uncovers relationships between housing, population density, and transit access, turning complex data into clear, actionable insights. This design isn’t just about showing numbers—it’s about helping users discover meaningful patterns in a way that feels natural, intuitive, and visually engaging. </p>
+    Next to the map, an interactive table makes it easy to see city-specific details while keeping the connection to the map clear. Hovering over rows (cities) or columns (metro lines) highlights the relevant areas on the map, helping users naturally link the data to the city’s layout. To add further depth, a heat map uncovers relationships between housing, population density, and transit access, turning complex data into clear, actionable insights. This design isn’t just about showing numbers—it’s about helping users discover meaningful patterns in a way that feels natural, intuitive, and visually engaging. </p>
 
   <h2>Usability Testing and Feedback</h2>
   <p>
