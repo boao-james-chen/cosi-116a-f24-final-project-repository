@@ -110,6 +110,9 @@ const dispatchString = "selectionUpdated";
     const imgWidth = mapImage.offsetWidth;
     const imgHeight = mapImage.offsetHeight;
 
+    mapOverlay.attr("width", imgWidth)
+      .attr("height", imgHeight); // fix size of overlay
+
     // Group data by line
     const lines = d3.nest()
       .key(d => d.Line)
@@ -209,7 +212,7 @@ const dispatchString = "selectionUpdated";
   }
 
   // Redraw everything on window resize
-  window.addEventListener("resize", function () {
+  window.addEventListener("resize", () => {
     mapOverlay.selectAll("*").remove();
     drawMap();
   });

@@ -99,30 +99,48 @@ table {
 	border-spacing: 0 0;
 	text-align: center;
 	margin: 0 auto;
-	border: black 1px solid;
+	box-shadow: 0 2.5px 5px rgba(0, 0, 0, 0.24), 0 4px 8px rgba(0, 0, 0, 0.12);
+}
 
+.table-holder {
 	/* Make the table scrollable */
 	overflow: auto;
-	max-width: 100%;
+	width: 100%;
+	max-width: 1024px;
 	max-height: 90%;
+	margin: 1em auto;
 }
 
 th,
 td {
 	/* vertical | horizontal */
-	padding: 0 8px;
+	padding: 0.5rem 0.8rem;
 	text-align: center;
-	border: black 1px solid;
 	flex-direction: column;
+	border-collapse: collapse;
+	background-color: none;
+	min-width: 10em;
 }
 
-th {
-	background-color: lightgray;
+tr td:first-child {
+	min-width: unset;
 }
 
-.Neighborhood {
-	background-color: lightgray;
+th, td, tr {
+	transition: all 0.5s;
+}
+
+th, .Neighborhood {
+	background-color: #ddd;
 	font-weight: bold;
+}
+
+tr {
+	background-color: #fafafa;
+}
+
+tr:nth-child(even) {
+	filter: brightness(95%);
 }
 
 th.mouseover, tr.mouseover {
@@ -176,18 +194,23 @@ table.text-unselectable {
 	background-color: #e08fa3;
 } */
 
-#map-holder {
+.map-holder {
 	position: relative;
 	max-width: 1024px;
 	margin: 1em auto;
+	padding: none;
 }
+
 #boston-map {
 	width: 100%;
 	height: auto;
 	max-height: 100%;
 	max-width: 100%;
-	filter: saturate(70%);
+	filter: saturate(60%);
+	padding: none;
+	margin: none;
 }
+
 #boston-map-overlay {
 	position: absolute;
 	top: 0;
@@ -195,10 +218,11 @@ table.text-unselectable {
 	width: 100%;
 	height: 100%;
 }
+
 .line {
 	fill: none;
-	/* stroke-width: 3px; */
 }
+
 .station {
 	stroke: black;
 	stroke-width: 1px;
@@ -206,9 +230,11 @@ table.text-unselectable {
 	cursor: pointer;
 	transition: all 0.5s;
 }
+
 .station:hover, .station:focus {
 	filter: brightness(70%);
 }
+
 .map-tooltip {
 	position: absolute;
 	background-color: #fff;
@@ -217,5 +243,20 @@ table.text-unselectable {
 	pointer-events: none;
 	transition: all 0.25s;
 	white-space: pre;
-	box-shadow: 0 2.5px 5px rgba(0, 0, 0, 0.24), 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.map-tooltip, .table-holder, #boston-map, #correlation-matrix {
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.24), 0 5px 10px rgba(0, 0, 0, 0.12);
+}
+
+#correlation-matrix {
+	background: #fafafa;
+	padding: 20px;
+	margin: 20px 0;
+	min-height: 600px;
+	max-width: 1152px;
+}
+
+.explanation-section {
+	background-color: #f6f6f6;
 }
