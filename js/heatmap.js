@@ -318,7 +318,6 @@ function createHeatmap(containerId) {
 
         // Add explanation content
         explanationContainer.innerHTML = `
-            <h3 class="explanation-header">Understanding the Variables</h3>
             <div class="explanation-list">
                 ${Object.entries(variableMap).map(([key, label]) => `
                     <div class="variable-explanation">
@@ -336,7 +335,6 @@ function createHeatmap(containerId) {
                     <li><strong>0.3 to 0.7:</strong> Moderate positive correlation</li>
                     <li><strong>0.0 to 0.3:</strong> Weak positive correlation</li>
                     <li><strong>0.0:</strong> No correlation</li>
-                    <li><strong>Less than 0.0:</strong> Negative correlation</li>
                 </ul>
                 <p class="correlation-note">Note: Correlation does not imply causation. These values show relationships between variables but do not indicate that one variable causes changes in another.</p>
             </div>
