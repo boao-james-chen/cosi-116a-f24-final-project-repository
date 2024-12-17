@@ -93,17 +93,17 @@ function createHeatmap(containerId) {
         mainContainer.appendChild(explanationContainer);
 
         // Set up dimensions
-        const margin = { top: 100, right: 50, bottom: 50, left: 100 };
-        const width = 600 - margin.left - margin.right;  
+        const margin = { top: 100, right: 100, bottom: 50, left: 100 };
+        const width = 600 - margin.left - margin.right;
         const height = 600 - margin.top - margin.bottom;
 
-       // Create SVG
-       const svg = d3.select(heatmapContainer)
-       .append('svg')
-       .attr('width', width + margin.left + margin.right)
-       .attr('height', height + margin.top + margin.bottom)
-       .append('g')
-       .attr('transform', `translate(${margin.left},${margin.top})`);
+        // Create SVG
+        const svg = d3.select(heatmapContainer)
+            .append('svg')
+            .attr('width', width + margin.left + margin.right)
+            .attr('height', height + margin.top + margin.bottom)
+            .append('g')
+            .attr('transform', `translate(${margin.left},${margin.top})`);
 
         // Create tooltip
         const tooltip = d3.select("body").append('div')
@@ -157,6 +157,55 @@ function createHeatmap(containerId) {
             .call(d3.axisLeft(y))
             .selectAll('text')
             .text(d => variableMap[d] || d);
+
+        // Add color legend
+        const legendWidth = 20;
+        const legendHeight = height;
+        const legendData = [1, 0.8, 0.6, 0.4, 0.2, 0];
+
+        // Create legend group
+        const legend = svg.append('g')
+            .attr('class', 'legend')
+            .attr('transform', `translate(${width + margin.right / 2}, 0)`);
+
+        // Create gradient
+        const legendGradient = legend.append('defs')
+            .append('linearGradient')
+            .attr('id', 'legend-gradient')
+            .attr('x1', '0%')
+            .attr('x2', '0%')
+            .attr('y1', '0%')
+            .attr('y2', '100%');
+
+        // Add gradient stops
+        legendGradient.selectAll('stop')
+            .data([
+                { offset: '0%', color: colorScale(1) },
+                { offset: '100%', color: colorScale(0) }
+            ])
+            .enter()
+            .append('stop')
+            .attr('offset', d => d.offset)
+            .attr('stop-color', d => d.color);
+
+        // Add gradient rectangle
+        legend.append('rect')
+            .attr('width', legendWidth)
+            .attr('height', legendHeight)
+            .style('fill', 'url(#legend-gradient)');
+
+        // Add legend axis
+        const legendScale = d3.scaleLinear()
+            .domain([0, 1])
+            .range([legendHeight, 0]);
+
+        const legendAxis = d3.axisRight(legendScale)
+            .tickFormat(d3.format('.1f'))
+            .tickValues([0, 0.2, 0.4, 0.6, 0.8, 1.0]);
+
+        legend.append('g')
+            .attr('transform', `translate(${legendWidth}, 0)`)
+            .call(legendAxis);
 
         // Create heatmap cells
         const cells = svg.selectAll('rect')
@@ -317,7 +366,7 @@ function createHeatmap(containerId) {
 }
 
 const style = document.createElement('style');
-    style.textContent = `
+style.textContent = `
     #correlation-matrix {
         width: 100%;
         max-width: 1200px;
@@ -464,5 +513,18 @@ const style = document.createElement('style');
     svg {
         display: block;
     }
+    .legend-title {
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .legend text {
+            font-size: 10px;
+        }
+        
+        .legend .domain,
+        .legend .tick line {
+            stroke: #666;
+        }
 `;
 document.head.appendChild(style);
