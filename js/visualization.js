@@ -68,10 +68,9 @@ const dispatchString = "selectionUpdated";
       const heatmap = createHeatmap('correlation-matrix');
 
       dispatcher.on(dispatchString, (selectedData) => {
-        if (selectedData.startsWith("station")) {
+        if (typeof selectedData !== 'string' || selectedData.startsWith("station")) {
           return;
         }
-        console.log("Selection updated:", selectedData);
         mapOverlay.selectAll("*").remove();
         mapHighlight = selectedData;
         drawStations();
@@ -81,7 +80,7 @@ const dispatchString = "selectionUpdated";
           heatmap.update(neighborhood);
         } catch (error) {
           console.error("Error updating heatmap:", error);
-      }
+        }
       });
 
     }
@@ -118,12 +117,17 @@ const dispatchString = "selectionUpdated";
 
     let highlightedNeighborhood = null;
     let highlightedLine = null;
+    let highlightedStations = [];
     switch (mapHighlight.slice(0, mapHighlight.indexOf(','))) {
       case "neighborhood":
         highlightedNeighborhood = mapHighlight.slice(mapHighlight.indexOf(',') + 1);
         break;
       case "line":
         highlightedLine = mapHighlight.slice(mapHighlight.indexOf(',') + 1);
+        break;
+      case "table/station":
+        highlightedStations = mapHighlight.split(", ");
+        highlightedStations[0] = highlightedStations[0].slice(highlightedStations[0].lastIndexOf(',') + 1);
         break;
     }
 
@@ -148,7 +152,7 @@ const dispatchString = "selectionUpdated";
     // Draw stations
     stationsData.forEach(function (d) {
       // Make sure we don't draw a station twice
-      const stationKey = `${d.Name}-${d.Latitude}-${d.Longitude}`;
+      const stationKey = `${d.Name}%${d.Latitude}%${d.Longitude}`;
 
       if (!stationMap.has(stationKey)) {
         stationMap.set(stationKey, { lines: new Set(), municipalities: new Set() });
@@ -160,7 +164,8 @@ const dispatchString = "selectionUpdated";
 
       const { x, y } = project(Number(d.Latitude), Number(d.Longitude), imgWidth, imgHeight);
 
-      const radius = (highlightedNeighborhood && stationInfo.municipalities.has(highlightedNeighborhood)) ? 8 : 5;
+      const radius = ((highlightedNeighborhood && stationInfo.municipalities.has(highlightedNeighborhood))
+                      || highlightedStations.includes(stationKey.slice(0, stationKey.indexOf('%')))) ? 8 : 5;
       if (!stationInfo.circle) {
         stationInfo.circle = mapOverlay.append("circle")
           .attr("cx", x)
@@ -190,7 +195,7 @@ const dispatchString = "selectionUpdated";
 
       // If multiple lines share a station, color it dark gray
       if (stationInfo.lines.size > 1) {
-        stationInfo.circle.attr("fill", "#444");
+        stationInfo.circle.attr("fill", "#777");
       }
     });
   }
