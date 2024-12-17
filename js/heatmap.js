@@ -158,6 +158,24 @@ function createHeatmap(containerId) {
             .selectAll('text')
             .text(d => variableMap[d] || d);
 
+        // Create heatmap cells
+        const cells = svg.selectAll('rect')
+            .data(data.flatMap(row =>
+                variables.map(col => ({
+                    row: row.variable,
+                    col,
+                    value: row[col]
+                }))
+            ))
+            .enter()
+            .append('rect')
+            .attr('x', d => x(d.col))
+            .attr('y', d => y(d.row))
+            .attr('width', x.bandwidth())
+            .attr('height', y.bandwidth())
+            .style('fill', d => colorScale(d.value))
+            .style('stroke', 'white')
+            .style('stroke-width', 1);
         // Add color legend
         const legendWidth = 20;
         const legendHeight = height;
@@ -206,26 +224,7 @@ function createHeatmap(containerId) {
         legend.append('g')
             .attr('transform', `translate(${legendWidth}, 0)`)
             .call(legendAxis);
-
-        // Create heatmap cells
-        const cells = svg.selectAll('rect')
-            .data(data.flatMap(row =>
-                variables.map(col => ({
-                    row: row.variable,
-                    col,
-                    value: row[col]
-                }))
-            ))
-            .enter()
-            .append('rect')
-            .attr('x', d => x(d.col))
-            .attr('y', d => y(d.row))
-            .attr('width', x.bandwidth())
-            .attr('height', y.bandwidth())
-            .style('fill', d => colorScale(d.value))
-            .style('stroke', 'white')
-            .style('stroke-width', 1);
-
+        
         // Add hover interactions
         cells
             .on('mouseover', function (d) {
