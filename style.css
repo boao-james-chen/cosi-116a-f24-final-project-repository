@@ -91,6 +91,11 @@ h3 {
 	background-color: pink;
 } */
 
+/* .table-container {
+	max-width: 90%;
+	max-height: 600px;
+} */
+
 /* Pretty table layout */
 table {
 	font-size: 0.75rem;
@@ -101,16 +106,16 @@ table {
 	margin: 0 auto;
 	border: black 1px solid;
 
-	/* Make the table scrollable */
-	overflow: auto;
-	max-width: 100%;
-	max-height: 90%;
+	max-width: 90%;
+	max-height: 600px;
+	overflow-y: auto;
+	display: block;
 }
 
 th,
 td {
 	/* vertical | horizontal */
-	padding: 0 8px;
+	padding: 8px 8px;
 	text-align: center;
 	border: black 1px solid;
 	flex-direction: column;
@@ -118,11 +123,13 @@ td {
 
 th {
 	background-color: lightgray;
+	font-size: large;
 }
 
 .Neighborhood {
 	background-color: lightgray;
 	font-weight: bold;
+	font-size: large;
 }
 
 th.mouseover, tr.mouseover {
